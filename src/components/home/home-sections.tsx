@@ -2,271 +2,211 @@ import Link from "next/link";
 import {
   Activity,
   ArrowRight,
-  BellRing,
-  ClipboardCheck,
   FileHeart,
   HeartPulse,
-  LineChart,
   MonitorSmartphone,
   Stethoscope,
   UsersRound,
 } from "lucide-react";
 
-const careSteps = [
-  {
-    number: "01",
-    title: "Consult",
-    copy: "Connect patients and clinicians through secure virtual care when an in-person visit is not required.",
-  },
-  {
-    number: "02",
-    title: "Assess",
-    copy: "Bring diagnostics, ECG insight and clinical context into the same connected care experience.",
-  },
-  {
-    number: "03",
-    title: "Monitor",
-    copy: "Follow key measurements and patient-reported information beyond the consultation window.",
-  },
-  {
-    number: "04",
-    title: "Follow up",
-    copy: "Keep care teams informed with longitudinal information, trends and a clearer picture of recovery over time.",
-  },
-];
+import { MedicalMotionVisual } from "@/components/home/medical-motion-visual";
 
 const capabilities = [
   {
     icon: MonitorSmartphone,
-    title: "Virtual care",
-    copy: "Extend access to clinicians with a digital consultation experience designed to fit into real care pathways.",
+    title: "Live Virtual Consultations",
+    copy: "Conduct secure, encrypted video and phone follow-ups directly from your desktop or tablet.",
+    visual: "consult" as const,
   },
   {
-    icon: Activity,
-    title: "ECG247",
-    copy: "Connect ambulatory ECG monitoring with the broader patient journey instead of treating it as an isolated test.",
-  },
-  {
-    icon: LineChart,
-    title: "Remote monitoring",
-    copy: "Track meaningful trends between visits and surface changes that deserve clinical attention.",
+    icon: HeartPulse,
+    title: "Continuous ECG Cloud Telemetry",
+    copy: "Access full-disclosure, 7-day continuous rhythm strips and automated arrhythmia reports from one connected workflow.",
+    visual: "ecg" as const,
   },
   {
     icon: FileHeart,
-    title: "Connected records",
-    copy: "Preserve continuity by keeping relevant patient information available across the care journey.",
-  },
-  {
-    icon: BellRing,
-    title: "Clinical signals",
-    copy: "Give care teams a structured way to identify, review and respond to changes over time.",
-  },
-  {
-    icon: UsersRound,
-    title: "Team-based care",
-    copy: "Support clinicians, practices and organisations with a shared view of the patients they are responsible for.",
+    title: "Encrypted Centralized EHR",
+    copy: "Review longitudinal patient vitals, clinical history, and diagnostic uploads in one secure location.",
+    visual: "ehr" as const,
   },
 ];
 
-const monitoringItems = [
-  "Longitudinal patient measurements",
-  "Trend and change visibility",
-  "Patient-reported information",
-  "Structured clinical follow-up",
+const pathways = [
+  {
+    eyebrow: "For doctors & specialists",
+    title: "Bring virtual care and remote diagnostics into your practice.",
+    copy: "Register your practice, refer patients for continuous monitoring, and review clinical reports online.",
+    href: "/for-clinicians/register?profile=doctor",
+    cta: "Sign Up as a Doctor",
+    icon: Stethoscope,
+  },
+  {
+    eyebrow: "For nurses & care teams",
+    title: "Coordinate remote care with a shared clinical view.",
+    copy: "Access community care tools, manage remote vitals triage, and enroll in certified digital health training.",
+    href: "/for-clinicians/register?profile=nurse",
+    cta: "Sign Up as a Nurse",
+    icon: UsersRound,
+  },
+  {
+    eyebrow: "For practice managers",
+    title: "Set up equipment, subscriptions, and patient onboarding.",
+    copy: "Order medical equipment, manage device subscriptions, and streamline patient onboarding for your practice.",
+    href: "/for-clinicians/register?profile=manager",
+    cta: "Request Practice Setup",
+    icon: MonitorSmartphone,
+  },
+];
+
+const ecgFeatures = [
+  {
+    title: "Immediate availability",
+    copy: "On-demand dispatch of sensor units directly to your practice address.",
+  },
+  {
+    title: "Automated rhythm analysis",
+    copy: "Advanced algorithms continuously screen rhythm data for AF, SVT, pauses, and PVCs.",
+  },
+  {
+    title: "One-click PDF exports",
+    copy: "Generate comprehensive summaries for clinical notes or specialist escalation.",
+  },
 ];
 
 export function HomeSections() {
   return (
     <>
-      <section className="home-intro section-shell" aria-labelledby="home-intro-title">
-        <div className="section-kicker">One connected care layer</div>
-        <div className="home-intro-grid">
-          <h2 id="home-intro-title">
-            Healthcare does not stop when the consultation ends.
-          </h2>
-          <div className="home-intro-copy">
-            <p>
-              TeleDoctorSA brings virtual care, ECG247, remote monitoring and patient information into one connected experience for healthcare professionals.
-            </p>
-            <p>
-              The goal is simple: help care teams preserve context, follow patients over time and make the space between visits more clinically useful.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="care-journey" aria-labelledby="care-journey-title">
-        <div className="section-shell">
-          <div className="section-heading-row">
+      <section className="readiness-section" aria-labelledby="readiness-title">
+        <div className="tdsa-section-shell">
+          <div className="section-intro-grid">
             <div>
-              <div className="section-kicker">Connected care journey</div>
-              <h2 id="care-journey-title">From first contact to ongoing care.</h2>
+              <span className="tdsa-eyebrow">Live platform capabilities</span>
+              <h2 id="readiness-title">Fully Integrated. Live Right Now.</h2>
             </div>
             <p>
-              A continuous workflow gives clinicians more context than a sequence of disconnected encounters.
+              TeleDoctorSA is not a future concept. It is an active medical
+              network ready to plug directly into your daily clinical workflow.
             </p>
           </div>
 
-          <div className="care-steps">
-            {careSteps.map((step) => (
-              <article key={step.number} className="care-step">
-                <span>{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.copy}</p>
+          <div className="live-capability-list">
+            {capabilities.map(({ icon: Icon, title, copy, visual }, index) => (
+              <article key={title} className="live-capability-row">
+                <div className="capability-index">0{index + 1}</div>
+                <div className="capability-copy">
+                  <Icon size={24} strokeWidth={1.7} />
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
+                <MedicalMotionVisual variant={visual} />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="platform-section section-shell" aria-labelledby="platform-title">
-        <div className="section-heading-row">
-          <div>
-            <div className="section-kicker">Platform capabilities</div>
-            <h2 id="platform-title">Designed around the full patient journey.</h2>
-          </div>
-          <Link href="/platform" className="text-link">
-            Explore the platform <ArrowRight size={17} />
-          </Link>
-        </div>
-
-        <div className="capability-grid">
-          {capabilities.map(({ icon: Icon, title, copy }) => (
-            <article key={title} className="capability-card">
-              <div className="capability-icon">
-                <Icon size={23} strokeWidth={1.8} />
-              </div>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="ecg-feature" aria-labelledby="ecg-title">
-        <div className="section-shell ecg-feature-grid">
-          <div className="ecg-copy">
-            <div className="section-kicker section-kicker-light">ECG247</div>
-            <h2 id="ecg-title">Cardiac monitoring that remains connected to the patient story.</h2>
+      <section className="entry-section" aria-labelledby="entry-title">
+        <div className="tdsa-section-shell">
+          <div className="section-intro-grid section-intro-grid-light">
+            <div>
+              <span className="tdsa-eyebrow">Direct entry pathways</span>
+              <h2 id="entry-title">Choose how your team enters TeleDoctorSA.</h2>
+            </div>
             <p>
-              ECG247 becomes more valuable when the result sits alongside the rest of the patient context. TeleDoctorSA is designed to connect diagnostic insight with follow-up and ongoing care.
+              Start with the role that matches your clinical or operational
+              responsibility, then move directly into onboarding.
             </p>
-            <Link href="/ecg247" className="light-link">
-              Discover ECG247 <ArrowRight size={17} />
-            </Link>
           </div>
 
-          <div className="ecg-panel" aria-label="Illustrative ECG monitoring interface">
-            <div className="ecg-panel-header">
-              <div>
-                <span className="live-dot" /> Monitoring active
-              </div>
-              <HeartPulse size={22} />
-            </div>
-            <div className="ecg-patient-row">
-              <div>
-                <small>Patient</small>
-                <strong>Connected</strong>
-              </div>
-              <div>
-                <small>Heart rate</small>
-                <strong>72 bpm</strong>
-              </div>
-            </div>
-            <div className="ecg-wave" aria-hidden="true">
-              <svg viewBox="0 0 640 150" preserveAspectRatio="none">
-                <path d="M0 76 H75 L98 76 L116 42 L135 108 L160 10 L186 115 L212 76 H290 L312 76 L330 48 L348 104 L374 18 L398 110 L420 76 H500 L520 76 L540 44 L558 104 L583 18 L607 108 L628 76 H640" />
-              </svg>
-            </div>
-            <div className="ecg-meta-row">
-              <span>Continuous rhythm visibility</span>
-              <span>ECG247</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="monitoring-feature section-shell" aria-labelledby="monitoring-title">
-        <div className="monitoring-visual">
-          <div className="monitoring-card monitoring-card-primary">
-            <div className="monitoring-card-top">
-              <span>Remote monitoring</span>
-              <Stethoscope size={20} />
-            </div>
-            <div className="monitoring-metric">
-              <small>Patient status</small>
-              <strong>Stable</strong>
-              <span>Latest readings within expected range</span>
-            </div>
-            <div className="trend-bars" aria-hidden="true">
-              <i style={{ height: "32%" }} />
-              <i style={{ height: "46%" }} />
-              <i style={{ height: "40%" }} />
-              <i style={{ height: "58%" }} />
-              <i style={{ height: "64%" }} />
-              <i style={{ height: "56%" }} />
-              <i style={{ height: "72%" }} />
-              <i style={{ height: "68%" }} />
-            </div>
-          </div>
-          <div className="monitoring-card monitoring-card-secondary">
-            <ClipboardCheck size={22} />
-            <span>Follow-up complete</span>
-            <strong>Care plan reviewed</strong>
-          </div>
-        </div>
-
-        <div className="monitoring-copy">
-          <div className="section-kicker">Remote monitoring</div>
-          <h2 id="monitoring-title">See what happens between appointments.</h2>
-          <p>
-            The most useful signals often appear outside the consultation room. Remote monitoring helps clinicians follow meaningful changes while preserving enough context to understand what those changes may mean.
-          </p>
-          <ul>
-            {monitoringItems.map((item) => (
-              <li key={item}>
-                <span />
-                {item}
-              </li>
+          <div className="entry-grid">
+            {pathways.map(({ eyebrow, title, copy, href, cta, icon: Icon }) => (
+              <article key={eyebrow} className="entry-column">
+                <div>
+                  <Icon size={24} strokeWidth={1.7} />
+                  <span>{eyebrow}</span>
+                </div>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+                <Link href={href}>
+                  {cta}
+                  <ArrowRight size={17} />
+                </Link>
+              </article>
             ))}
-          </ul>
-          <Link href="/remote-monitoring" className="text-link">
-            Explore remote monitoring <ArrowRight size={17} />
-          </Link>
+          </div>
         </div>
       </section>
 
-      <section className="professionals-section" aria-labelledby="professionals-title">
-        <div className="section-shell professionals-grid">
-          <div>
-            <div className="section-kicker section-kicker-light">Built for care teams</div>
-            <h2 id="professionals-title">Technology that supports clinical work instead of competing with it.</h2>
-          </div>
-          <div className="professionals-copy">
+      <section className="ecg-product-section" aria-labelledby="ecg-product-title">
+        <div className="tdsa-section-shell ecg-product-grid">
+          <div className="ecg-product-copy">
+            <span className="tdsa-eyebrow">ECG247 remote rhythm monitor</span>
+            <h2 id="ecg-product-title">
+              In Stock &amp; Ready to Deploy: 7-Day ECG Monitoring.
+            </h2>
             <p>
-              TeleDoctorSA is intended for healthcare professionals, practices and organisations that need a clearer view of patients across virtual, diagnostic and longitudinal care workflows.
+              As South Africa&apos;s official licensed distributor of the Norwegian
+              ECG247 system, TeleDoctorSA brings continuous rhythm monitoring
+              directly into the practice workflow, helping clinicians move beyond
+              isolated resting ECG snapshots when longer rhythm visibility is needed.
             </p>
-            <Link href="/professionals" className="light-link">
-              For healthcare professionals <ArrowRight size={17} />
+
+            <div className="ecg-feature-list">
+              {ecgFeatures.map((feature) => (
+                <div key={feature.title}>
+                  <Activity size={18} />
+                  <div>
+                    <strong>{feature.title}</strong>
+                    <span>{feature.copy}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Link href="/ecg247" className="tdsa-solid-link">
+              Order ECG247 Hardware Kits Today
+              <ArrowRight size={17} />
             </Link>
+          </div>
+
+          <MedicalMotionVisual variant="ecg" />
+        </div>
+      </section>
+
+      <section className="clinical-flow-section" aria-labelledby="clinical-flow-title">
+        <div className="tdsa-section-shell clinical-flow-grid">
+          <MedicalMotionVisual variant="pathways" />
+
+          <div>
+            <span className="tdsa-eyebrow">Continuous care workflow</span>
+            <h2 id="clinical-flow-title">Signals become useful when they reach the right care team.</h2>
+            <p>
+              Remote measurements, ECG telemetry, patient history, and clinical
+              review should live in one connected pathway rather than separate
+              systems that force staff to rebuild context by hand.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="home-cta section-shell" aria-labelledby="home-cta-title">
-        <div className="home-cta-card">
+      <section className="bottom-conversion" aria-labelledby="conversion-title">
+        <div className="tdsa-section-shell bottom-conversion-grid">
           <div>
-            <div className="section-kicker">See the connected care platform</div>
-            <h2 id="home-cta-title">Bring more continuity into every patient journey.</h2>
+            <span className="tdsa-eyebrow">Ready to start</span>
+            <h2 id="conversion-title">
+              Start Modernizing Your Care Delivery in Under 5 Minutes.
+            </h2>
+            <p>
+              Join doctors and nurses across South Africa who are actively using
+              TeleDoctorSA to deliver continuous, patient-centered care.
+            </p>
           </div>
-          <div className="home-cta-actions">
-            <Link href="/contact?type=demo" className="cta-primary">
-              Book a Demo <ArrowRight size={18} />
-            </Link>
-            <Link href="/contact" className="cta-secondary">
-              Talk to the team
-            </Link>
-          </div>
+
+          <Link href="/for-clinicians/register" className="conversion-link">
+            Register Your Practice Now
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </>
