@@ -43,25 +43,25 @@ const pathways = [
     icon: Stethoscope,
     title: "For Doctors & Specialists",
     copy:
-      "Register your practice, refer patients for continuous monitoring, and review clinical reports online.",
-    cta: "Sign Up as a Doctor",
-    href: "/for-clinicians/register#register",
+      "See how TeleDoctorSA can be configured around consultation, monitoring, referral and review workflows.",
+    cta: "Book a Practice Demo",
+    href: "/contact?type=demo",
   },
   {
     icon: UsersRound,
     title: "For Nurses & Care Teams",
     copy:
-      "Access community care tools, manage remote vitals triage, and enroll in certified digital health training.",
-    cta: "Sign Up as a Nurse",
-    href: "/for-clinicians/register#register",
+      "Explore connected workflows for remote follow-up, vitals review and coordinated patient care.",
+    cta: "Book a Team Demo",
+    href: "/contact?type=demo",
   },
   {
     icon: MonitorSmartphone,
     title: "For Practice Managers",
     copy:
-      "Order medical equipment, manage device subscriptions, and streamline patient onboarding.",
+      "Discuss the platform setup, device workflows and operational configuration your practice needs.",
     cta: "Request Practice Demo",
-    href: "/for-clinicians/register#register",
+    href: "/contact?type=demo",
   },
 ];
 
@@ -115,8 +115,8 @@ export function HomeSections() {
             </div>
 
             <p>
-              TeleDoctorSA is not a future concept. It is an active medical network
-              ready to plug directly into your daily clinical workflow.
+              TeleDoctorSA brings consultation, monitoring and clinical records
+              together in a connected care environment.
             </p>
           </div>
 
@@ -139,11 +139,44 @@ export function HomeSections() {
         </div>
       </section>
 
+      <section className="tdsa-system-flow" aria-labelledby="system-flow-title">
+        <div className="tdsa-section-shell">
+          <div className="tdsa-system-flow-heading">
+            <span className="tdsa-eyebrow">Connected system flow</span>
+            <h2 id="system-flow-title">
+              One care environment, connected from patient interaction to clinical action.
+            </h2>
+            <p>
+              The platform is designed as a connected workflow rather than a set
+              of isolated tools, with each part supporting the next step in care.
+            </p>
+          </div>
+
+          <figure>
+            <div className="tdsa-system-flow-visual">
+              <Image
+                src="/images/home/connection.png"
+                alt="Diagram showing the connected TeleDoctorSA system workflow"
+                fill
+                sizes="(max-width: 900px) 92vw, 1080px"
+                className="tdsa-system-flow-image"
+              />
+            </div>
+            <figcaption className="tdsa-system-flow-caption">
+              <span>System integration</span>
+              <strong>Connected care workflow</strong>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="tdsa-clinical-imagery" aria-labelledby="clinical-imagery-title">
         <div className="tdsa-section-shell">
           <div className="tdsa-clinical-imagery-heading">
             <span className="tdsa-eyebrow">Clinical technology in practice</span>
-            <h2 id="clinical-imagery-title">A connected care environment, not a collection of isolated tools.</h2>
+            <h2 id="clinical-imagery-title">
+              A connected care environment, not a collection of isolated tools.
+            </h2>
           </div>
 
           <div className="tdsa-clinical-image-grid">
@@ -202,12 +235,12 @@ export function HomeSections() {
         <div className="tdsa-section-shell">
           <div className="tdsa-section-heading">
             <div>
-              <span className="tdsa-eyebrow">Direct entry pathways</span>
-              <h2 id="pathways-title">Choose how your team gets started.</h2>
+              <span className="tdsa-eyebrow">Practice pathways</span>
+              <h2 id="pathways-title">See how the platform can fit your team.</h2>
             </div>
             <p>
-              Doctors, nurses, and practice teams can enter through a workflow
-              designed around how they actually use the platform.
+              Book a demo around the way your clinicians, nurses and practice
+              teams actually work.
             </p>
           </div>
 
@@ -256,7 +289,7 @@ export function HomeSections() {
             </div>
 
             <Link href="/ecg247" className="tdsa-solid-link">
-              Order ECG247 Hardware Kits Today
+              Explore ECG247
               <ArrowRight size={17} />
             </Link>
           </div>
@@ -282,20 +315,18 @@ export function HomeSections() {
       <section className="tdsa-final-cta" aria-labelledby="conversion-title">
         <div className="tdsa-section-shell">
           <div className="tdsa-cta-card">
-            <span className="tdsa-eyebrow">Immediate practice onboarding</span>
-            <h2 id="conversion-title">
-              Start Modernizing Your Care Delivery in Under 5 Minutes.
-            </h2>
+            <span className="tdsa-eyebrow">Built around your practice</span>
+            <h2 id="conversion-title">See how TeleDoctorSA can fit your care model.</h2>
             <p>
-              Join doctors and nurses across South Africa who are actively
-              utilizing TeleDoctorSA to deliver continuous, patient-centered care.
+              Book a demo to walk us through your current workflow and discuss a
+              platform configuration suited to your team and services.
             </p>
             <div className="tdsa-cta-actions">
               <Link
-                href="/for-clinicians/register"
+                href="/contact?type=demo"
                 className="tdsa-solid-link tdsa-solid-link-light"
               >
-                Register Your Practice Now
+                Book a Demo
                 <ArrowRight size={17} />
               </Link>
             </div>
