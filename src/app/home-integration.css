@@ -1,0 +1,120 @@
+.tdsa-system-flow {
+  padding: 104px 0;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.tdsa-system-flow-heading {
+  max-width: 780px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.tdsa-system-flow-heading h2 {
+  margin: 0;
+  color: var(--plum-950);
+  font-size: clamp(34px, 4.2vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.tdsa-system-flow-heading p {
+  max-width: 650px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tdsa-system-flow-visual {
+  position: relative;
+  width: min(100%, 1080px);
+  min-height: 520px;
+  margin: 44px auto 0;
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--border);
+  transition:
+    border-color 220ms ease,
+    transform 320ms var(--ease-premium),
+    box-shadow 320ms ease;
+}
+
+.tdsa-system-flow-visual:hover {
+  transform: translateY(-3px);
+  border-color: rgba(238, 123, 59, 0.35);
+  box-shadow: 0 20px 46px rgba(45, 16, 41, 0.08);
+}
+
+.tdsa-system-flow-image {
+  object-fit: contain;
+  padding: 26px;
+  transition: transform 420ms var(--ease-premium);
+}
+
+.tdsa-system-flow-visual:hover .tdsa-system-flow-image {
+  transform: scale(1.012);
+}
+
+.tdsa-system-flow-caption {
+  width: min(100%, 1080px);
+  margin: 14px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tdsa-system-flow-caption strong {
+  color: var(--plum-950);
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .tdsa-system-flow {
+    padding: 82px 0;
+  }
+
+  .tdsa-system-flow-visual {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 700px) {
+  .tdsa-system-flow {
+    padding: 70px 0;
+  }
+
+  .tdsa-system-flow-visual {
+    min-height: 300px;
+    margin-top: 30px;
+  }
+
+  .tdsa-system-flow-image {
+    padding: 12px;
+  }
+
+  .tdsa-system-flow-caption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdsa-system-flow-visual,
+  .tdsa-system-flow-image {
+    transition: none;
+  }
+
+  .tdsa-system-flow-visual:hover,
+  .tdsa-system-flow-visual:hover .tdsa-system-flow-image {
+    transform: none;
+  }
+}
