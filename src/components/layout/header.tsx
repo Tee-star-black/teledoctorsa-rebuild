@@ -2,35 +2,15 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import {
-  ArrowRight,
-  HeartPulse,
-  Menu,
-  X,
-} from "lucide-react";
+import { ArrowRight, HeartPulse, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 const navigation = [
-  {
-    label: "Platform",
-    href: "/platform",
-  },
-  {
-    label: "ECG247",
-    href: "/ecg247",
-  },
-  {
-    label: "Remote Monitoring",
-    href: "/remote-monitoring",
-  },
-  {
-    label: "Professionals",
-    href: "/professionals",
-  },
-  {
-    label: "About",
-    href: "/about",
-  },
+  { label: "Platform", href: "/platform" },
+  { label: "ECG247", href: "/ecg247" },
+  { label: "Remote Monitoring", href: "/remote-monitoring" },
+  { label: "Professionals", href: "/professionals" },
+  { label: "About", href: "/about" },
 ];
 
 export function Header() {
@@ -43,7 +23,6 @@ export function Header() {
           <span className="brand-icon">
             <HeartPulse size={22} strokeWidth={2} />
           </span>
-
           <span className="brand-copy">
             <strong>TeleDoctorSA</strong>
             <small>Connected Care</small>
@@ -62,9 +41,8 @@ export function Header() {
           <Link href="/contact" className="nav-contact">
             Contact
           </Link>
-
-          <Link href="/contact?type=demo" className="nav-demo">
-            Book a Demo
+          <Link href="/for-clinicians/register" className="nav-demo">
+            Register Practice
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -84,45 +62,27 @@ export function Header() {
         {open && (
           <motion.div
             className="mobile-navigation"
-            initial={{
-              opacity: 0,
-              y: -10,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: -10,
-            }}
-            transition={{
-              duration: 0.25,
-            }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
           >
             {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-              >
+              <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             ))}
 
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-            >
+            <Link href="/contact" onClick={() => setOpen(false)}>
               Contact
             </Link>
 
             <Link
-              href="/contact?type=demo"
+              href="/for-clinicians/register"
               className="mobile-demo-button"
               onClick={() => setOpen(false)}
             >
-              Book a Demo
+              Register Practice
               <ArrowRight size={17} />
             </Link>
           </motion.div>
