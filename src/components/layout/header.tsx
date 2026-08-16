@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { ArrowRight, HeartPulse, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { ArrowRight, Activity, Menu, X } from "lucide-react";
+
+import styles from "./header.module.css";
 
 const navigation = [
   { label: "Services", href: "/services" },
@@ -14,34 +17,60 @@ const navigation = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  function isActive(href: string) {
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   return (
-    <header className="site-header">
-      <div className="nav-shell">
-        <Link href="/" className="brand">
-          <span className="brand-icon">
-            <HeartPulse size={22} strokeWidth={2} />
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+      <div className={styles.shell}>
+        <Link href="/" className={styles.brand} aria-label="TeleDoctorSA home">
+          <span className={styles.brandMark} aria-hidden="true">
+            <Activity size={21} strokeWidth={1.9} />
           </span>
-          <span className="brand-copy">
+          <span className={styles.brandCopy}>
             <strong>TeleDoctorSA</strong>
             <small>Connected Care</small>
           </span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
+        <nav className={styles.nav} aria-label="Main navigation">
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href}>
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`${styles.navLink} ${isActive(item.href) ? styles.active : ""}`}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="desktop-actions">
-          <Link href="/contact" className="nav-contact">
+        <div className={styles.actions}>
+          <Link
+            href="/contact"
+            className={`${styles.contactLink} ${isActive("/contact") ? styles.contactActive : ""}`}
+          >
             Contact
           </Link>
-          <Link href="/for-clinicians/register" className="nav-demo">
+          <Link href="/for-clinicians/register" className={styles.cta}>
             Register Practice
             <ArrowRight size={16} />
           </Link>
@@ -49,44 +78,52 @@ export function Header() {
 
         <button
           type="button"
-          className="mobile-menu-button"
+          className={styles.menuButton}
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
           onClick={() => setOpen((current) => !current)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       <AnimatePresence>
-        {open && (
+        {open ? (
           <motion.div
-            className="mobile-navigation"
+            className={styles.mobilePanel}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.22 }}
           >
+            <div className={styles.mobileMeta}>
+              <span />
+              Clinical navigation
+            </div>
+
             {navigation.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`${styles.mobileLink} ${isActive(item.href) ? styles.mobileLinkActive : ""}`}
+              >
                 {item.label}
               </Link>
             ))}
 
-            <Link href="/contact" onClick={() => setOpen(false)}>
+            <Link
+              href="/contact"
+              className={`${styles.mobileLink} ${isActive("/contact") ? styles.mobileLinkActive : ""}`}
+            >
               Contact
             </Link>
 
-            <Link
-              href="/for-clinicians/register"
-              className="mobile-demo-button"
-              onClick={() => setOpen(false)}
-            >
+            <Link href="/for-clinicians/register" className={styles.mobileCta}>
               Register Practice
               <ArrowRight size={17} />
             </Link>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     </header>
   );
