@@ -29,32 +29,37 @@ const serviceLinks = [
   {
     icon: MonitorSmartphone,
     title: "Virtual Consultations",
-    copy: "Remote consultations and follow-up care.",
+    copy: "Remote consultations and connected follow-up care.",
     href: "/virtual-care",
+    tag: "Virtual care",
   },
   {
     icon: HeartPulse,
     title: "ECG247 Monitoring",
-    copy: "Extended ambulatory rhythm monitoring.",
+    copy: "Extended ambulatory rhythm monitoring and review.",
     href: "/ecg247",
+    tag: "Diagnostics",
   },
   {
     icon: Activity,
     title: "Remote Patient Monitoring",
-    copy: "Track vitals, symptoms and trends remotely.",
+    copy: "Track vitals, symptoms and trends between visits.",
     href: "/remote-monitoring",
+    tag: "Monitoring",
   },
   {
     icon: FileHeart,
     title: "Electronic Health Records",
-    copy: "Connected longitudinal patient records.",
+    copy: "Longitudinal records shared across connected workflows.",
     href: "/ehr",
+    tag: "Clinical record",
   },
   {
     icon: Stethoscope,
     title: "Practice Onboarding",
-    copy: "Bring your clinical team onto TeleDoctorSA.",
+    copy: "Bring doctors, nurses and practice teams onto TeleDoctorSA.",
     href: "/for-clinicians/register",
+    tag: "For practices",
   },
 ];
 
@@ -104,7 +109,7 @@ export function Header() {
               type="button"
               className={`${styles.navLink} ${styles.servicesTrigger} ${servicesActive ? styles.active : ""}`}
               aria-expanded={servicesOpen}
-              aria-controls="services-dropdown"
+              aria-controls="services-mega-menu"
               onClick={() => setServicesOpen((current) => !current)}
             >
               {servicesActive ? (
@@ -125,35 +130,51 @@ export function Header() {
             <AnimatePresence>
               {servicesOpen ? (
                 <motion.div
-                  id="services-dropdown"
-                  className={styles.servicesDropdown}
-                  initial={{ opacity: 0, y: 8, scale: 0.985 }}
+                  id="services-mega-menu"
+                  className={styles.servicesMegaMenu}
+                  initial={{ opacity: 0, y: 10, scale: 0.99 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.985 }}
-                  transition={{ duration: 0.18 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.99 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                 >
-                  <div className={styles.servicesDropdownIntro}>
-                    <span>Connected care services</span>
-                    <strong>Choose a clinical workflow</strong>
+                  <div className={styles.megaFeature}>
+                    <span className={styles.megaEyebrow}>TeleDoctorSA services</span>
+                    <h3>Connected clinical care, from consultation to follow-up.</h3>
+                    <p>
+                      Explore the workflows that connect patients, clinicians,
+                      diagnostics and records across one care environment.
+                    </p>
+                    <Link href="/for-clinicians/register" className={styles.megaFeatureLink}>
+                      Onboard your practice
+                      <ArrowRight size={16} />
+                    </Link>
                   </div>
 
-                  <div className={styles.servicesDropdownGrid}>
-                    {serviceLinks.map(({ icon: Icon, title, copy, href }) => (
-                      <Link
-                        key={title}
-                        href={href}
-                        className={`${styles.serviceOption} ${isActive(href) ? styles.serviceOptionActive : ""}`}
-                      >
-                        <span className={styles.serviceOptionIcon} aria-hidden="true">
-                          <Icon size={19} strokeWidth={1.7} />
-                        </span>
-                        <span>
-                          <strong>{title}</strong>
-                          <small>{copy}</small>
-                        </span>
-                        <ArrowRight size={15} aria-hidden="true" />
-                      </Link>
-                    ))}
+                  <div className={styles.megaServices}>
+                    <div className={styles.megaServicesHeader}>
+                      <span>Explore services</span>
+                      <small>Select a workflow</small>
+                    </div>
+
+                    <div className={styles.megaServicesGrid}>
+                      {serviceLinks.map(({ icon: Icon, title, copy, href, tag }) => (
+                        <Link
+                          key={title}
+                          href={href}
+                          className={`${styles.megaServiceItem} ${isActive(href) ? styles.megaServiceItemActive : ""}`}
+                        >
+                          <span className={styles.megaServiceIcon} aria-hidden="true">
+                            <Icon size={20} strokeWidth={1.7} />
+                          </span>
+                          <span className={styles.megaServiceCopy}>
+                            <small>{tag}</small>
+                            <strong>{title}</strong>
+                            <span>{copy}</span>
+                          </span>
+                          <ArrowRight size={16} aria-hidden="true" />
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               ) : null}
@@ -248,13 +269,16 @@ export function Header() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {serviceLinks.map(({ title, href }) => (
+                  {serviceLinks.map(({ title, href, tag }) => (
                     <Link
                       key={title}
                       href={href}
                       className={`${styles.mobileServiceLink} ${isActive(href) ? styles.mobileServiceLinkActive : ""}`}
                     >
-                      {title}
+                      <span>
+                        <small>{tag}</small>
+                        <strong>{title}</strong>
+                      </span>
                       <ArrowRight size={14} />
                     </Link>
                   ))}
