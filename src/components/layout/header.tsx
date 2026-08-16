@@ -132,6 +132,7 @@ export function Header() {
                 <motion.div
                   id="services-mega-menu"
                   className={styles.servicesMegaMenu}
+                  style={{ left: "max(28px, calc(50% - 560px))" }}
                   initial={{ opacity: 0, y: 10, scale: 0.99 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.99 }}
