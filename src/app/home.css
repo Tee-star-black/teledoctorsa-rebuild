@@ -1,3 +1,19 @@
+/* =========================================================
+   TELEDOCTORSA HOME PAGE
+
+   Design language:
+   - Solid colours only
+   - No gradients
+   - No rounded cards
+   - Strong editorial grid
+   - Clinical motion provides visual interest
+========================================================= */
+
+
+/* =========================================================
+   SHARED LAYOUT
+========================================================= */
+
 .tdsa-section-shell {
   width: min(calc(100% - 48px), var(--max-width));
   margin-inline: auto;
@@ -7,684 +23,2077 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+
+  margin-bottom: 22px;
+
   color: var(--orange-600);
+
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  line-height: 1;
+
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.section-intro-grid,
-.ecg-product-grid,
-.clinical-flow-grid,
-.bottom-conversion-grid {
+.tdsa-section-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-  gap: clamp(48px, 8vw, 120px);
+
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(280px, 0.6fr);
+
+  gap: clamp(40px, 8vw, 120px);
+
   align-items: end;
+
+  margin-bottom: 70px;
 }
 
-.section-intro-grid h2,
-.ecg-product-copy h2,
-.clinical-flow-grid h2,
-.bottom-conversion h2 {
+.tdsa-section-heading h2,
+.tdsa-intro-copy h2,
+.tdsa-feature-copy h2,
+.tdsa-professionals h2,
+.tdsa-cta-card h2 {
   margin: 0;
+
   color: var(--plum-950);
-  font-size: clamp(40px, 5.2vw, 72px);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+
+  font-size: clamp(38px, 5vw, 68px);
+
+  font-weight: 720;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
 }
 
-.section-intro-grid > p,
-.ecg-product-copy > p,
-.clinical-flow-grid > div:last-child > p,
-.bottom-conversion p {
+.tdsa-section-heading > p {
+  max-width: 460px;
+
   margin: 0;
+
   color: var(--muted);
-  font-size: 17px;
-  line-height: 1.8;
+
+  font-size: 16px;
+
+  line-height: 1.75;
+}
+
+.tdsa-section-heading-light h2 {
+  color: white;
+}
+
+.tdsa-section-heading-light > p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+
+/* =========================================================
+   LINKS / BUTTONS
+========================================================= */
+
+.tdsa-text-link,
+.tdsa-solid-link,
+.tdsa-outline-link {
+  text-decoration: none;
+}
+
+.tdsa-text-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: var(--plum-900);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  transition:
+    gap 220ms var(--ease-premium),
+    color 220ms ease;
+}
+
+.tdsa-text-link:hover {
+  gap: 14px;
+
+  color: var(--orange-600);
 }
 
 .tdsa-solid-link {
   min-height: 54px;
+
   padding: 0 24px;
+
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
-  gap: 10px;
+
+  gap: 9px;
+
   border: 1px solid var(--orange-500);
   border-radius: 0;
+
   background: var(--orange-500);
+
   color: var(--plum-950);
+
   font-size: 13px;
   font-weight: 800;
-  text-decoration: none;
-  transition: background 180ms ease, transform 180ms ease;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 220ms var(--ease-premium);
 }
 
 .tdsa-solid-link:hover {
-  background: var(--orange-400);
   transform: translateY(-2px);
+
+  background: var(--orange-400);
+
+  border-color: var(--orange-400);
 }
 
-/* Readiness */
-.readiness-section {
-  padding: 135px 0 0;
+.tdsa-solid-link-light {
+  background: white;
+
+  border-color: white;
+
+  color: var(--plum-950);
+}
+
+.tdsa-solid-link-light:hover {
   background: var(--cream);
+
+  border-color: var(--cream);
 }
 
-.section-intro-grid {
-  padding-bottom: 70px;
-}
+.tdsa-outline-link {
+  min-height: 54px;
 
-.live-capability-list {
-  border-top: 1px solid var(--border);
-}
+  padding: 0 24px;
 
-.live-capability-row {
-  display: grid;
-  grid-template-columns: 72px minmax(260px, 0.7fr) minmax(420px, 1.3fr);
-  gap: 34px;
+  display: inline-flex;
+
   align-items: center;
-  padding: 62px 0;
-  border-bottom: 1px solid var(--border);
-}
+  justify-content: center;
 
-.capability-index {
-  align-self: start;
-  color: var(--orange-600);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
+  border:
+    1px solid rgba(255, 255, 255, 0.35);
 
-.capability-copy svg {
-  color: var(--orange-600);
-}
+  border-radius: 0;
 
-.capability-copy h3 {
-  margin: 26px 0 0;
-  color: var(--plum-900);
-  font-size: 28px;
-  letter-spacing: -0.035em;
-}
+  background: transparent;
 
-.capability-copy p {
-  margin: 16px 0 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.75;
-}
-
-/* Entry pathways */
-.entry-section {
-  padding: 135px 0;
-  background: var(--plum-950);
-}
-
-.section-intro-grid-light h2 {
   color: white;
-}
 
-.section-intro-grid-light > p {
-  color: rgba(255,255,255,0.62);
-}
-
-.entry-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid rgba(255,255,255,0.14);
-  border-left: 1px solid rgba(255,255,255,0.14);
-}
-
-.entry-column {
-  min-height: 410px;
-  padding: 34px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid rgba(255,255,255,0.14);
-  border-bottom: 1px solid rgba(255,255,255,0.14);
-}
-
-.entry-column > div:first-child {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--orange-400);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.tdsa-outline-link:hover {
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border-color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.tdsa-intro {
+  position: relative;
+
+  padding: 140px 0;
+
+  background: var(--cream);
+
+  overflow: hidden;
+}
+
+.tdsa-intro-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 0.55fr)
+    minmax(0, 1.45fr);
+
+  gap: clamp(50px, 9vw, 145px);
+
+  align-items: start;
+}
+
+.tdsa-section-kicker {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-.entry-column h3 {
-  margin: 62px 0 0;
-  color: white;
-  font-size: 26px;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-}
+.tdsa-section-kicker span {
+  width: 38px;
+  height: 38px;
 
-.entry-column p {
-  margin: 18px 0 0;
-  color: rgba(255,255,255,0.58);
-  font-size: 14px;
-  line-height: 1.75;
-}
+  display: grid;
 
-.entry-column a {
-  margin-top: auto;
-  padding-top: 40px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: none;
-}
+  place-items: center;
 
-/* ECG product */
-.ecg-product-section {
-  padding: 145px 0;
+  flex-shrink: 0;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 0;
+
+  color: var(--orange-600);
+
   background: white;
 }
 
-.ecg-product-grid {
-  align-items: center;
+.tdsa-intro-copy {
+  max-width: 880px;
 }
 
-.ecg-product-copy > p {
-  margin-top: 30px;
+.tdsa-intro-copy h2 {
+  max-width: 850px;
 }
 
-.ecg-feature-list {
-  margin-top: 36px;
-  border-top: 1px solid var(--border);
-}
+.tdsa-intro-copy > p {
+  max-width: 680px;
 
-.ecg-feature-list > div {
-  padding: 20px 0;
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 14px;
-  border-bottom: 1px solid var(--border);
-}
+  margin: 34px 0 0;
 
-.ecg-feature-list svg {
-  color: var(--orange-600);
-}
-
-.ecg-feature-list strong,
-.ecg-feature-list span {
-  display: block;
-}
-
-.ecg-feature-list strong {
-  color: var(--plum-900);
-  font-size: 13px;
-}
-
-.ecg-feature-list span {
-  margin-top: 5px;
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.55;
+
+  font-size: 18px;
+
+  line-height: 1.85;
 }
 
-.ecg-product-copy .tdsa-solid-link {
+.tdsa-intro-copy .tdsa-text-link {
   margin-top: 34px;
 }
 
-/* Clinical flow */
-.clinical-flow-section {
-  padding: 140px 0;
+
+/* =========================================================
+   CARE FLOW
+========================================================= */
+
+.tdsa-care-flow {
+  padding: 125px 0 135px;
+
   background: var(--cream-dark);
-  border-block: 1px solid var(--border);
+
+  border-top:
+    1px solid var(--border);
+
+  border-bottom:
+    1px solid var(--border);
 }
 
-.clinical-flow-grid {
-  align-items: center;
+.tdsa-care-steps {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  border-top:
+    1px solid rgba(45, 16, 41, 0.15);
+
+  border-left:
+    1px solid rgba(45, 16, 41, 0.1);
 }
 
-.clinical-flow-grid > div:last-child > p {
-  margin-top: 28px;
-}
-
-/* Conversion */
-.bottom-conversion {
-  padding: 120px 0;
-  background: var(--plum-800);
-}
-
-.bottom-conversion h2 {
-  color: white;
-}
-
-.bottom-conversion p {
-  max-width: 720px;
-  margin-top: 24px;
-  color: rgba(255,255,255,0.62);
-}
-
-.bottom-conversion-grid {
-  align-items: end;
-}
-
-.conversion-link {
-  min-height: 58px;
-  padding: 0 26px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  justify-self: end;
-  border: 1px solid white;
-  background: white;
-  color: var(--plum-950);
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-/* Motion diagrams */
-.clinical-visual {
+.tdsa-care-step {
   position: relative;
-  min-height: 360px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 0;
-  background: white;
+
+  min-height: 290px;
+
+  padding: 34px 30px;
+
+  border-right:
+    1px solid rgba(45, 16, 41, 0.1);
+
+  border-bottom:
+    1px solid rgba(45, 16, 41, 0.1);
 }
 
-.consult-visual {
-  display: grid;
-  grid-template-columns: 1fr 120px 1fr;
-  align-items: center;
-  padding: 42px;
+.tdsa-care-step::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 5px;
+  height: 38px;
+
+  background: var(--orange-500);
 }
 
-.diagram-node,
-.diagram-center,
-.consult-record,
-.ehr-node,
-.ehr-center,
-.pathway-center {
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.diagram-node {
-  padding: 22px;
-  border: 1px solid var(--border);
-  background: var(--cream);
-}
-
-.diagram-node svg,
-.diagram-center svg {
-  color: var(--orange-600);
-}
-
-.diagram-node strong,
-.diagram-node span {
+.tdsa-step-number {
   display: block;
-}
 
-.diagram-node strong {
-  margin-top: 18px;
-  color: var(--plum-900);
-  font-size: 13px;
-}
+  color: var(--orange-600);
 
-.diagram-node span {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 10px;
-}
-
-.diagram-center {
-  position: absolute;
-  left: 50%;
-  top: 44%;
-  width: 130px;
-  height: 96px;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 8px;
-  border: 1px solid var(--plum-950);
-  background: var(--plum-950);
-  color: white;
-}
-
-.diagram-center strong {
   font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
 }
 
-.diagram-line {
-  height: 1px;
-  background: var(--orange-500);
-  transform-origin: left;
-}
+.tdsa-care-step h3 {
+  margin: 62px 0 0;
 
-.diagram-line-left { margin-right: -12px; }
-.diagram-line-right { margin-left: -12px; }
-
-.consult-record {
-  position: absolute;
-  left: 50%;
-  bottom: 28px;
-  transform: translateX(-50%);
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--border);
-  background: white;
   color: var(--plum-900);
-  font-size: 10px;
-  font-weight: 700;
+
+  font-size: 24px;
+
+  letter-spacing: -0.035em;
 }
 
-.ecg-visual {
-  min-height: 430px;
-  padding: 28px;
+.tdsa-care-step p {
+  margin: 16px 0 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CAPABILITIES
+========================================================= */
+
+.tdsa-capabilities {
+  position: relative;
+
+  padding: 140px 0;
+
   background: var(--plum-950);
-  border-color: rgba(255,255,255,0.12);
-  color: white;
+
+  overflow: hidden;
 }
 
-.ecg-topline {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  color: rgba(255,255,255,0.58);
-  font-size: 10px;
-  letter-spacing: 0.08em;
+.tdsa-capability-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 0;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-left:
+    1px solid rgba(255, 255, 255, 0.12);
 }
 
-.ecg-topline > div {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.tdsa-capability-card {
+  position: relative;
+
+  min-height: 290px;
+
+  padding: 34px;
+
+  border: 0;
+
+  border-right:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 0;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  transition:
+    background 220ms ease;
 }
 
-.live-marker {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--orange-500);
+.tdsa-capability-card:hover {
+  background:
+    rgba(255, 255, 255, 0.045);
 }
 
-.ecg-bpm {
-  margin-top: 44px;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
+.tdsa-capability-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid rgba(238, 123, 59, 0.36);
+
+  border-radius: 0;
+
+  background: transparent;
+
   color: var(--orange-400);
 }
 
-.ecg-bpm strong {
+.tdsa-capability-card h3 {
+  margin: 48px 0 0;
+
   color: white;
-  font-size: 54px;
-  letter-spacing: -0.06em;
+
+  font-size: 20px;
+
+  letter-spacing: -0.025em;
 }
 
-.ecg-bpm span {
-  color: rgba(255,255,255,0.5);
-  font-size: 10px;
+.tdsa-capability-card p {
+  max-width: 340px;
+
+  margin: 14px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 13.5px;
+
+  line-height: 1.72;
+}
+
+
+/* =========================================================
+   GENERIC FEATURE SECTIONS
+========================================================= */
+
+.tdsa-feature {
+  position: relative;
+
+  padding: 145px 0;
+
+  overflow: hidden;
+}
+
+.tdsa-feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+
+  gap: clamp(60px, 8vw, 125px);
+
+  align-items: center;
+}
+
+.tdsa-feature-grid-reverse {
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(0, 0.9fr);
+}
+
+.tdsa-feature-copy {
+  position: relative;
+
+  z-index: 2;
+}
+
+.tdsa-feature-copy h2 {
+  max-width: 700px;
+}
+
+.tdsa-feature-copy > p {
+  max-width: 610px;
+
+  margin: 30px 0 0;
+
+  color: var(--muted);
+
+  font-size: 17px;
+
+  line-height: 1.85;
+}
+
+.tdsa-feature-visual {
+  position: relative;
+
+  min-width: 0;
+}
+
+.tdsa-check-list {
+  margin: 34px 0 0;
+
+  padding: 0;
+
+  display: grid;
+
+  gap: 0;
+
+  list-style: none;
+
+  border-top:
+    1px solid var(--border);
+}
+
+.tdsa-check-list li {
+  min-height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  border-bottom:
+    1px solid var(--border);
+
+  color: var(--plum-900);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tdsa-check-list li svg {
+  flex-shrink: 0;
+
+  color: var(--orange-600);
+}
+
+.tdsa-feature-copy .tdsa-solid-link,
+.tdsa-feature-copy .tdsa-text-link {
+  margin-top: 38px;
+}
+
+.tdsa-feature-statements {
+  margin-top: 38px;
+
+  display: grid;
+
+  border-top:
+    1px solid var(--border);
+}
+
+.tdsa-feature-statements > div {
+  padding: 20px 0;
+
+  display: grid;
+
+  grid-template-columns:
+    110px minmax(0, 1fr);
+
+  gap: 20px;
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+.tdsa-feature-statements strong {
+  color: var(--plum-900);
+
+  font-size: 13px;
+}
+
+.tdsa-feature-statements span {
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   ECG247
+========================================================= */
+
+.tdsa-ecg-feature {
+  background: white;
+}
+
+
+/* =========================================================
+   REMOTE MONITORING
+========================================================= */
+
+.tdsa-monitoring-feature {
+  background: var(--cream-dark);
+
+  border-top:
+    1px solid var(--border);
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+
+/* =========================================================
+   CHRONIC CARE
+========================================================= */
+
+.tdsa-chronic-feature {
+  background: white;
+}
+
+
+/* =========================================================
+   ALERT SECTION
+========================================================= */
+
+.tdsa-alert-feature {
+  background: var(--cream);
+
+  border-top:
+    1px solid var(--border);
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+
+/* =========================================================
+   PROFESSIONALS
+========================================================= */
+
+.tdsa-professionals {
+  position: relative;
+
+  padding: 140px 0;
+
+  background: var(--plum-800);
+
+  overflow: hidden;
+}
+
+.tdsa-professionals-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 0.85fr);
+
+  gap: clamp(60px, 9vw, 140px);
+
+  align-items: end;
+}
+
+.tdsa-professionals h2 {
+  color: white;
+}
+
+.tdsa-professionals-grid
+  > div:last-child
+  > p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.64);
+
+  font-size: 17px;
+
+  line-height: 1.85;
+}
+
+.tdsa-professionals .tdsa-text-link {
+  margin-top: 32px;
+
+  color: white;
+}
+
+.tdsa-professionals .tdsa-text-link:hover {
+  color: var(--orange-400);
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.tdsa-final-cta {
+  padding: 120px 0;
+
+  background: white;
+}
+
+.tdsa-cta-card {
+  position: relative;
+
+  padding:
+    clamp(48px, 7vw, 90px);
+
+  overflow: hidden;
+
+  border-radius: 0;
+
+  background: var(--plum-950);
+
+  box-shadow: none;
+}
+
+.tdsa-cta-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 18%;
+  height: 8px;
+
+  background: var(--orange-500);
+}
+
+.tdsa-cta-card .tdsa-eyebrow {
+  color: var(--orange-400);
+}
+
+.tdsa-cta-card h2 {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 850px;
+
+  color: white;
+}
+
+.tdsa-cta-card > p {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 640px;
+
+  margin: 28px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+.tdsa-cta-actions {
+  position: relative;
+
+  z-index: 1;
+
+  margin-top: 38px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   MEDICAL VISUALS
+   SHARED
+========================================================= */
+
+.medical-motion {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 520px;
+
+  overflow: hidden;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 0;
+
+  background: var(--cream-dark);
+
+  box-shadow: none;
+}
+
+.medical-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.42;
+
+  background-image:
+    linear-gradient(
+      rgba(45, 16, 41, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(45, 16, 41, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 32px 32px;
+
+  pointer-events: none;
+}
+
+/*
+  Important:
+  The grid itself technically uses CSS linear-gradient
+  to draw grid lines.
+
+  If you mean literally ZERO CSS gradients anywhere,
+  replace .medical-grid with:
+
+  background-image: none;
+
+  The page design itself contains no decorative gradients.
+*/
+
+
+/* =========================================================
+   ECG VISUAL
+========================================================= */
+
+.medical-motion-ecg {
+  display: grid;
+
+  place-items: center;
+
+  min-height: 560px;
+
+  border-color:
+    rgba(255, 255, 255, 0.12);
+
+  background: var(--plum-950);
+}
+
+.medical-motion-ecg .medical-grid {
+  opacity: 0.2;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    );
+}
+
+.medical-center-node {
+  position: relative;
+
+  z-index: 5;
+
+  width: 155px;
+  height: 155px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 50%;
+
+  background: var(--plum-900);
+
+  color: var(--orange-400);
+
+  box-shadow: none;
+}
+
+.medical-center-node span {
+  margin-top: 8px;
+
+  color: white;
+
+  font-size: 35px;
   font-weight: 800;
+
+  line-height: 1;
 }
 
-.ecg-motion-line {
-  height: 130px;
-  margin-top: 18px;
+.medical-center-node small {
+  margin-top: 4px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
 }
 
-.ecg-motion-line svg {
+.medical-pulse-ring {
+  position: absolute;
+
+  width: 225px;
+  height: 225px;
+
+  border:
+    1px solid rgba(238, 123, 59, 0.35);
+
+  border-radius: 50%;
+}
+
+.medical-pulse-ring-two {
+  width: 315px;
+  height: 315px;
+
+  border-color:
+    rgba(238, 123, 59, 0.15);
+}
+
+.medical-ecg-line {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 6%;
+  right: 6%;
+  bottom: 48px;
+
+  height: 135px;
+
+  color: var(--orange-500);
+}
+
+.medical-ecg-line svg {
   width: 100%;
   height: 100%;
+
+  overflow: visible;
 }
 
-.ecg-base-path,
-.ecg-live-path {
+.medical-ecg-track,
+.medical-ecg-active {
   fill: none;
+
   stroke-linecap: square;
   stroke-linejoin: miter;
 }
 
-.ecg-base-path {
-  stroke: rgba(255,255,255,0.1);
+.medical-ecg-track {
+  stroke:
+    rgba(255, 255, 255, 0.1);
+
   stroke-width: 2;
 }
 
-.ecg-live-path {
-  stroke: var(--orange-500);
+.medical-ecg-active {
+  stroke: currentColor;
+
   stroke-width: 3;
 }
 
-.rhythm-events {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(255,255,255,0.12);
-  border-left: 1px solid rgba(255,255,255,0.12);
-}
-
-.rhythm-events > div {
-  padding: 14px;
-  border-right: 1px solid rgba(255,255,255,0.12);
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-
-.rhythm-events svg,
-.rhythm-events strong,
-.rhythm-events span {
-  display: block;
-}
-
-.rhythm-events svg { color: var(--orange-400); }
-.rhythm-events strong { margin-top: 10px; font-size: 11px; }
-.rhythm-events span { margin-top: 3px; color: rgba(255,255,255,0.45); font-size: 8px; }
-
-.ehr-visual {
-  min-height: 390px;
-  background: var(--cream-dark);
-}
-
-.ehr-center {
+.medical-orbit {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 170px;
-  height: 120px;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 7px;
-  background: var(--plum-950);
-  color: white;
-  z-index: 2;
-}
 
-.ehr-center svg { color: var(--orange-400); }
-.ehr-center strong { font-size: 12px; }
-.ehr-center span { color: rgba(255,255,255,0.5); font-size: 9px; }
+  z-index: 3;
 
-.ehr-node {
-  position: absolute;
-  width: 112px;
-  padding: 16px;
-  border: 1px solid var(--border);
-  background: white;
-  color: var(--plum-900);
-  z-index: 2;
-}
+  width: 350px;
+  height: 350px;
 
-.ehr-node svg { color: var(--orange-600); }
-.ehr-node strong { display: block; margin-top: 10px; font-size: 10px; }
-.ehr-node-1 { left: 7%; top: 12%; }
-.ehr-node-2 { right: 7%; top: 12%; }
-.ehr-node-3 { left: 7%; bottom: 12%; }
-.ehr-node-4 { right: 7%; bottom: 12%; }
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
 
-.ehr-connector {
-  position: absolute;
-  width: 28%;
-  height: 1px;
-  background: var(--orange-500);
-  z-index: 1;
-}
-
-.ehr-connector-1 { left: 20%; top: 33%; transform: rotate(19deg); }
-.ehr-connector-2 { right: 20%; top: 33%; transform: rotate(-19deg); }
-.ehr-connector-3 { left: 20%; bottom: 33%; transform: rotate(-19deg); }
-.ehr-connector-4 { right: 20%; bottom: 33%; transform: rotate(19deg); }
-
-.pathway-visual {
-  min-height: 420px;
-  display: grid;
-  place-items: center;
-  background: white;
-}
-
-.pathway-center {
-  position: relative;
-  z-index: 2;
-  width: 180px;
-  height: 120px;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 7px;
-  background: var(--plum-950);
-  color: white;
-}
-
-.pathway-center svg { color: var(--orange-400); }
-.pathway-center strong { font-size: 12px; }
-.pathway-center span { color: rgba(255,255,255,0.5); font-size: 9px; }
-
-.pathway-pulse {
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border: 1px solid var(--orange-500);
   border-radius: 50%;
 }
 
-.pathway-strip {
+.medical-orbit::before {
+  content: "";
+
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
+  inset: 35px;
+
+  border:
+    1px dashed rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+}
+
+.medical-orbit-icon {
+  position: absolute;
+
+  width: 48px;
+  height: 48px;
+
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  align-items: center;
-  min-height: 64px;
-  border-top: 1px solid var(--border);
+
+  place-items: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 0;
+
+  background: var(--cream);
+
   color: var(--plum-900);
+
+  box-shadow: none;
+}
+
+.medical-orbit-icon-a {
+  top: -24px;
+
+  left: calc(50% - 24px);
+}
+
+.medical-orbit-icon-b {
+  bottom: -24px;
+
+  left: calc(50% - 24px);
+}
+
+
+/* =========================================================
+   REMOTE MONITORING VISUAL
+========================================================= */
+
+.medical-motion-monitoring {
+  min-height: 560px;
+
+  padding: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--cream-dark);
+}
+
+.monitoring-device {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(420px, 88%);
+
+  padding: 30px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 0;
+
+  background: white;
+
+  box-shadow: none;
+}
+
+.monitoring-device-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.monitoring-device-header small,
+.monitoring-device-header strong {
+  display: block;
+}
+
+.monitoring-device-header small {
+  color: var(--muted);
+
   font-size: 10px;
+
+  letter-spacing: 0.04em;
+}
+
+.monitoring-device-header strong {
+  margin-top: 5px;
+
+  color: var(--plum-900);
+
+  font-size: 15px;
+}
+
+.monitoring-live-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--orange-500);
+}
+
+.monitoring-bars {
+  height: 175px;
+
+  margin-top: 38px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 10px;
+}
+
+.monitoring-bars span {
+  position: relative;
+
+  flex: 1;
+
+  min-width: 0;
+
+  border-radius: 0;
+
+  background: var(--orange-500);
+}
+
+.monitoring-bars span:nth-child(even) {
+  background: var(--orange-600);
+}
+
+.monitoring-metrics {
+  margin-top: 28px;
+
+  padding-top: 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  border-top:
+    1px solid var(--border);
+}
+
+.monitoring-metrics small,
+.monitoring-metrics strong {
+  display: block;
+}
+
+.monitoring-metrics small {
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+.monitoring-metrics strong {
+  margin-top: 5px;
+
+  color: var(--plum-900);
+
+  font-size: 13px;
+}
+
+.monitoring-floating-card {
+  position: absolute;
+
+  z-index: 4;
+
+  padding: 14px 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 0;
+
+  background: white;
+
+  box-shadow: none;
+
+  color: var(--orange-600);
+}
+
+.monitoring-floating-card strong,
+.monitoring-floating-card small {
+  display: block;
+}
+
+.monitoring-floating-card strong {
+  color: var(--plum-900);
+
+  font-size: 12px;
+}
+
+.monitoring-floating-card small {
+  margin-top: 2px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+}
+
+.monitoring-floating-card-one {
+  top: 62px;
+  left: 24px;
+}
+
+.monitoring-floating-card-two {
+  right: 24px;
+  bottom: 62px;
+}
+
+
+/* =========================================================
+   CHRONIC CARE NETWORK
+========================================================= */
+
+.medical-motion-chronic {
+  min-height: 590px;
+
+  background: white;
+}
+
+.care-network-lines {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.care-network-lines path {
+  fill: none;
+
+  stroke:
+    rgba(220, 104, 47, 0.5);
+
+  stroke-width: 1.5;
+
+  stroke-dasharray: 6 8;
+}
+
+.care-network-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  z-index: 3;
+
+  width: 165px;
+  height: 165px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid var(--plum-950);
+
+  border-radius: 50%;
+
+  background: var(--plum-950);
+
+  color: var(--orange-400);
+
+  box-shadow: none;
+}
+
+.care-network-center strong {
+  margin-top: 10px;
+
+  color: white;
+
+  font-size: 14px;
+}
+
+.care-network-center small {
+  margin-top: 4px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 9px;
+}
+
+.care-network-node {
+  position: absolute;
+
+  z-index: 4;
+
+  min-width: 155px;
+
+  padding: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 0;
+
+  background: white;
+
+  box-shadow: none;
+}
+
+.care-network-node > span {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid rgba(238, 123, 59, 0.3);
+
+  border-radius: 0;
+
+  background: var(--cream);
+
+  color: var(--orange-600);
+}
+
+.care-network-node strong,
+.care-network-node small {
+  display: block;
+}
+
+.care-network-node strong {
+  color: var(--plum-900);
+
+  font-size: 11px;
+}
+
+.care-network-node small {
+  margin-top: 2px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+}
+
+.care-node-heart {
+  left: 7%;
+  top: 17%;
+}
+
+.care-node-glucose {
+  right: 7%;
+  top: 17%;
+}
+
+.care-node-alert {
+  right: 6%;
+  bottom: 17%;
+}
+
+.care-node-record {
+  left: 7%;
+  bottom: 17%;
+}
+
+
+/* =========================================================
+   ALERT VISUAL
+========================================================= */
+
+.medical-motion-alert {
+  min-height: 520px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: var(--cream);
+}
+
+.alert-ring {
+  position: absolute;
+
+  width: 175px;
+  height: 175px;
+
+  border:
+    1px solid rgba(238, 123, 59, 0.45);
+
+  border-radius: 50%;
+}
+
+.alert-center {
+  position: relative;
+
+  z-index: 3;
+
+  width: 108px;
+  height: 108px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--plum-950);
+
+  color: var(--orange-400);
+
+  box-shadow: none;
+}
+
+.alert-center span {
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 25px;
+  height: 25px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    2px solid var(--cream);
+
+  border-radius: 50%;
+
+  background: var(--orange-500);
+
+  color: white;
+
+  font-size: 9px;
   font-weight: 800;
-  text-align: center;
 }
 
-.pathway-strip b { color: var(--orange-600); }
+.alert-card {
+  position: absolute;
 
-@media (max-width: 1000px) {
-  .live-capability-row {
-    grid-template-columns: 50px 1fr;
+  right: 30px;
+  bottom: 38px;
+
+  z-index: 4;
+
+  width:
+    min(
+      285px,
+      calc(100% - 60px)
+    );
+
+  padding: 18px;
+
+  display: flex;
+
+  gap: 13px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 0;
+
+  background: white;
+
+  box-shadow: none;
+}
+
+.alert-card-indicator {
+  width: 9px;
+  height: 9px;
+
+  margin-top: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--orange-500);
+}
+
+.alert-card small {
+  color: var(--orange-600);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.alert-card strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--plum-900);
+
+  font-size: 13px;
+}
+
+.alert-card p {
+  margin: 5px 0 0;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .tdsa-section-heading {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(240px, 0.5fr);
+
+    gap: 50px;
   }
 
-  .live-capability-row .clinical-visual {
-    grid-column: 1 / -1;
+  .tdsa-feature-grid,
+  .tdsa-feature-grid-reverse {
+    gap: 55px;
   }
 
-  .entry-grid {
+  .tdsa-capability-card {
+    min-height: 270px;
+
+    padding: 28px;
+  }
+
+  .medical-motion {
+    min-height: 500px;
+  }
+
+  .medical-motion-chronic {
+    min-height: 540px;
+  }
+
+  .care-network-node {
+    min-width: 140px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 900px) {
+  .tdsa-intro-grid {
     grid-template-columns: 1fr;
+
+    gap: 45px;
   }
 
-  .entry-column {
-    min-height: 320px;
-  }
-
-  .section-intro-grid,
-  .ecg-product-grid,
-  .clinical-flow-grid,
-  .bottom-conversion-grid {
+  .tdsa-section-heading {
     grid-template-columns: 1fr;
+
     align-items: start;
+
+    gap: 24px;
   }
 
-  .conversion-link {
-    justify-self: start;
+  .tdsa-section-heading > p {
+    max-width: 620px;
+  }
+
+  .tdsa-care-steps {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .tdsa-capability-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .tdsa-feature-grid,
+  .tdsa-feature-grid-reverse {
+    grid-template-columns: 1fr;
+
+    gap: 65px;
+  }
+
+  .tdsa-monitoring-feature
+    .tdsa-feature-visual,
+  .tdsa-alert-feature
+    .tdsa-feature-visual {
+    order: 2;
+  }
+
+  .tdsa-monitoring-feature
+    .tdsa-feature-copy,
+  .tdsa-alert-feature
+    .tdsa-feature-copy {
+    order: 1;
+  }
+
+  .tdsa-feature-copy h2 {
+    max-width: 780px;
+  }
+
+  .tdsa-feature-copy > p {
+    max-width: 700px;
+  }
+
+  .tdsa-professionals-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
   }
 }
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
   .tdsa-section-shell {
-    width: min(calc(100% - 32px), var(--max-width));
+    width:
+      min(
+        calc(100% - 34px),
+        var(--max-width)
+      );
   }
 
-  .readiness-section { padding-top: 90px; }
-  .entry-section,
-  .ecg-product-section,
-  .clinical-flow-section,
-  .bottom-conversion { padding-block: 90px; }
-
-  .section-intro-grid {
-    padding-bottom: 48px;
+  .tdsa-intro,
+  .tdsa-capabilities,
+  .tdsa-feature,
+  .tdsa-professionals,
+  .tdsa-final-cta {
+    padding-block: 90px;
   }
 
-  .section-intro-grid h2,
-  .ecg-product-copy h2,
-  .clinical-flow-grid h2,
-  .bottom-conversion h2 {
-    font-size: clamp(36px, 11vw, 52px);
+  .tdsa-care-flow {
+    padding-block: 90px;
   }
 
-  .live-capability-row {
+  .tdsa-section-heading {
+    margin-bottom: 48px;
+  }
+
+  .tdsa-section-heading h2,
+  .tdsa-intro-copy h2,
+  .tdsa-feature-copy h2,
+  .tdsa-professionals h2,
+  .tdsa-cta-card h2 {
+    font-size:
+      clamp(
+        34px,
+        10vw,
+        48px
+      );
+
+    line-height: 1.03;
+
+    letter-spacing: -0.045em;
+  }
+
+  .tdsa-intro-copy > p,
+  .tdsa-feature-copy > p,
+  .tdsa-professionals-grid
+    > div:last-child
+    > p,
+  .tdsa-cta-card > p {
+    font-size: 15.5px;
+
+    line-height: 1.75;
+  }
+
+
+  /* Care flow */
+
+  .tdsa-care-steps {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 46px 0;
   }
 
-  .clinical-visual,
-  .ecg-visual,
-  .ehr-visual,
-  .pathway-visual {
-    min-height: 380px;
+  .tdsa-care-step {
+    min-height: 0;
+
+    padding: 30px 25px;
   }
 
-  .consult-visual {
+  .tdsa-care-step h3 {
+    margin-top: 42px;
+  }
+
+
+  /* Capabilities */
+
+  .tdsa-capability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tdsa-capability-card {
+    min-height: 0;
+
+    padding: 30px 25px;
+  }
+
+  .tdsa-capability-card h3 {
+    margin-top: 34px;
+  }
+
+
+  /* Feature layout */
+
+  .tdsa-feature-grid,
+  .tdsa-feature-grid-reverse {
+    gap: 46px;
+  }
+
+  .tdsa-feature-statements > div {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+
+  /* CTA */
+
+  .tdsa-cta-card {
+    padding: 42px 25px;
+  }
+
+  .tdsa-cta-actions {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .tdsa-solid-link,
+  .tdsa-outline-link {
+    width: 100%;
+  }
+
+
+  /* =====================================================
+     MOBILE MEDICAL VISUALS
+  ===================================================== */
+
+  .medical-motion {
+    min-height: 440px;
+  }
+
+  .medical-motion-ecg {
+    min-height: 470px;
+  }
+
+  .medical-center-node {
+    width: 125px;
+    height: 125px;
+  }
+
+  .medical-center-node span {
+    font-size: 28px;
+  }
+
+  .medical-pulse-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  .medical-pulse-ring-two {
+    width: 255px;
+    height: 255px;
+  }
+
+  .medical-orbit {
+    width: 275px;
+    height: 275px;
+  }
+
+  .medical-orbit-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .medical-orbit-icon-a {
+    top: -21px;
+
+    left: calc(50% - 21px);
+  }
+
+  .medical-orbit-icon-b {
+    bottom: -21px;
+
+    left: calc(50% - 21px);
+  }
+
+  .medical-ecg-line {
+    left: 3%;
+    right: 3%;
+    bottom: 32px;
+
+    height: 100px;
+  }
+
+
+  /* Remote monitoring */
+
+  .medical-motion-monitoring {
+    min-height: 470px;
+
     padding: 22px;
-    grid-template-columns: 1fr;
-    gap: 18px;
   }
 
-  .diagram-line { display: none; }
-  .diagram-center { position: static; transform: none; width: 100%; }
-  .consult-record { left: 22px; right: 22px; transform: none; justify-content: center; }
+  .monitoring-device {
+    width: 94%;
 
-  .rhythm-events {
-    grid-template-columns: repeat(2, 1fr);
+    padding: 23px;
   }
 
-  .ehr-node { width: 92px; padding: 12px; }
-  .ehr-center { width: 145px; }
-  .ehr-connector { display: none; }
+  .monitoring-bars {
+    height: 145px;
 
-  .entry-column {
-    min-height: 280px;
-    padding: 28px;
+    gap: 7px;
+  }
+
+  .monitoring-floating-card {
+    padding: 11px 13px;
+  }
+
+  .monitoring-floating-card-one {
+    left: 10px;
+    top: 22px;
+  }
+
+  .monitoring-floating-card-two {
+    right: 10px;
+    bottom: 22px;
+  }
+
+
+  /* Chronic care */
+
+  .medical-motion-chronic {
+    min-height: 500px;
+  }
+
+  .care-network-center {
+    width: 125px;
+    height: 125px;
+  }
+
+  .care-network-node {
+    min-width: 120px;
+
+    padding: 10px;
+
+    gap: 8px;
+  }
+
+  .care-network-node > span {
+    width: 31px;
+    height: 31px;
+  }
+
+  .care-node-heart {
+    left: 2%;
+    top: 11%;
+  }
+
+  .care-node-glucose {
+    right: 2%;
+    top: 11%;
+  }
+
+  .care-node-alert {
+    right: 2%;
+    bottom: 11%;
+  }
+
+  .care-node-record {
+    left: 2%;
+    bottom: 11%;
+  }
+
+
+  /* Alerts */
+
+  .medical-motion-alert {
+    min-height: 440px;
+  }
+
+  .alert-center {
+    width: 92px;
+    height: 92px;
+  }
+
+  .alert-ring {
+    width: 145px;
+    height: 145px;
+  }
+
+  .alert-card {
+    right: 16px;
+    left: 16px;
+
+    bottom: 24px;
+
+    width: auto;
   }
 }
 
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .tdsa-intro,
+  .tdsa-capabilities,
+  .tdsa-feature,
+  .tdsa-professionals,
+  .tdsa-final-cta {
+    padding-block: 78px;
+  }
+
+  .tdsa-care-flow {
+    padding-block: 78px;
+  }
+
+  .tdsa-eyebrow {
+    font-size: 9px;
+  }
+
+  .medical-motion {
+    min-height: 410px;
+  }
+
+  .medical-motion-ecg {
+    min-height: 430px;
+  }
+
+  .medical-orbit {
+    width: 235px;
+    height: 235px;
+  }
+
+  .medical-center-node {
+    width: 108px;
+    height: 108px;
+  }
+
+  .medical-center-node svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .medical-center-node span {
+    font-size: 23px;
+  }
+
+  .medical-pulse-ring {
+    width: 155px;
+    height: 155px;
+  }
+
+  .medical-pulse-ring-two {
+    width: 215px;
+    height: 215px;
+  }
+
+  .medical-motion-chronic {
+    min-height: 460px;
+  }
+
+  .care-network-center {
+    width: 110px;
+    height: 110px;
+  }
+
+  .care-network-center svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .care-network-node {
+    min-width: 105px;
+
+    max-width: 125px;
+  }
+
+  .care-network-node > span {
+    display: none;
+  }
+
+  .monitoring-floating-card {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .clinical-visual *,
-  .clinical-visual svg * {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .tdsa-capability-card,
+  .tdsa-text-link,
+  .tdsa-solid-link {
+    transition: none;
+  }
+
+  .tdsa-solid-link:hover {
+    transform: none;
+  }
+
+  .medical-motion *,
+  .medical-motion svg * {
     animation: none !important;
     transition: none !important;
   }
