@@ -58,8 +58,17 @@ function createWhatsAppLink(message: string) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-function createEmailLink(subject: string, message: string) {
-  return `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+function createGmailLink(subject = "", message = "") {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to: emailAddress,
+  });
+
+  if (subject) params.set("su", subject);
+  if (message) params.set("body", message);
+
+  return `https://mail.google.com/mail/?${params.toString()}`;
 }
 
 const officeAddress = "29 Landor Street, Thulisa Park";
@@ -82,7 +91,7 @@ export default function ContactPage() {
             <div className="contact-hero-copy">
               <p>
                 No forms to fill in. Choose what you need and we&apos;ll prepare the
-                message for WhatsApp or email so you can contact the right team faster.
+                message for WhatsApp or Gmail so you can contact the right team faster.
               </p>
             </div>
           </div>
@@ -125,11 +134,13 @@ export default function ContactPage() {
                       WhatsApp
                     </a>
                     <a
-                      href={createEmailLink(subject, message)}
+                      href={createGmailLink(subject, message)}
+                      target="_blank"
+                      rel="noreferrer"
                       className="contact-action contact-action-email"
                     >
                       <Mail size={18} />
-                      Email
+                      Gmail
                     </a>
                   </div>
                 </article>
@@ -205,7 +216,7 @@ export default function ContactPage() {
                     <span>Address</span>
                     <strong>{officeAddress}</strong>
                   </a>
-                  <a href={`mailto:${emailAddress}`}>
+                  <a href={createGmailLink()} target="_blank" rel="noreferrer">
                     <span>Email</span>
                     <strong>{emailAddress}</strong>
                   </a>
