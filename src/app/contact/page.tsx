@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { Clock3, Mail, MapPin, MessageCircleMore, Phone, Stethoscope } from "lucide-react";
+import {
+  Activity,
+  Clock3,
+  HeartPulse,
+  Mail,
+  MapPin,
+  MessageCircleMore,
+  Stethoscope,
+  UsersRound,
+} from "lucide-react";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -8,32 +17,50 @@ import "./contact.css";
 
 export const metadata: Metadata = {
   title: "Contact TeleDoctorSA",
-  description: "Contact TeleDoctorSA by WhatsApp, email or phone for telemedicine support, consultations and general enquiries.",
+  description: "Contact TeleDoctorSA through guided WhatsApp messages, email or phone for telemedicine support, consultations and general enquiries.",
 };
 
-const contactMethods = [
+const whatsappNumber = "27780336394";
+const emailAddress = "info@teledoctorsa.co.za";
+
+const contactJourneys = [
   {
-    icon: MessageCircleMore,
-    label: "WhatsApp",
-    copy: "Get instant responses to your queries and book consultations directly via WhatsApp.",
-    href: "https://wa.me/27780336394",
-    action: "Chat on WhatsApp",
+    icon: Stethoscope,
+    label: "Book a consultation",
+    copy: "Start a patient enquiry or ask about booking a virtual consultation.",
+    message: "Hello TeleDoctorSA, I would like to enquire about booking a virtual consultation. Please assist me with the next steps.",
+    subject: "Virtual consultation enquiry",
   },
   {
-    icon: Mail,
-    label: "Email",
-    copy: "Send us a detailed message and we'll respond within 24 hours.",
-    href: "mailto:info@teledoctorsa.co.za",
-    action: "info@teledoctorsa.co.za",
+    icon: UsersRound,
+    label: "Practice onboarding",
+    copy: "Ask about bringing your practice, clinical team or workflow onto TeleDoctorSA.",
+    message: "Hello TeleDoctorSA, I would like to enquire about onboarding my practice onto the platform. Please share the next steps.",
+    subject: "Practice onboarding enquiry",
   },
   {
-    icon: Phone,
-    label: "Phone",
-    copy: "Call us directly for urgent inquiries or to schedule appointments.",
-    href: "tel:+27780336394",
-    action: "+27 78 033 6394",
+    icon: HeartPulse,
+    label: "ECG247 enquiry",
+    copy: "Ask about ECG247 monitoring, hardware or clinical workflow support.",
+    message: "Hello TeleDoctorSA, I would like more information about ECG247 monitoring and how to get started.",
+    subject: "ECG247 enquiry",
+  },
+  {
+    icon: Activity,
+    label: "General support",
+    copy: "Get help with an existing service, platform question or general TeleDoctorSA enquiry.",
+    message: "Hello TeleDoctorSA, I need assistance with a TeleDoctorSA service. Please help me with my enquiry.",
+    subject: "TeleDoctorSA support enquiry",
   },
 ];
+
+function createWhatsAppLink(message: string) {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+function createEmailLink(subject: string, message: string) {
+  return `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+}
 
 const officeAddress = "29 Landor Street, Thulisa Park";
 const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
@@ -49,13 +76,13 @@ export default function ContactPage() {
           <div className="contact-shell contact-hero-grid">
             <div>
               <span className="contact-eyebrow">Contact TeleDoctorSA</span>
-              <h1>Get in Touch</h1>
+              <h1>Start the conversation.</h1>
             </div>
 
             <div className="contact-hero-copy">
               <p>
-                We&apos;re here to help with your healthcare needs. Reach out through
-                any of our convenient contact methods.
+                No forms to fill in. Choose what you need and we&apos;ll prepare the
+                message for WhatsApp or email so you can contact the right team faster.
               </p>
             </div>
           </div>
@@ -65,32 +92,59 @@ export default function ContactPage() {
           <div className="contact-shell">
             <div className="contact-heading">
               <div>
-                <span className="contact-eyebrow contact-eyebrow-dark">How to Reach Us</span>
-                <h2>Choose your preferred method of communication.</h2>
+                <span className="contact-eyebrow contact-eyebrow-dark">Quick contact</span>
+                <h2>Tell us what you need without typing it all from scratch.</h2>
               </div>
               <p>
-                Whether you need to book a consultation, ask a question or speak to
-                the support team, use the channel that works best for you.
+                Each option opens a ready-to-send message. You can edit it before
+                sending, because sending mysterious robot prose on your behalf would be a rather dramatic design choice.
               </p>
             </div>
 
-            <div className="contact-method-grid">
-              {contactMethods.map(({ icon: Icon, label, copy, href, action }) => (
-                <article key={label} className="contact-method">
-                  <div className="contact-method-icon" aria-hidden="true">
-                    <Icon size={25} strokeWidth={1.7} />
+            <div className="contact-journey-grid">
+              {contactJourneys.map(({ icon: Icon, label, copy, message, subject }) => (
+                <article key={label} className="contact-journey">
+                  <div className="contact-journey-top">
+                    <span className="contact-journey-icon" aria-hidden="true">
+                      <Icon size={24} strokeWidth={1.7} />
+                    </span>
+                    <div>
+                      <h3>{label}</h3>
+                      <p>{copy}</p>
+                    </div>
                   </div>
-                  <h3>{label}</h3>
-                  <p>{copy}</p>
-                  <a
-                    href={href}
-                    target={label === "WhatsApp" ? "_blank" : undefined}
-                    rel={label === "WhatsApp" ? "noreferrer" : undefined}
-                  >
-                    {action}
-                  </a>
+
+                  <div className="contact-journey-actions">
+                    <a
+                      href={createWhatsAppLink(message)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="contact-action contact-action-whatsapp"
+                    >
+                      <MessageCircleMore size={18} />
+                      WhatsApp
+                    </a>
+                    <a
+                      href={createEmailLink(subject, message)}
+                      className="contact-action contact-action-email"
+                    >
+                      <Mail size={18} />
+                      Email
+                    </a>
+                  </div>
                 </article>
               ))}
+            </div>
+
+            <div className="contact-direct-strip">
+              <div>
+                <span>Direct WhatsApp</span>
+                <strong>+27 78 033 6394</strong>
+              </div>
+              <div>
+                <span>Email</span>
+                <strong>info@teledoctorsa.co.za</strong>
+              </div>
             </div>
           </div>
         </section>
@@ -151,11 +205,11 @@ export default function ContactPage() {
                     <span>Address</span>
                     <strong>{officeAddress}</strong>
                   </a>
-                  <a href="mailto:info@teledoctorsa.co.za">
+                  <a href={`mailto:${emailAddress}`}>
                     <span>Email</span>
-                    <strong>info@teledoctorsa.co.za</strong>
+                    <strong>{emailAddress}</strong>
                   </a>
-                  <a href="https://wa.me/27780336394" target="_blank" rel="noreferrer">
+                  <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer">
                     <span>WhatsApp</span>
                     <strong>+27 78 033 6394</strong>
                   </a>
