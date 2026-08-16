@@ -87,11 +87,6 @@ const ecgFeatures = [
 
 const clinicalImages = [
   {
-    src: "/images/home/platform.jpg",
-    alt: "TeleDoctorSA digital health platform displayed on a clinical workstation",
-    label: "Connected platform",
-  },
-  {
     src: "/images/home/ecg monitor.jpg",
     alt: "ECG monitoring equipment used in a clinical environment",
     label: "Rhythm monitoring",
@@ -152,22 +147,49 @@ export function HomeSections() {
           </div>
 
           <div className="tdsa-clinical-image-grid">
+            <figure className="tdsa-clinical-image tdsa-clinical-image-1">
+              <div className="tdsa-clinical-image-frame tdsa-device-showcase">
+                <div className="tdsa-device-laptop">
+                  <Image
+                    src="/images/home/laptop.png"
+                    alt="TeleDoctorSA platform displayed on a laptop"
+                    fill
+                    sizes="(max-width: 800px) 88vw, 46vw"
+                    className="tdsa-device-media"
+                  />
+                </div>
+                <div className="tdsa-device-phone">
+                  <Image
+                    src="/images/home/phone.png"
+                    alt="TeleDoctorSA patient experience displayed on a smartphone"
+                    fill
+                    sizes="(max-width: 800px) 34vw, 14vw"
+                    className="tdsa-device-media"
+                  />
+                </div>
+              </div>
+              <figcaption>
+                <span>01</span>
+                <strong>Connected across devices</strong>
+              </figcaption>
+            </figure>
+
             {clinicalImages.map((image, index) => (
               <figure
                 key={image.src}
-                className={`tdsa-clinical-image tdsa-clinical-image-${index + 1}`}
+                className={`tdsa-clinical-image tdsa-clinical-image-${index + 2}`}
               >
                 <div className="tdsa-clinical-image-frame">
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    sizes={index === 0 ? "(max-width: 800px) 100vw, 50vw" : "(max-width: 800px) 100vw, 25vw"}
+                    sizes="(max-width: 800px) 100vw, 32vw"
                     className="tdsa-clinical-image-media"
                   />
                 </div>
                 <figcaption>
-                  <span>0{index + 1}</span>
+                  <span>0{index + 2}</span>
                   <strong>{image.label}</strong>
                 </figcaption>
               </figure>
