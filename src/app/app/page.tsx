@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Activity, ArrowRight, BellRing, FileHeart, HeartPulse, MonitorSmartphone, Smartphone } from "lucide-react";
 
@@ -6,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 
 import "../site-pages.css";
+import "./app-page.css";
 
 export const metadata: Metadata = {
   title: "TeleDoctorSA App",
@@ -38,6 +40,43 @@ export default function AppPage() {
             </div>
             <div>
               <p>The TeleDoctorSA app is designed to give patients a simpler way to stay connected to their care journey while clinicians work from the broader platform, EHR and monitoring environment.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="info-section app-device-showcase" aria-labelledby="app-device-title">
+          <div className="info-shell app-device-showcase-grid">
+            <div className="app-device-visual app-device-visual-phone">
+              <Image
+                src="/images/home/phone.png"
+                alt="TeleDoctorSA patient app displayed on a smartphone"
+                fill
+                sizes="(max-width: 560px) 100vw, (max-width: 820px) 45vw, 24vw"
+                className="app-device-image"
+              />
+            </div>
+
+            <div className="app-device-copy">
+              <span className="info-eyebrow">One connected experience</span>
+              <h2 id="app-device-title">Care that follows the patient from phone to desktop.</h2>
+              <p>
+                Patients can stay close to their care journey on mobile while clinicians and practice teams work from the broader platform on larger screens. The experience stays connected without forcing everyone into the same interface.
+              </p>
+              <ul className="info-list">
+                <li><Smartphone size={18} /> Patient-first mobile access</li>
+                <li><MonitorSmartphone size={18} /> Desktop-ready clinical workflows</li>
+                <li><HeartPulse size={18} /> Shared monitoring and follow-up context</li>
+              </ul>
+            </div>
+
+            <div className="app-device-visual app-device-visual-laptop">
+              <Image
+                src="/images/home/laptop.png"
+                alt="TeleDoctorSA platform displayed on a laptop"
+                fill
+                sizes="(max-width: 560px) 100vw, (max-width: 820px) 45vw, 34vw"
+                className="app-device-image"
+              />
             </div>
           </div>
         </section>
