@@ -1,0 +1,252 @@
+/* Compact, minimal site scale.
+   Keeps the existing visual language while reducing visual bulk. */
+
+:root {
+  --compact-section-space: 88px;
+  --compact-section-space-small: 68px;
+}
+
+@media (min-width: 901px) {
+  /* General typography */
+  main h1 {
+    font-size: clamp(44px, 4.4vw, 68px) !important;
+    line-height: 0.98 !important;
+  }
+
+  main h2 {
+    font-size: clamp(32px, 3.6vw, 52px) !important;
+    line-height: 1.02 !important;
+  }
+
+  main h3 {
+    font-size: clamp(17px, 1.55vw, 22px) !important;
+  }
+
+  main p,
+  .hero-description,
+  .info-hero p,
+  .info-heading > p,
+  .info-copy > p,
+  .contact-heading > p,
+  .contact-hero-copy p,
+  .contact-location-copy p,
+  .tdsa-section-heading > p,
+  .tdsa-intro-copy > p,
+  .tdsa-feature-copy > p,
+  .app-device-copy p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+  }
+
+  .hero-eyebrow,
+  .tdsa-eyebrow,
+  .info-eyebrow,
+  .contact-eyebrow,
+  .register-eyebrow,
+  .tdsa-section-kicker {
+    font-size: 9px !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  /* Overall section rhythm */
+  .tdsa-intro,
+  .tdsa-care-flow,
+  .tdsa-capabilities,
+  .tdsa-feature,
+  .tdsa-professionals,
+  .tdsa-final-cta,
+  .tdsa-clinical-imagery,
+  .tdsa-pathways,
+  .info-section,
+  .contact-section,
+  .profile-section,
+  .integration-section,
+  .registration-section {
+    padding-top: var(--compact-section-space) !important;
+    padding-bottom: var(--compact-section-space) !important;
+  }
+
+  .info-hero,
+  .contact-hero,
+  .register-hero {
+    padding-top: 145px !important;
+    padding-bottom: 76px !important;
+  }
+
+  /* Buttons and links */
+  .primary-button,
+  .secondary-button,
+  .info-primary,
+  .info-secondary,
+  .tdsa-solid-link,
+  .tdsa-outline-link,
+  .contact-action,
+  .register-primary-link,
+  .registration-submit {
+    min-height: 46px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    font-size: 12px !important;
+  }
+
+  /* Homepage grids */
+  .tdsa-live-capability-copy,
+  .tdsa-pathway-column,
+  .tdsa-capability-card,
+  .tdsa-care-step {
+    padding: 24px !important;
+  }
+
+  .tdsa-live-capability-copy h3,
+  .tdsa-pathway-column h3,
+  .tdsa-capability-card h3,
+  .tdsa-care-step h3 {
+    margin-top: 28px !important;
+  }
+
+  .tdsa-pathway-column,
+  .tdsa-capability-card,
+  .tdsa-care-step {
+    min-height: 235px !important;
+  }
+
+  .tdsa-live-capability-visual,
+  .tdsa-live-capability-visual .medical-motion {
+    min-height: 260px !important;
+  }
+
+  .tdsa-clinical-imagery-heading {
+    margin-bottom: 34px !important;
+  }
+
+  .tdsa-clinical-image-grid {
+    gap: 16px !important;
+  }
+
+  .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-1 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-2 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-3 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-4 .tdsa-clinical-image-frame {
+    min-height: 330px !important;
+  }
+
+  .tdsa-ecg-photo-frame {
+    min-height: 400px !important;
+  }
+
+  /* Secondary pages */
+  .info-heading,
+  .contact-heading {
+    margin-bottom: 42px !important;
+  }
+
+  .info-cell {
+    min-height: 210px !important;
+    padding: 24px !important;
+  }
+
+  .info-cell h3 {
+    margin-top: 30px !important;
+  }
+
+  .info-service-row {
+    min-height: 138px !important;
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .contact-journey {
+    min-height: 220px !important;
+    padding: 24px !important;
+  }
+
+  .contact-journey-icon,
+  .availability-icon,
+  .info-service-icon {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .availability-table > div {
+    min-height: 120px !important;
+    padding: 22px 24px !important;
+  }
+
+  .contact-map-wrap iframe {
+    height: 380px !important;
+  }
+
+  /* App page */
+  .app-device-showcase-grid {
+    min-height: 590px !important;
+    gap: 32px !important;
+  }
+
+  .app-device-visual-phone {
+    height: 470px !important;
+  }
+
+  .app-device-visual-laptop {
+    height: 360px !important;
+  }
+
+  .app-device-copy .info-list {
+    margin-top: 22px !important;
+  }
+
+  /* Forms */
+  .registration-form {
+    padding: 24px !important;
+  }
+
+  .field-group input,
+  .field-group select,
+  .field-group textarea {
+    min-height: 46px !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding-top: 50px !important;
+  }
+
+  .footer-main {
+    gap: 64px !important;
+  }
+
+  .footer-bottom {
+    margin-top: 42px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .tdsa-intro,
+  .tdsa-care-flow,
+  .tdsa-capabilities,
+  .tdsa-feature,
+  .tdsa-professionals,
+  .tdsa-final-cta,
+  .tdsa-clinical-imagery,
+  .tdsa-pathways,
+  .info-section,
+  .contact-section,
+  .profile-section,
+  .integration-section,
+  .registration-section {
+    padding-top: var(--compact-section-space-small) !important;
+    padding-bottom: var(--compact-section-space-small) !important;
+  }
+
+  main h1 {
+    font-size: clamp(38px, 9vw, 54px) !important;
+  }
+
+  main h2 {
+    font-size: clamp(30px, 7vw, 44px) !important;
+  }
+
+  main p {
+    font-size: 14px !important;
+  }
+}
