@@ -59,7 +59,7 @@
 .contact-hero-copy p {
   max-width: 520px;
   margin: 0;
-  color: rgba(255,255,255,0.68);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 17px;
   line-height: 1.8;
 }
@@ -96,62 +96,132 @@
   line-height: 1.75;
 }
 
-.contact-method-grid {
+.contact-journey-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
 }
 
-.contact-method {
-  min-height: 310px;
-  padding: 34px;
+.contact-journey {
+  min-height: 270px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: var(--cream);
 }
 
-.contact-method-icon {
+.contact-journey-top {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.contact-journey-icon {
   width: 52px;
   height: 52px;
   display: grid;
   place-items: center;
   border: 1px solid var(--border);
-  color: var(--orange-600);
   background: white;
+  color: var(--orange-600);
 }
 
-.contact-method h3 {
-  margin: 44px 0 0;
-  color: var(--plum-900);
+.contact-journey h3 {
+  margin: 0;
+  color: var(--plum-950);
   font-size: 23px;
   letter-spacing: -0.03em;
 }
 
-.contact-method p {
-  min-height: 74px;
-  margin: 15px 0 0;
+.contact-journey p {
+  margin: 10px 0 0;
+  max-width: 480px;
   color: var(--muted);
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
-.contact-method a {
-  margin-top: 26px;
-  min-height: 48px;
+.contact-journey-actions {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.contact-action {
+  min-height: 50px;
+  padding: 0 16px;
   display: inline-flex;
   align-items: center;
-  padding: 0 16px;
-  border: 1px solid var(--plum-900);
-  color: var(--plum-900);
+  justify-content: center;
+  gap: 9px;
   font-size: 13px;
   font-weight: 800;
-  transition: background 180ms ease, color 180ms ease;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
-.contact-method a:hover {
-  background: var(--plum-900);
+.contact-action-whatsapp {
+  border: 1px solid var(--plum-950);
+  background: var(--plum-950);
   color: white;
+}
+
+.contact-action-whatsapp:hover {
+  background: var(--plum-900);
+}
+
+.contact-action-email {
+  border: 1px solid var(--plum-950);
+  background: transparent;
+  color: var(--plum-950);
+}
+
+.contact-action-email:hover {
+  background: white;
+  border-color: var(--orange-600);
+  color: var(--orange-600);
+}
+
+.contact-direct-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-direct-strip > div {
+  min-height: 86px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-right: 1px solid var(--border);
+  background: white;
+}
+
+.contact-direct-strip span,
+.contact-direct-strip strong {
+  display: block;
+}
+
+.contact-direct-strip span {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-direct-strip strong {
+  color: var(--plum-950);
+  font-size: 14px;
+  text-align: right;
 }
 
 .contact-availability-section {
@@ -249,7 +319,7 @@
   display: flex;
   align-items: center;
   gap: 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .contact-address-heading svg {
@@ -267,7 +337,7 @@
 
 .contact-address-heading span {
   margin-top: 6px;
-  color: rgba(255,255,255,0.58);
+  color: rgba(255, 255, 255, 0.58);
   font-size: 12px;
 }
 
@@ -283,7 +353,7 @@
   gap: 20px;
   align-items: center;
   margin: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .contact-address-lines > *:last-child {
@@ -291,7 +361,7 @@
 }
 
 .contact-address-lines span {
-  color: rgba(255,255,255,0.48);
+  color: rgba(255, 255, 255, 0.48);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -340,16 +410,9 @@
     grid-template-columns: 1fr;
   }
 
-  .contact-method-grid {
+  .contact-journey-grid,
+  .contact-direct-strip {
     grid-template-columns: 1fr;
-  }
-
-  .contact-method {
-    min-height: 0;
-  }
-
-  .contact-method p {
-    min-height: 0;
   }
 }
 
@@ -366,13 +429,33 @@
     padding: 82px 0;
   }
 
-  .contact-method {
-    padding: 28px 22px;
+  .contact-journey {
+    min-height: 0;
+    padding: 26px 22px;
   }
 
-  .contact-method a {
-    width: 100%;
-    justify-content: center;
+  .contact-journey-top {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .contact-journey-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact-journey-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-direct-strip > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-direct-strip strong {
+    text-align: left;
   }
 
   .availability-table > div {
