@@ -1,0 +1,139 @@
+/* Site-wide marketing typography alignment.
+   Keeps operational/data-heavy UI left aligned for readability. */
+
+main {
+  text-align: center;
+}
+
+main h1,
+main h2,
+main h3,
+main .hero-eyebrow,
+main .tdsa-eyebrow,
+main .info-eyebrow,
+main .contact-eyebrow {
+  text-align: center;
+}
+
+main p,
+main .hero-description,
+main .info-heading > p,
+main .info-copy > p,
+main .contact-heading > p,
+main .contact-hero-copy p,
+main .contact-location-copy p,
+main .tdsa-section-heading > p,
+main .tdsa-clinical-imagery-heading h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content,
+.info-hero-grid > *,
+.info-heading > *,
+.info-copy,
+.contact-hero-grid > *,
+.contact-heading > *,
+.contact-availability-grid > *,
+.contact-location-copy,
+.tdsa-section-heading > *,
+.tdsa-clinical-imagery-heading,
+.app-device-copy {
+  text-align: center;
+}
+
+.hero-eyebrow,
+.info-eyebrow,
+.contact-eyebrow,
+.tdsa-eyebrow {
+  justify-content: center;
+}
+
+.hero-content,
+.info-hero h1,
+.info-hero p,
+.info-heading h2,
+.info-heading > p,
+.info-copy h2,
+.info-copy > p,
+.contact-hero h1,
+.contact-hero-copy p,
+.contact-heading h2,
+.contact-heading > p,
+.contact-availability-grid h2,
+.contact-location-copy h2,
+.contact-location-copy p,
+.tdsa-section-heading h2,
+.tdsa-section-heading > p,
+.tdsa-clinical-imagery-heading,
+.tdsa-clinical-imagery-heading h2,
+.app-device-copy h2,
+.app-device-copy p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions,
+.info-hero-actions,
+.info-actions,
+.tdsa-cta-actions,
+.contact-journey-actions {
+  justify-content: center;
+}
+
+.tdsa-live-capability-copy,
+.tdsa-pathway-column,
+.info-cell,
+.contact-method,
+.contact-journey {
+  text-align: center;
+}
+
+.tdsa-capability-icon,
+.contact-method-icon,
+.contact-journey-icon,
+.info-cell > svg {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Preserve clear scanning in functional/data-heavy UI. */
+.ehr-record,
+.ehr-timeline,
+.app-phone,
+.patient-status-card,
+.availability-table,
+.contact-address-panel,
+.contact-map-wrap,
+.tdsa-ecg-feature-list,
+.tdsa-ecg-photo-caption,
+.info-diagram,
+.info-diagram-stack,
+.info-list,
+.info-service-row,
+.megaFeature,
+.megaServices,
+.mobileServices {
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  main h1,
+  main h2,
+  main h3,
+  main p,
+  main .hero-description,
+  main .info-copy,
+  main .contact-location-copy,
+  main .app-device-copy {
+    text-align: center;
+  }
+
+  .hero-actions,
+  .info-hero-actions,
+  .info-actions,
+  .tdsa-cta-actions,
+  .contact-journey-actions {
+    justify-content: center;
+  }
+}
