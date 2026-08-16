@@ -74,6 +74,106 @@
   background: var(--cream-dark);
 }
 
+.tdsa-clinical-imagery {
+  padding: 132px 0 118px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.tdsa-clinical-imagery-heading {
+  max-width: 820px;
+  margin-bottom: 52px;
+}
+
+.tdsa-clinical-imagery-heading h2 {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: var(--plum-950);
+  font-size: clamp(36px, 5vw, 66px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.tdsa-clinical-image-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.tdsa-clinical-image {
+  margin: 0;
+  min-width: 0;
+}
+
+.tdsa-clinical-image-1 {
+  grid-column: 1 / span 7;
+}
+
+.tdsa-clinical-image-2 {
+  grid-column: 8 / span 5;
+  margin-top: 72px;
+}
+
+.tdsa-clinical-image-3 {
+  grid-column: 2 / span 4;
+  margin-top: -28px;
+}
+
+.tdsa-clinical-image-4 {
+  grid-column: 6 / span 6;
+  margin-top: 30px;
+}
+
+.tdsa-clinical-image-frame {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  background: var(--cream-dark);
+  border: 1px solid var(--border);
+}
+
+.tdsa-clinical-image-1 .tdsa-clinical-image-frame {
+  min-height: 520px;
+}
+
+.tdsa-clinical-image-2 .tdsa-clinical-image-frame,
+.tdsa-clinical-image-4 .tdsa-clinical-image-frame {
+  min-height: 430px;
+}
+
+.tdsa-clinical-image-media {
+  object-fit: cover;
+  transition: transform 700ms var(--ease-premium), filter 300ms ease;
+}
+
+.tdsa-clinical-image:hover .tdsa-clinical-image-media {
+  transform: scale(1.025);
+}
+
+.tdsa-clinical-image figcaption {
+  min-height: 58px;
+  padding: 14px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-top: 2px solid var(--plum-950);
+  color: var(--plum-950);
+}
+
+.tdsa-clinical-image figcaption span {
+  color: var(--orange-600);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.tdsa-clinical-image figcaption strong {
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
 .tdsa-pathways {
   padding: 140px 0;
   background: var(--cream);
@@ -156,9 +256,57 @@
   line-height: 1.55;
 }
 
+.tdsa-ecg-photo-visual {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--plum-950);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.tdsa-ecg-photo-frame {
+  position: relative;
+  min-height: 520px;
+  flex: 1;
+  overflow: hidden;
+  background: var(--plum-900);
+}
+
+.tdsa-ecg-photo {
+  object-fit: cover;
+}
+
+.tdsa-ecg-photo-caption {
+  min-height: 76px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--plum-950);
+  color: white;
+}
+
+.tdsa-ecg-photo-caption span {
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tdsa-ecg-photo-caption strong {
+  font-size: 13px;
+}
+
 .tdsa-live-capability *,
 .tdsa-pathway-column *,
-.tdsa-ecg-feature-item * {
+.tdsa-ecg-feature-item *,
+.tdsa-clinical-image *,
+.tdsa-ecg-photo-visual * {
   border-radius: 0;
 }
 
@@ -181,6 +329,29 @@
   .tdsa-pathway-column {
     min-height: 280px;
   }
+
+  .tdsa-clinical-image-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tdsa-clinical-image-1,
+  .tdsa-clinical-image-2,
+  .tdsa-clinical-image-3,
+  .tdsa-clinical-image-4 {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .tdsa-clinical-image-1 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-2 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-3 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-4 .tdsa-clinical-image-frame {
+    min-height: 390px;
+  }
+
+  .tdsa-ecg-photo-frame {
+    min-height: 440px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -193,6 +364,7 @@
     display: none;
   }
 
+  .tdsa-clinical-imagery,
   .tdsa-pathways {
     padding: 90px 0;
   }
@@ -214,5 +386,41 @@
   .tdsa-live-capability-visual,
   .tdsa-live-capability-visual .medical-motion {
     min-height: 390px;
+  }
+
+  .tdsa-clinical-imagery-heading {
+    margin-bottom: 34px;
+  }
+
+  .tdsa-clinical-image-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .tdsa-clinical-image-1 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-2 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-3 .tdsa-clinical-image-frame,
+  .tdsa-clinical-image-4 .tdsa-clinical-image-frame {
+    min-height: 320px;
+  }
+
+  .tdsa-ecg-photo-frame {
+    min-height: 360px;
+  }
+
+  .tdsa-ecg-photo-caption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdsa-clinical-image-media {
+    transition: none;
+  }
+
+  .tdsa-clinical-image:hover .tdsa-clinical-image-media {
+    transform: none;
   }
 }
