@@ -69,7 +69,7 @@ export function Hero() {
             <span>Backed by Dr. Mukudu &amp; Partners</span>
             <div className="hero-trust-logo" aria-label="Technology trust logo">
               <Image
-                src="/images/home/GCP.jpg"
+                src="/images/home/GCP.png"
                 alt="GCP trust logo"
                 width={170}
                 height={54}
