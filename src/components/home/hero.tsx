@@ -67,6 +67,15 @@ export function Hero() {
             <span>HPCSA-Aligned</span>
             <span>POPIA-Compliant Data Servers</span>
             <span>Backed by Dr. Mukudu &amp; Partners</span>
+            <div className="hero-trust-logo" aria-label="Technology trust logo">
+              <Image
+                src="/images/home/GCP.jpg"
+                alt="GCP trust logo"
+                width={170}
+                height={54}
+                sizes="170px"
+              />
+            </div>
           </motion.div>
         </motion.div>
       </div>
