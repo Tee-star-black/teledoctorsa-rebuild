@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
   Activity,
@@ -17,6 +18,7 @@ import {
 } from "lucide-react";
 
 import styles from "./header.module.css";
+import polish from "./header-polish.module.css";
 
 const navigation = [
   { label: "EHR", href: "/ehr" },
@@ -65,6 +67,7 @@ const serviceLinks = [
 
 export function Header() {
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -84,6 +87,30 @@ export function Header() {
     setMobileServicesOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setServicesOpen(false);
+        setOpen(false);
+      }
+    }
+
+    function handlePointerDown(event: PointerEvent) {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setServicesOpen(false);
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, []);
+
   function isActive(href: string) {
     return pathname === href || pathname.startsWith(`${href}/`);
   }
@@ -91,26 +118,35 @@ export function Header() {
   const servicesActive = serviceLinks.some((service) => isActive(service.href));
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+    <header
+      ref={headerRef}
+      className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
+    >
       <div className={styles.shell}>
         <Link href="/" className={styles.brand} aria-label="TeleDoctorSA home">
-          <span className={styles.brandMark} aria-hidden="true">
-            <Activity size={20} strokeWidth={1.9} />
-          </span>
-          <span className={styles.brandCopy}>
-            <strong>TeleDoctorSA</strong>
-            <small>Connected Care</small>
-          </span>
+          <Image
+            src="/images/home/logo.png"
+            alt="TeleDoctorSA"
+            width={264}
+            height={84}
+            priority
+            className={polish.brandLogo}
+          />
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">
-          <div className={styles.servicesNavItem}>
+          <div
+            className={styles.servicesNavItem}
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
             <button
               type="button"
               className={`${styles.navLink} ${styles.servicesTrigger} ${servicesActive ? styles.active : ""}`}
               aria-expanded={servicesOpen}
               aria-controls="services-mega-menu"
               onClick={() => setServicesOpen((current) => !current)}
+              onFocus={() => setServicesOpen(true)}
             >
               {servicesActive ? (
                 <motion.span
@@ -131,41 +167,55 @@ export function Header() {
               {servicesOpen ? (
                 <motion.div
                   id="services-mega-menu"
-                  className={styles.servicesMegaMenu}
-                  style={{ left: "max(28px, calc(50% - 560px))" }}
-                  initial={{ opacity: 0, y: 10, scale: 0.99 }}
+                  className={`${styles.servicesMegaMenu} ${polish.megaMenu}`}
+                  initial={{ opacity: 0, y: 8, scale: 0.992 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.99 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  exit={{ opacity: 0, y: 8, scale: 0.992 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
                 >
-                  <div className={styles.megaFeature}>
-                    <span className={styles.megaEyebrow}>TeleDoctorSA services</span>
-                    <h3>Connected clinical care, shaped around your practice.</h3>
+                  <div className={`${styles.megaFeature} ${polish.megaFeaturePanel}`}>
+                    <div className={polish.megaLogoWrap}>
+                      <Image
+                        src="/images/home/logo.png"
+                        alt="TeleDoctorSA"
+                        width={304}
+                        height={96}
+                        className={polish.megaLogo}
+                      />
+                    </div>
+                    <span className={styles.megaEyebrow}>Connected care platform</span>
+                    <h3>Clinical workflows shaped around your practice.</h3>
                     <p>
-                      Explore the workflows that connect patients, clinicians,
+                      Explore the services that connect patients, clinicians,
                       diagnostics and records, then book a demo to discuss the
                       configuration your team needs.
                     </p>
-                    <Link href="/contact?type=demo" className={styles.megaFeatureLink}>
+                    <Link
+                      href="/contact?type=demo"
+                      className={`${styles.megaFeatureLink} ${polish.megaFeatureLinkPolish}`}
+                    >
                       Book a demo
                       <ArrowRight size={16} />
                     </Link>
                   </div>
 
-                  <div className={styles.megaServices}>
+                  <div className={`${styles.megaServices} ${polish.megaServicesPanel}`}>
                     <div className={styles.megaServicesHeader}>
                       <span>Explore services</span>
-                      <small>Select a workflow</small>
+                      <small>Hover to explore</small>
                     </div>
 
-                    <div className={styles.megaServicesGrid}>
+                    <div className={`${styles.megaServicesGrid} ${polish.megaGrid}`}>
                       {serviceLinks.map(({ icon: Icon, title, copy, href, tag }) => (
                         <Link
                           key={title}
                           href={href}
-                          className={`${styles.megaServiceItem} ${isActive(href) ? styles.megaServiceItemActive : ""}`}
+                          className={`${styles.megaServiceItem} ${polish.megaItem} ${isActive(href) ? styles.megaServiceItemActive : ""}`}
                         >
-                          <span className={styles.megaServiceIcon} aria-hidden="true">
+                          <span
+                            className={`${styles.megaServiceIcon} ${polish.megaIcon}`}
+                            aria-hidden="true"
+                          >
                             <Icon size={20} strokeWidth={1.7} />
                           </span>
                           <span className={styles.megaServiceCopy}>
@@ -173,7 +223,11 @@ export function Header() {
                             <strong>{title}</strong>
                             <span>{copy}</span>
                           </span>
-                          <ArrowRight size={16} aria-hidden="true" />
+                          <ArrowRight
+                            size={16}
+                            className={polish.megaArrow}
+                            aria-hidden="true"
+                          />
                         </Link>
                       ))}
                     </div>
