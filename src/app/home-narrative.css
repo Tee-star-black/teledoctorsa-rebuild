@@ -315,11 +315,13 @@
   min-height: 520px;
   flex: 1;
   overflow: hidden;
-  background: var(--plum-900);
+  background: var(--cream-dark);
 }
 
 .tdsa-ecg-photo {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  padding: 24px;
 }
 
 .tdsa-ecg-photo-caption {
@@ -405,6 +407,10 @@
   .tdsa-ecg-photo-frame {
     min-height: 440px;
   }
+
+  .tdsa-ecg-photo {
+    padding: 18px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -470,6 +476,10 @@
 
   .tdsa-ecg-photo-frame {
     min-height: 360px;
+  }
+
+  .tdsa-ecg-photo {
+    padding: 12px;
   }
 
   .tdsa-ecg-photo-caption {
