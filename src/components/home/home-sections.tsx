@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -84,6 +85,29 @@ const ecgFeatures = [
   },
 ];
 
+const clinicalImages = [
+  {
+    src: "/images/home/platform.jpg",
+    alt: "TeleDoctorSA digital health platform displayed on a clinical workstation",
+    label: "Connected platform",
+  },
+  {
+    src: "/images/home/ecg monitor.jpg",
+    alt: "ECG monitoring equipment used in a clinical environment",
+    label: "Rhythm monitoring",
+  },
+  {
+    src: "/images/home/bpm.jpg",
+    alt: "Blood pressure monitoring equipment",
+    label: "Remote vitals",
+  },
+  {
+    src: "/images/home/apparatus.jpg",
+    alt: "Clinical monitoring apparatus",
+    label: "Clinical hardware",
+  },
+];
+
 export function HomeSections() {
   return (
     <>
@@ -115,6 +139,38 @@ export function HomeSections() {
                   <MedicalMotionVisual variant={visual} />
                 </div>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="tdsa-clinical-imagery" aria-labelledby="clinical-imagery-title">
+        <div className="tdsa-section-shell">
+          <div className="tdsa-clinical-imagery-heading">
+            <span className="tdsa-eyebrow">Clinical technology in practice</span>
+            <h2 id="clinical-imagery-title">A connected care environment, not a collection of isolated tools.</h2>
+          </div>
+
+          <div className="tdsa-clinical-image-grid">
+            {clinicalImages.map((image, index) => (
+              <figure
+                key={image.src}
+                className={`tdsa-clinical-image tdsa-clinical-image-${index + 1}`}
+              >
+                <div className="tdsa-clinical-image-frame">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes={index === 0 ? "(max-width: 800px) 100vw, 50vw" : "(max-width: 800px) 100vw, 25vw"}
+                    className="tdsa-clinical-image-media"
+                  />
+                </div>
+                <figcaption>
+                  <span>0{index + 1}</span>
+                  <strong>{image.label}</strong>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
@@ -183,8 +239,20 @@ export function HomeSections() {
             </Link>
           </div>
 
-          <div className="tdsa-feature-visual">
-            <MedicalMotionVisual variant="ecg" />
+          <div className="tdsa-feature-visual tdsa-ecg-photo-visual">
+            <div className="tdsa-ecg-photo-frame">
+              <Image
+                src="/images/home/ecg monitor.jpg"
+                alt="ECG monitoring equipment"
+                fill
+                sizes="(max-width: 900px) 100vw, 50vw"
+                className="tdsa-ecg-photo"
+              />
+            </div>
+            <div className="tdsa-ecg-photo-caption">
+              <span>Continuous monitoring</span>
+              <strong>ECG247 workflow</strong>
+            </div>
           </div>
         </div>
       </section>
