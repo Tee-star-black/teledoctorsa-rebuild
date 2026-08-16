@@ -1,4 +1,5 @@
 import "./home.css";
+import "./home-narrative.css";
 import "./hero-overrides.css";
 
 import { Footer } from "@/components/layout/footer";
