@@ -1,23 +1,132 @@
-.hero-main-image {
-  object-position: 65% center;
+.hero-background-layout {
+  position: relative;
+  display: block;
+  min-height: calc(100vh - 82px);
+  overflow: hidden;
+  background: var(--plum-950);
 }
 
-.patient-status-card {
-  top: auto;
-  right: auto;
-  bottom: 110px;
-  left: 32px;
+.hero-background-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-background-image .hero-main-image {
+  object-fit: cover !important;
+  object-position: 66% center !important;
+}
+
+.hero-solid-overlay {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 62%;
+  z-index: 1;
+  background: rgba(32, 13, 30, 0.9);
+  pointer-events: none;
+}
+
+.hero-background-content {
+  position: relative;
+  z-index: 2;
+  width: min(calc(100% - 48px), var(--max-width));
+  min-height: calc(100vh - 82px);
+  margin-inline: auto;
+  padding: 90px 0 120px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-background-content .hero-content {
+  width: min(690px, 55%);
+}
+
+.hero-background-content .hero-eyebrow,
+.hero-background-content .hero-description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-background-content .eyebrow-line {
+  background: var(--orange-500);
+}
+
+.hero-background-content h1 {
+  color: white;
+  font-size: clamp(50px, 5.6vw, 82px);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.hero-background-content .hero-description {
+  max-width: 650px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.hero-background-content .primary-button,
+.hero-background-content .secondary-button {
+  border-radius: 0;
+}
+
+.hero-background-content .secondary-button {
+  border-color: rgba(255,255,255,0.36);
+  background: transparent;
+  color: white;
+}
+
+.hero-trust-anchor {
+  margin-top: 34px;
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.hero-trust-anchor span {
+  color: rgba(255,255,255,0.58);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-floating-card {
+  position: absolute !important;
+  z-index: 4;
+  top: auto !important;
+  left: auto !important;
+  right: clamp(28px, 5vw, 90px) !important;
+  bottom: clamp(72px, 10vh, 120px) !important;
+  width: min(330px, calc(100% - 48px));
+  border-radius: 0 !important;
+}
+
+@media (max-width: 1000px) {
+  .hero-solid-overlay { width: 72%; }
+  .hero-background-content .hero-content { width: 66%; }
+  .hero-floating-card { right: 28px !important; bottom: 60px !important; }
 }
 
 @media (max-width: 700px) {
-  .hero-main-image {
-    object-position: 62% center;
+  .hero-background-layout { min-height: auto; }
+  .hero-background-image .hero-main-image { object-position: 70% center !important; }
+  .hero-solid-overlay { width: 100%; background: rgba(32, 13, 30, 0.86); }
+  .hero-background-content {
+    width: calc(100% - 34px);
+    min-height: auto;
+    padding: 86px 0 330px;
+    align-items: flex-start;
   }
-
-  .patient-status-card {
-    left: 20px;
-    right: 20px;
-    bottom: 92px;
+  .hero-background-content .hero-content { width: 100%; }
+  .hero-background-content h1 { font-size: clamp(43px, 13vw, 62px); }
+  .hero-actions { align-items: stretch; flex-direction: column; }
+  .hero-background-content .primary-button,
+  .hero-background-content .secondary-button { width: 100%; }
+  .hero-floating-card {
+    left: 17px !important;
+    right: 17px !important;
+    bottom: 34px !important;
     width: auto;
   }
 }
