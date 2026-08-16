@@ -56,8 +56,8 @@ const serviceLinks = [
   },
   {
     icon: Stethoscope,
-    title: "Practice Onboarding",
-    copy: "Bring doctors, nurses and practice teams onto TeleDoctorSA.",
+    title: "Practice Solutions",
+    copy: "Configure TeleDoctorSA around your practice workflows and needs.",
     href: "/for-clinicians/register",
     tag: "For practices",
   },
@@ -140,13 +140,14 @@ export function Header() {
                 >
                   <div className={styles.megaFeature}>
                     <span className={styles.megaEyebrow}>TeleDoctorSA services</span>
-                    <h3>Connected clinical care, from consultation to follow-up.</h3>
+                    <h3>Connected clinical care, shaped around your practice.</h3>
                     <p>
                       Explore the workflows that connect patients, clinicians,
-                      diagnostics and records across one care environment.
+                      diagnostics and records, then book a demo to discuss the
+                      configuration your team needs.
                     </p>
-                    <Link href="/for-clinicians/register" className={styles.megaFeatureLink}>
-                      Onboard your practice
+                    <Link href="/contact?type=demo" className={styles.megaFeatureLink}>
+                      Book a demo
                       <ArrowRight size={16} />
                     </Link>
                   </div>
@@ -212,8 +213,8 @@ export function Header() {
           >
             Contact
           </Link>
-          <Link href="/for-clinicians/register" className={styles.cta}>
-            Register Practice
+          <Link href="/contact?type=demo" className={styles.cta}>
+            Book a Demo
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -304,8 +305,8 @@ export function Header() {
               Contact
             </Link>
 
-            <Link href="/for-clinicians/register" className={styles.mobileCta}>
-              Register Practice
+            <Link href="/contact?type=demo" className={styles.mobileCta}>
+              Book a Demo
               <ArrowRight size={17} />
             </Link>
           </motion.div>
