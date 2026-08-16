@@ -1,0 +1,329 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 120;
+  height: 82px;
+  background: rgba(255, 250, 246, 0.94);
+  border-bottom: 1px solid rgba(45, 16, 41, 0.10);
+  backdrop-filter: blur(14px);
+  transition: height 220ms var(--ease-premium), background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.scrolled {
+  height: 72px;
+  background: rgba(255, 250, 246, 0.985);
+  border-bottom-color: rgba(45, 16, 41, 0.16);
+  box-shadow: 0 14px 32px rgba(45, 16, 41, 0.06);
+}
+
+.shell {
+  width: min(calc(100% - 48px), var(--max-width));
+  height: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(28px, 4vw, 60px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.brandMark {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--plum-900);
+  background: var(--plum-950);
+  color: var(--orange-400);
+}
+
+.brandMark::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--cream);
+  background: var(--orange-500);
+}
+
+.brandCopy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandCopy strong {
+  color: var(--plum-900);
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.brandCopy small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.nav {
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+}
+
+.navLink {
+  position: relative;
+  min-width: 72px;
+  padding: 0 clamp(10px, 1.1vw, 17px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(45, 16, 41, 0.74);
+  font-size: 12.5px;
+  font-weight: 760;
+  letter-spacing: -0.01em;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  height: 3px;
+  background: var(--orange-500);
+  transition: left 220ms var(--ease-premium), right 220ms var(--ease-premium);
+}
+
+.navLink:hover {
+  color: var(--plum-950);
+  background: rgba(45, 16, 41, 0.035);
+}
+
+.navLink:hover::after,
+.active::after {
+  left: 18%;
+  right: 18%;
+}
+
+.active {
+  color: var(--plum-950);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contactLink {
+  min-height: 44px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--border);
+  color: var(--plum-900);
+  font-size: 12.5px;
+  font-weight: 760;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.contactLink:hover,
+.contactActive {
+  color: var(--orange-600);
+  background: rgba(45, 16, 41, 0.035);
+}
+
+.cta {
+  min-height: 46px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid var(--orange-500);
+  background: var(--orange-500);
+  color: var(--plum-950);
+  font-size: 12.5px;
+  font-weight: 820;
+  transition: background 180ms ease, border-color 180ms ease, transform 220ms var(--ease-premium);
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  background: var(--orange-400);
+  border-color: var(--orange-400);
+}
+
+.cta svg,
+.mobileCta svg {
+  transition: transform 220ms var(--ease-premium);
+}
+
+.cta:hover svg,
+.mobileCta:hover svg {
+  transform: translateX(3px);
+}
+
+.menuButton {
+  display: none;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(45, 16, 41, 0.14);
+  background: transparent;
+  color: var(--plum-900);
+  cursor: pointer;
+}
+
+.mobilePanel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 0 24px 26px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 28px 60px rgba(45, 16, 41, 0.10);
+}
+
+.mobileMeta {
+  padding: 16px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mobileMeta span {
+  width: 7px;
+  height: 7px;
+  background: var(--orange-500);
+}
+
+.mobileLink {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  color: var(--plum-900);
+  font-size: 15px;
+  font-weight: 760;
+}
+
+.mobileLinkActive {
+  color: var(--orange-600);
+}
+
+.mobileLinkActive::after {
+  content: "Active";
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mobileCta {
+  min-height: 52px;
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid var(--orange-500);
+  background: var(--orange-500);
+  color: var(--plum-950);
+  font-size: 13px;
+  font-weight: 820;
+}
+
+@media (max-width: 1120px) {
+  .shell {
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+  }
+
+  .navLink {
+    min-width: auto;
+    padding-inline: 10px;
+  }
+
+  .contactLink {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .header,
+  .scrolled {
+    height: 74px;
+  }
+
+  .shell {
+    width: calc(100% - 34px);
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .nav,
+  .actions {
+    display: none;
+  }
+
+  .menuButton {
+    display: grid;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandCopy small {
+    display: none;
+  }
+
+  .brandCopy strong {
+    font-size: 15px;
+  }
+
+  .brandMark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mobilePanel {
+    padding-inline: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .navLink,
+  .navLink::after,
+  .cta,
+  .cta svg,
+  .mobileCta svg {
+    transition: none;
+  }
+}
