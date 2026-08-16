@@ -9,9 +9,9 @@ import {
   UsersRound,
 } from "lucide-react";
 
-import { RegistrationForm } from "@/components/onboarding/registration-form";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { RegistrationForm } from "@/components/onboarding/registration-form";
 
 import "./register.css";
 
@@ -24,7 +24,6 @@ const profiles = [
       "Full Diagnostic EHR Access",
       "Virtual Consult Tools",
     ],
-    href: "#register",
     cta: "Create Doctor Account",
   },
   {
@@ -35,7 +34,6 @@ const profiles = [
       "Patient Vitals Triage",
       "Digital Care Training",
     ],
-    href: "#register",
     cta: "Create Nurse Account",
   },
   {
@@ -46,7 +44,6 @@ const profiles = [
       "Custom Platform Demos",
       "Billing & Supply Accounts",
     ],
-    href: "#register",
     cta: "Request Practice Setup",
   },
 ];
@@ -54,20 +51,23 @@ const profiles = [
 const steps = [
   {
     number: "01",
-    title: "Verification",
-    copy: "Submit your basic practice details and HPCSA / SANC registration for identity verification.",
+    title: "Verification (1-2 Minutes)",
+    copy:
+      "Submit your basic practice details and HPCSA / SANC registration for instant identity verification.",
     icon: BadgeCheck,
   },
   {
     number: "02",
-    title: "Set Up Your Dashboard",
-    copy: "Access your clinician portal, customize consultation availability, or begin your diagnostic hardware setup.",
+    title: "Setup Your Dashboard",
+    copy:
+      "Access your personalized clinician portal, customize consultation availability, or order diagnostic hardware.",
     icon: MonitorSmartphone,
   },
   {
     number: "03",
     title: "Start Managing Patients",
-    copy: "Begin scheduling remote consults, prescribing ECG247 sensors, and reviewing connected telemetry workflows.",
+    copy:
+      "Begin scheduling remote consults, prescribing ECG247 sensors, and reviewing live telemetry data immediately.",
     icon: ClipboardCheck,
   },
 ];
@@ -76,6 +76,7 @@ export default function ClinicianRegistrationPage() {
   return (
     <>
       <Header />
+
       <main className="register-page">
         <section className="register-hero">
           <div className="register-shell register-hero-grid">
@@ -83,9 +84,10 @@ export default function ClinicianRegistrationPage() {
               <span className="register-eyebrow">Clinician onboarding</span>
               <h1>Onboard Your Practice to TeleDoctorSA</h1>
               <p>
-                Choose your profile below to gain access to the clinician portal,
-                secure EHR network, and remote telemetry suite.
+                Choose your profile below to gain instant access to our clinician
+                portal, secure EHR network, and remote telemetry suite.
               </p>
+
               <Link href="#profiles" className="register-primary-link">
                 Choose Your Profile
                 <ArrowRight size={18} />
@@ -106,12 +108,12 @@ export default function ClinicianRegistrationPage() {
         <section className="profile-section" id="profiles" aria-labelledby="profiles-title">
           <div className="register-shell">
             <div className="register-section-heading">
-              <span className="register-eyebrow">Choose your pathway</span>
-              <h2 id="profiles-title">One platform. Three ways to get started.</h2>
+              <span className="register-eyebrow">Profile selection</span>
+              <h2 id="profiles-title">Choose Your Onboarding Pathway</h2>
             </div>
 
             <div className="profile-grid">
-              {profiles.map(({ icon: Icon, title, items, href, cta }) => (
+              {profiles.map(({ icon: Icon, title, items, cta }) => (
                 <article className="profile-column" key={title}>
                   <Icon size={26} strokeWidth={1.7} />
                   <h3>{title}</h3>
@@ -120,7 +122,7 @@ export default function ClinicianRegistrationPage() {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                  <Link href={href}>
+                  <Link href="#register">
                     {cta}
                     <ArrowRight size={17} />
                   </Link>
@@ -133,8 +135,8 @@ export default function ClinicianRegistrationPage() {
         <section className="integration-section" aria-labelledby="integration-title">
           <div className="register-shell">
             <div className="register-section-heading">
-              <span className="register-eyebrow">Simple integration</span>
-              <h2 id="integration-title">From verification to patient management in three steps.</h2>
+              <span className="register-eyebrow">Simple 3-step integration</span>
+              <h2 id="integration-title">From verification to managing patients.</h2>
             </div>
 
             <div className="integration-grid">
@@ -150,15 +152,18 @@ export default function ClinicianRegistrationPage() {
           </div>
         </section>
 
-        <section className="registration-section" id="register" aria-labelledby="registration-title">
+        <section
+          className="registration-section"
+          id="register"
+          aria-labelledby="registration-title"
+        >
           <div className="register-shell registration-grid">
             <div>
-              <span className="register-eyebrow">Practice sign-up</span>
+              <span className="register-eyebrow">Practice sign-up form</span>
               <h2 id="registration-title">Register for Immediate Portal Access</h2>
               <p>
-                Submit the core details required to start clinician or practice onboarding.
-                The production verification workflow can be connected to this form once the
-                backend endpoint is available.
+                Enter your core practice and professional details to begin your
+                TeleDoctorSA onboarding workflow.
               </p>
             </div>
 
@@ -166,6 +171,7 @@ export default function ClinicianRegistrationPage() {
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   );
