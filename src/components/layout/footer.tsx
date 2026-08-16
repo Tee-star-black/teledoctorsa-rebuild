@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { HeartPulse } from "lucide-react";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -9,15 +9,14 @@ export function Footer() {
       <div className="footer-shell">
         <div className="footer-main">
           <div className="footer-brand-column">
-            <Link href="/" className="brand">
-              <span className="brand-icon">
-                <HeartPulse size={22} strokeWidth={2} />
-              </span>
-
-              <span className="brand-copy">
-                <strong>TeleDoctorSA</strong>
-                <small>Connected Care</small>
-              </span>
+            <Link href="/" className="brand" aria-label="TeleDoctorSA home">
+              <Image
+                src="/images/home/logo.png"
+                alt="TeleDoctorSA"
+                width={300}
+                height={96}
+                style={{ width: "150px", height: "48px", objectFit: "contain", objectPosition: "left center" }}
+              />
             </Link>
 
             <p>
@@ -38,7 +37,7 @@ export function Footer() {
             <div>
               <strong>Care</strong>
               <Link href="/remote-monitoring">Remote Monitoring</Link>
-              <Link href="/for-clinicians/register">Clinician Onboarding</Link>
+              <Link href="/for-clinicians/register">Practice Solutions</Link>
               <Link href="/contact?type=demo">Book a Demo</Link>
             </div>
 
