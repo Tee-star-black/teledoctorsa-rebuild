@@ -264,8 +264,8 @@ export function HomeSections() {
           <div className="tdsa-feature-visual tdsa-ecg-photo-visual">
             <div className="tdsa-ecg-photo-frame">
               <Image
-                src="/images/home/ecg monitor.jpg"
-                alt="ECG monitoring equipment"
+                src="/images/home/dummy ecg.png"
+                alt="ECG247 rhythm monitoring interface preview"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
                 className="tdsa-ecg-photo"
