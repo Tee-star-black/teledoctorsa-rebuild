@@ -152,6 +152,50 @@
   transform: scale(1.025);
 }
 
+.tdsa-device-showcase {
+  min-height: 520px;
+  background: var(--cream-dark);
+  overflow: hidden;
+}
+
+.tdsa-device-laptop,
+.tdsa-device-phone {
+  position: absolute;
+}
+
+.tdsa-device-laptop {
+  inset: 10% 5% 8% 18%;
+}
+
+.tdsa-device-phone {
+  left: 3%;
+  bottom: 5%;
+  width: 27%;
+  height: 64%;
+  z-index: 2;
+}
+
+.tdsa-device-media {
+  object-fit: contain;
+  transition: transform 650ms var(--ease-premium);
+}
+
+.tdsa-device-laptop .tdsa-device-media {
+  object-position: center;
+}
+
+.tdsa-device-phone .tdsa-device-media {
+  object-position: left bottom;
+}
+
+.tdsa-clinical-image-1:hover .tdsa-device-laptop .tdsa-device-media {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.tdsa-clinical-image-1:hover .tdsa-device-phone .tdsa-device-media {
+  transform: translateY(-6px);
+}
+
 .tdsa-clinical-image figcaption {
   min-height: 58px;
   padding: 14px 0 0;
@@ -349,6 +393,15 @@
     min-height: 390px;
   }
 
+  .tdsa-device-laptop {
+    inset: 12% 4% 10% 16%;
+  }
+
+  .tdsa-device-phone {
+    width: 29%;
+    height: 62%;
+  }
+
   .tdsa-ecg-photo-frame {
     min-height: 440px;
   }
@@ -404,6 +457,17 @@
     min-height: 320px;
   }
 
+  .tdsa-device-laptop {
+    inset: 12% 2% 8% 18%;
+  }
+
+  .tdsa-device-phone {
+    left: 1%;
+    bottom: 4%;
+    width: 31%;
+    height: 64%;
+  }
+
   .tdsa-ecg-photo-frame {
     min-height: 360px;
   }
@@ -416,11 +480,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tdsa-clinical-image-media {
+  .tdsa-clinical-image-media,
+  .tdsa-device-media {
     transition: none;
   }
 
-  .tdsa-clinical-image:hover .tdsa-clinical-image-media {
+  .tdsa-clinical-image:hover .tdsa-clinical-image-media,
+  .tdsa-clinical-image-1:hover .tdsa-device-laptop .tdsa-device-media,
+  .tdsa-clinical-image-1:hover .tdsa-device-phone .tdsa-device-media {
     transform: none;
   }
 }
