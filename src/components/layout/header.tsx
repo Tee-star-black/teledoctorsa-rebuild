@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, Activity, Menu, X } from "lucide-react";
+import { Activity, ArrowRight, Menu, X } from "lucide-react";
 
 import styles from "./header.module.css";
 
@@ -22,7 +22,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
+    const handleScroll = () => setScrolled(window.scrollY > 18);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
@@ -42,7 +42,7 @@ export function Header() {
       <div className={styles.shell}>
         <Link href="/" className={styles.brand} aria-label="TeleDoctorSA home">
           <span className={styles.brandMark} aria-hidden="true">
-            <Activity size={21} strokeWidth={1.9} />
+            <Activity size={20} strokeWidth={1.9} />
           </span>
           <span className={styles.brandCopy}>
             <strong>TeleDoctorSA</strong>
@@ -51,16 +51,27 @@ export function Header() {
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`${styles.navLink} ${isActive(item.href) ? styles.active : ""}`}
-              aria-current={isActive(item.href) ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const active = isActive(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`${styles.navLink} ${active ? styles.active : ""}`}
+                aria-current={active ? "page" : undefined}
+              >
+                {active ? (
+                  <motion.span
+                    className={styles.activePill}
+                    layoutId="nav-active-pill"
+                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                  />
+                ) : null}
+                <span className={styles.navLabel}>{item.label}</span>
+              </Link>
+            );
+          })}
         </nav>
 
         <div className={styles.actions}>
@@ -83,7 +94,7 @@ export function Header() {
           aria-expanded={open}
           onClick={() => setOpen((current) => !current)}
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={21} /> : <Menu size={21} />}
         </button>
       </div>
 
@@ -91,10 +102,10 @@ export function Header() {
         {open ? (
           <motion.div
             className={styles.mobilePanel}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.22 }}
+            initial={{ opacity: 0, y: -10, scale: 0.985 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.985 }}
+            transition={{ duration: 0.2 }}
           >
             <div className={styles.mobileMeta}>
               <span />
