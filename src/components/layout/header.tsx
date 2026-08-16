@@ -6,10 +6,10 @@ import { ArrowRight, HeartPulse, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 const navigation = [
-  { label: "Platform", href: "/platform" },
+  { label: "Services", href: "/services" },
+  { label: "EHR", href: "/ehr" },
+  { label: "App", href: "/app" },
   { label: "ECG247", href: "/ecg247" },
-  { label: "Remote Monitoring", href: "/remote-monitoring" },
-  { label: "Professionals", href: "/professionals" },
   { label: "About", href: "/about" },
 ];
 
