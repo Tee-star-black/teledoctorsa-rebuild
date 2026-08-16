@@ -1,0 +1,363 @@
+.register-page {
+  background: var(--cream);
+}
+
+.register-shell {
+  width: min(calc(100% - 48px), var(--max-width));
+  margin-inline: auto;
+}
+
+.register-eyebrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--orange-600);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.register-hero {
+  padding: 120px 0 110px;
+  background: var(--plum-950);
+  color: white;
+}
+
+.register-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: clamp(50px, 8vw, 120px);
+  align-items: center;
+}
+
+.register-hero h1,
+.register-section-heading h2,
+.registration-section h2 {
+  margin: 0;
+  font-size: clamp(42px, 5.5vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.register-hero h1 {
+  max-width: 760px;
+  color: white;
+}
+
+.register-hero p {
+  max-width: 640px;
+  margin: 28px 0 0;
+  color: rgba(255,255,255,0.66);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.register-primary-link {
+  min-height: 56px;
+  margin-top: 34px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--orange-500);
+  color: var(--plum-950);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.register-hero-signal {
+  min-height: 390px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: var(--plum-900);
+  color: var(--orange-400);
+}
+
+.register-hero-signal strong {
+  margin-top: 18px;
+  color: white;
+  font-size: 68px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.register-hero-signal span {
+  color: rgba(255,255,255,0.5);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.register-hero-signal svg {
+  width: 100%;
+  height: 120px;
+  margin-top: 34px;
+}
+
+.register-hero-signal path {
+  fill: none;
+  stroke: var(--orange-500);
+  stroke-width: 3;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.profile-section,
+.integration-section,
+.registration-section {
+  padding: 130px 0;
+}
+
+.profile-section {
+  background: white;
+}
+
+.integration-section {
+  background: var(--cream-dark);
+  border-block: 1px solid var(--border);
+}
+
+.registration-section {
+  background: white;
+}
+
+.register-section-heading {
+  max-width: 900px;
+  margin-bottom: 64px;
+}
+
+.register-section-heading h2,
+.registration-section h2 {
+  color: var(--plum-950);
+}
+
+.profile-grid,
+.integration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.profile-column,
+.integration-step {
+  min-height: 360px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: white;
+}
+
+.profile-column > svg,
+.integration-step > svg {
+  color: var(--orange-600);
+}
+
+.profile-column h3,
+.integration-step h3 {
+  margin: 46px 0 0;
+  color: var(--plum-900);
+  font-size: 23px;
+  letter-spacing: -0.03em;
+}
+
+.profile-column ul {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-column li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.profile-column a {
+  margin-top: auto;
+  padding-top: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--plum-900);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.integration-step > span {
+  color: var(--orange-600);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.integration-step > svg {
+  margin-top: 40px;
+}
+
+.integration-step p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1.15fr);
+  gap: clamp(50px, 8vw, 120px);
+  align-items: start;
+}
+
+.registration-grid > div:first-child > p {
+  max-width: 560px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.registration-form {
+  padding: 36px;
+  border: 1px solid var(--border);
+  background: var(--cream-dark);
+}
+
+.registration-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field-group {
+  margin-bottom: 20px;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--plum-900);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.field-group input,
+.field-group select {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  outline: 0;
+  background: white;
+  color: var(--text);
+  font: inherit;
+}
+
+.field-group input:focus,
+.field-group select:focus {
+  border-color: var(--orange-500);
+}
+
+.registration-submit {
+  min-height: 56px;
+  width: 100%;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--orange-500);
+  border-radius: 0;
+  background: var(--orange-500);
+  color: var(--plum-950);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.registration-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.registration-success {
+  padding: 34px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 16px;
+  border: 1px solid var(--border);
+  background: var(--cream-dark);
+  color: var(--orange-600);
+}
+
+.registration-success strong {
+  color: var(--plum-900);
+}
+
+.registration-success p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .register-hero-grid,
+  .registration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-grid,
+  .integration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-column,
+  .integration-step {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .register-shell {
+    width: min(calc(100% - 32px), var(--max-width));
+  }
+
+  .register-hero,
+  .profile-section,
+  .integration-section,
+  .registration-section {
+    padding-block: 86px;
+  }
+
+  .register-hero h1,
+  .register-section-heading h2,
+  .registration-section h2 {
+    font-size: clamp(38px, 12vw, 54px);
+  }
+
+  .register-hero-signal {
+    min-height: 300px;
+    padding: 24px;
+  }
+
+  .registration-form {
+    padding: 24px 18px;
+  }
+
+  .registration-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
