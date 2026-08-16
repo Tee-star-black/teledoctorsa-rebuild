@@ -35,6 +35,10 @@ const contactMethods = [
   },
 ];
 
+const officeAddress = "29 Landor Street, Thulisa Park";
+const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
+const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(officeAddress)}&output=embed`;
+
 export default function ContactPage() {
   return (
     <>
@@ -121,37 +125,55 @@ export default function ContactPage() {
         </section>
 
         <section className="contact-section contact-location-section">
-          <div className="contact-shell contact-location-grid">
-            <div className="contact-location-copy">
-              <span className="contact-eyebrow contact-eyebrow-dark">Our Location</span>
-              <h2>South African healthcare, available nationwide.</h2>
-              <p>
-                While our telemedicine services are available nationwide, our
-                administrative office is based in South Africa. We serve patients
-                across all provinces through our digital healthcare platform.
-              </p>
-            </div>
+          <div className="contact-shell">
+            <div className="contact-location-grid">
+              <div className="contact-location-copy">
+                <span className="contact-eyebrow contact-eyebrow-dark">Our Location</span>
+                <h2>South African healthcare, available nationwide.</h2>
+                <p>
+                  While our telemedicine services are available nationwide, our
+                  administrative office is based at 29 Landor Street, Thulisa Park.
+                  We serve patients across all provinces through our digital healthcare platform.
+                </p>
+              </div>
 
-            <div className="contact-address-panel">
-              <div className="contact-address-heading">
-                <MapPin size={24} />
-                <div>
-                  <strong>TeleDoctorSA</strong>
-                  <span>Dr. Mukudu &amp; Partners</span>
+              <div className="contact-address-panel">
+                <div className="contact-address-heading">
+                  <MapPin size={24} />
+                  <div>
+                    <strong>TeleDoctorSA</strong>
+                    <span>Dr. Mukudu &amp; Partners</span>
+                  </div>
+                </div>
+
+                <div className="contact-address-lines">
+                  <a href={mapsSearchUrl} target="_blank" rel="noreferrer">
+                    <span>Address</span>
+                    <strong>{officeAddress}</strong>
+                  </a>
+                  <a href="mailto:info@teledoctorsa.co.za">
+                    <span>Email</span>
+                    <strong>info@teledoctorsa.co.za</strong>
+                  </a>
+                  <a href="https://wa.me/27780336394" target="_blank" rel="noreferrer">
+                    <span>WhatsApp</span>
+                    <strong>+27 78 033 6394</strong>
+                  </a>
                 </div>
               </div>
+            </div>
 
-              <div className="contact-address-lines">
-                <p>South Africa</p>
-                <a href="mailto:info@teledoctorsa.co.za">
-                  <span>Email</span>
-                  <strong>info@teledoctorsa.co.za</strong>
-                </a>
-                <a href="https://wa.me/27780336394" target="_blank" rel="noreferrer">
-                  <span>WhatsApp</span>
-                  <strong>+27 78 033 6394</strong>
-                </a>
-              </div>
+            <div className="contact-map-wrap">
+              <iframe
+                src={mapsEmbedUrl}
+                title="TeleDoctorSA office location at 29 Landor Street, Thulisa Park"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+              <a href={mapsSearchUrl} target="_blank" rel="noreferrer" className="contact-map-link">
+                Open in Google Maps
+              </a>
             </div>
           </div>
         </section>
