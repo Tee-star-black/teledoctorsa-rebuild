@@ -1,5 +1,10 @@
-/* Shared core marketing pages: solid colours, square edges, no decorative gradients */
+/* =========================================================
+   TELEDOCTORSA SHARED MARKETING PAGES
+   Solid colours. Square edges. No decorative gradients.
+========================================================= */
+
 .info-page {
+  min-height: 100vh;
   background: var(--cream);
   color: var(--text);
 }
@@ -9,27 +14,42 @@
   margin-inline: auto;
 }
 
+.info-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 22px;
+  color: var(--orange-600);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.info-hero .info-eyebrow,
+.info-section-dark .info-eyebrow {
+  color: var(--orange-400);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
 .info-hero {
-  padding: 180px 0 110px;
+  padding: 178px 0 112px;
   background: var(--plum-950);
   color: white;
 }
 
-.info-hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.65fr);
-  gap: clamp(48px, 8vw, 120px);
-  align-items: end;
+.info-hero-compact {
+  padding-bottom: 92px;
 }
 
-.info-eyebrow {
-  display: inline-flex;
-  margin-bottom: 22px;
-  color: var(--orange-400);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.info-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.58fr);
+  gap: clamp(48px, 8vw, 120px);
+  align-items: end;
 }
 
 .info-hero h1,
@@ -40,14 +60,17 @@
 }
 
 .info-hero h1 {
-  max-width: 920px;
-  font-size: clamp(50px, 7vw, 96px);
-  line-height: 0.94;
+  max-width: 980px;
+  color: white;
+  font-size: clamp(48px, 6.4vw, 92px);
+  font-weight: 720;
+  line-height: 0.96;
 }
 
 .info-hero p {
+  max-width: 520px;
   margin: 0;
-  color: rgba(255, 255, 255, 0.66);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 17px;
   line-height: 1.8;
 }
@@ -74,46 +97,36 @@
   border-radius: 0;
   font-size: 13px;
   font-weight: 800;
+  line-height: 1.2;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .info-primary {
-  background: var(--orange-500);
   border: 1px solid var(--orange-500);
+  background: var(--orange-500);
   color: var(--plum-950);
 }
 
+.info-primary:hover {
+  border-color: var(--orange-400);
+  background: var(--orange-400);
+}
+
 .info-secondary {
-  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.32);
+  background: transparent;
   color: white;
 }
 
-.info-metric-panel {
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  border-left: 1px solid rgba(255, 255, 255, 0.18);
+.info-secondary:hover {
+  border-color: white;
+  background: white;
+  color: var(--plum-950);
 }
 
-.info-metric-panel > div {
-  padding: 24px;
-  border-right: 1px solid rgba(255, 255, 255, 0.18);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.info-metric-panel strong,
-.info-metric-panel span {
-  display: block;
-}
-
-.info-metric-panel strong {
-  font-size: 18px;
-}
-
-.info-metric-panel span {
-  margin-top: 6px;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 11px;
-  line-height: 1.5;
-}
+/* =========================================================
+   GENERIC SECTIONS
+========================================================= */
 
 .info-section {
   padding: 120px 0;
@@ -133,28 +146,68 @@
 
 .info-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.55fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.55fr);
   gap: clamp(40px, 8vw, 110px);
   align-items: end;
   margin-bottom: 62px;
 }
 
 .info-heading h2,
-.info-band h2 {
+.info-band h2,
+.info-copy h2 {
   font-size: clamp(38px, 5vw, 68px);
+  font-weight: 720;
   line-height: 1;
 }
 
+.info-heading h2,
+.info-copy h2 {
+  color: var(--plum-950);
+}
+
+.info-section-dark .info-heading h2,
+.info-section-dark h2,
+.info-heading-dark h2 {
+  color: white;
+}
+
 .info-heading > p {
+  max-width: 520px;
   margin: 0;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.75;
 }
 
-.info-section-dark .info-heading > p {
-  color: rgba(255, 255, 255, 0.58);
+.info-section-dark .info-heading > p,
+.info-section-dark > .info-shell > p,
+.info-heading-dark > p {
+  color: rgba(255, 255, 255, 0.62);
 }
+
+.info-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(50px, 8vw, 120px);
+  align-items: center;
+}
+
+.info-copy h2 {
+  margin: 0;
+  letter-spacing: -0.05em;
+}
+
+.info-copy > p {
+  max-width: 650px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   CAPABILITY GRIDS
+========================================================= */
 
 .info-grid-3,
 .info-grid-4 {
@@ -178,10 +231,11 @@
 }
 
 .info-cell {
-  min-height: 250px;
-  padding: 30px;
+  min-height: 260px;
+  padding: 32px;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  background: transparent;
 }
 
 .info-section-dark .info-cell {
@@ -197,7 +251,7 @@
 }
 
 .info-cell h3 {
-  margin: 42px 0 0;
+  margin: 44px 0 0;
   color: var(--plum-900);
   font-size: 21px;
   letter-spacing: -0.03em;
@@ -208,6 +262,7 @@
 }
 
 .info-cell p {
+  max-width: 360px;
   margin: 14px 0 0;
   color: var(--muted);
   font-size: 14px;
@@ -215,47 +270,30 @@
 }
 
 .info-section-dark .info-cell p {
-  color: rgba(255, 255, 255, 0.56);
+  color: rgba(255, 255, 255, 0.58);
 }
 
-.info-split {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(50px, 8vw, 120px);
-  align-items: center;
-}
-
-.info-copy h2 {
-  margin: 0;
-  color: var(--plum-950);
-  font-size: clamp(38px, 5vw, 68px);
-  line-height: 1;
-  letter-spacing: -0.05em;
-}
-
-.info-copy > p {
-  margin: 28px 0 0;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.8;
-}
+/* =========================================================
+   LISTS
+========================================================= */
 
 .info-list {
-  margin: 32px 0 0;
+  margin: 34px 0 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--border);
 }
 
 .info-list li {
-  padding: 18px 0;
+  min-height: 58px;
+  padding: 16px 0;
   display: flex;
+  align-items: center;
   gap: 12px;
-  align-items: flex-start;
   border-bottom: 1px solid var(--border);
   color: var(--plum-900);
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .info-list svg {
@@ -263,31 +301,34 @@
   color: var(--orange-600);
 }
 
+/* =========================================================
+   ABOUT DIAGRAM
+========================================================= */
+
 .info-diagram {
   min-height: 500px;
+  padding: 34px;
   display: grid;
   place-items: center;
+  border: 1px solid var(--plum-950);
   background: var(--plum-950);
   color: white;
-  border: 1px solid var(--plum-950);
-  padding: 34px;
 }
 
 .info-diagram-stack {
-  width: min(100%, 460px);
+  width: min(100%, 470px);
   display: grid;
-  gap: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .info-diagram-stack > div {
-  min-height: 76px;
+  min-height: 82px;
   padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(110px, 0.6fr) minmax(0, 1fr);
   gap: 20px;
+  align-items: center;
   border-right: 1px solid rgba(255, 255, 255, 0.18);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -297,13 +338,338 @@
 }
 
 .info-diagram-stack span {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.52);
   font-size: 10px;
+  line-height: 1.5;
   text-align: right;
 }
 
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.info-service-grid {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.info-service-row {
+  min-height: 172px;
+  display: grid;
+  grid-template-columns: 64px 62px minmax(0, 1fr) 56px;
+  gap: 26px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-service-index {
+  align-self: start;
+  padding-top: 4px;
+  color: var(--orange-600);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.info-service-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  color: var(--orange-600);
+}
+
+.info-service-row h2 {
+  margin: 0;
+  color: var(--plum-950);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 720;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.info-service-row p {
+  max-width: 690px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.info-service-row > a {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--plum-900);
+  color: var(--plum-900);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.info-service-row > a:hover {
+  background: var(--plum-900);
+  color: white;
+}
+
+/* =========================================================
+   EHR RECORD VISUAL
+========================================================= */
+
+.ehr-record {
+  min-height: 520px;
+  border: 1px solid var(--border);
+  background: white;
+}
+
+.ehr-record-header {
+  min-height: 92px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--plum-950);
+  color: white;
+}
+
+.ehr-record-header small,
+.ehr-record-header strong {
+  display: block;
+}
+
+.ehr-record-header small {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.ehr-record-header strong {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.ehr-record-header svg {
+  color: var(--orange-400);
+}
+
+.ehr-timeline {
+  padding: 0 28px;
+}
+
+.ehr-timeline > div {
+  position: relative;
+  min-height: 128px;
+  padding: 26px 0 26px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.ehr-timeline > div:last-child {
+  border-bottom: 0;
+}
+
+.ehr-timeline > div::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 34px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--orange-500);
+  background: white;
+  border-radius: 50%;
+}
+
+.ehr-timeline > div::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 50px;
+  bottom: -34px;
+  width: 1px;
+  background: var(--border);
+}
+
+.ehr-timeline > div:last-child::after {
+  display: none;
+}
+
+.ehr-timeline span,
+.ehr-timeline strong,
+.ehr-timeline small {
+  display: block;
+}
+
+.ehr-timeline span {
+  color: var(--orange-600);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ehr-timeline strong {
+  margin-top: 7px;
+  color: var(--plum-900);
+  font-size: 15px;
+}
+
+.ehr-timeline small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* =========================================================
+   APP VISUAL
+========================================================= */
+
+.app-phone {
+  width: min(100%, 430px);
+  min-height: 610px;
+  margin-inline: auto;
+  border: 1px solid var(--plum-950);
+  background: white;
+}
+
+.app-phone-top {
+  min-height: 118px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--plum-950);
+  color: white;
+}
+
+.app-phone-top small,
+.app-phone-top strong {
+  display: block;
+}
+
+.app-phone-top small {
+  color: var(--orange-400);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.app-phone-top strong {
+  margin-top: 8px;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.app-phone-block {
+  padding: 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+
+.app-phone-block span,
+.app-phone-block strong {
+  display: block;
+}
+
+.app-phone-block span {
+  color: var(--orange-600);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.app-phone-block strong {
+  margin-top: 9px;
+  color: var(--plum-900);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.app-phone-row {
+  min-height: 108px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-phone-row small,
+.app-phone-row strong {
+  display: block;
+}
+
+.app-phone-row small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.app-phone-row strong {
+  margin-top: 6px;
+  color: var(--plum-900);
+  font-size: 15px;
+}
+
+.app-phone-row svg {
+  color: var(--orange-600);
+}
+
+.app-phone-footer {
+  padding: 24px 28px;
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   OPTIONAL METRIC PANEL
+========================================================= */
+
+.info-metric-panel {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.info-metric-panel > div {
+  padding: 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.info-metric-panel strong,
+.info-metric-panel span {
+  display: block;
+}
+
+.info-metric-panel strong {
+  color: white;
+  font-size: 18px;
+}
+
+.info-metric-panel span {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CONVERSION BAND
+========================================================= */
+
 .info-band {
-  padding: 90px 0;
+  padding: 92px 0;
   background: var(--orange-500);
   color: var(--plum-950);
 }
@@ -311,8 +677,13 @@
 .info-band-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 40px;
+  gap: 48px;
   align-items: end;
+}
+
+.info-band h2 {
+  max-width: 850px;
+  color: var(--plum-950);
 }
 
 .info-band p {
@@ -323,12 +694,21 @@
 }
 
 .info-band .info-primary {
-  background: var(--plum-950);
   border-color: var(--plum-950);
+  background: var(--plum-950);
   color: white;
 }
 
-@media (max-width: 900px) {
+.info-band .info-primary:hover {
+  border-color: var(--plum-800);
+  background: var(--plum-800);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
   .info-hero-grid,
   .info-heading,
   .info-split,
@@ -336,11 +716,36 @@
     grid-template-columns: 1fr;
   }
 
+  .info-hero-grid {
+    gap: 42px;
+  }
+
+  .info-heading {
+    gap: 22px;
+  }
+
   .info-grid-3,
   .info-grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .info-service-row {
+    grid-template-columns: 48px 54px minmax(0, 1fr) 50px;
+    gap: 20px;
+  }
+
+  .info-band-grid {
+    align-items: start;
+  }
+
+  .info-band .info-primary {
+    width: fit-content;
+  }
 }
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
   .info-shell {
@@ -348,7 +753,17 @@
   }
 
   .info-hero {
-    padding: 145px 0 80px;
+    padding: 142px 0 78px;
+  }
+
+  .info-hero h1 {
+    font-size: clamp(42px, 12vw, 58px);
+    line-height: 0.98;
+  }
+
+  .info-hero p {
+    font-size: 15px;
+    line-height: 1.72;
   }
 
   .info-section {
@@ -362,16 +777,67 @@
 
   .info-cell {
     min-height: 0;
-    padding: 26px 22px;
+    padding: 28px 22px;
   }
 
   .info-cell h3 {
     margin-top: 30px;
   }
 
+  .info-service-row {
+    min-height: 0;
+    grid-template-columns: 42px minmax(0, 1fr) 46px;
+    gap: 14px;
+    padding: 28px 0;
+  }
+
+  .info-service-icon {
+    display: none;
+  }
+
+  .info-service-row h2 {
+    font-size: 26px;
+  }
+
+  .info-service-row > a {
+    width: 44px;
+    height: 44px;
+  }
+
   .info-diagram {
-    min-height: 420px;
-    padding: 22px;
+    min-height: 410px;
+    padding: 18px;
+  }
+
+  .info-diagram-stack > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .info-diagram-stack span {
+    text-align: left;
+  }
+
+  .ehr-record {
+    min-height: 0;
+  }
+
+  .ehr-record-header,
+  .ehr-timeline {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .app-phone {
+    min-height: 0;
+  }
+
+  .app-phone-top,
+  .app-phone-block,
+  .app-phone-row,
+  .app-phone-footer {
+    padding-left: 22px;
+    padding-right: 22px;
   }
 
   .info-band {
@@ -379,7 +845,24 @@
   }
 
   .info-primary,
-  .info-secondary {
+  .info-secondary,
+  .info-band .info-primary {
     width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .info-hero {
+    padding-top: 132px;
+  }
+
+  .info-service-row {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .info-service-row > a {
+    grid-column: 2;
+    width: 100%;
+    height: 44px;
   }
 }
