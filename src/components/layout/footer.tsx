@@ -15,7 +15,12 @@ export function Footer() {
                 alt="TeleDoctorSA"
                 width={300}
                 height={96}
-                style={{ width: "150px", height: "48px", objectFit: "contain", objectPosition: "left center" }}
+                style={{
+                  width: "150px",
+                  height: "48px",
+                  objectFit: "contain",
+                  objectPosition: "left center",
+                }}
               />
             </Link>
 
@@ -42,18 +47,30 @@ export function Footer() {
             </div>
 
             <div>
-              <strong>Company</strong>
-              <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
-              <Link href="/privacy">Privacy</Link>
-              <Link href="/legal">Legal</Link>
+              <strong>Legal</strong>
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/cookies">Cookie Policy</Link>
+              <Link href="/terms">Terms of Service</Link>
+              <Link href="/disclaimer">Medical Disclaimer</Link>
+              <Link href="/legal">Legal Information</Link>
             </div>
           </div>
         </div>
 
+        <div className="footer-emergency" role="note" aria-label="Emergency care disclaimer">
+          <strong>Not for emergencies.</strong>
+          <span>
+            This website is not an emergency medical service. If you are experiencing
+            a medical emergency, contact your local emergency service or go to the
+            nearest appropriate emergency department.
+          </span>
+        </div>
+
         <div className="footer-bottom">
           <span>© {year} TeleDoctorSA. All rights reserved.</span>
-          <span>South Africa</span>
+          <span>
+            <Link href="/about">About</Link> · <Link href="/contact">Contact</Link> · South Africa
+          </span>
         </div>
       </div>
     </footer>
