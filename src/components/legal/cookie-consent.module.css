@@ -1,0 +1,97 @@
+.banner {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 300;
+  width: min(calc(100% - 48px), 920px);
+  margin-inline: auto;
+  padding: 20px 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(45, 16, 41, 0.16);
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(45, 16, 41, 0.14);
+  color: var(--plum-950);
+}
+
+.copy strong {
+  display: block;
+  font-size: 14px;
+}
+
+.copy p {
+  max-width: 650px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.copy a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--orange-600);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: white;
+  color: var(--plum-950);
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms var(--ease-premium), border-color 180ms ease, background 180ms ease;
+}
+
+.actions button:hover,
+.actions button:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--orange-500);
+  outline: none;
+}
+
+.actions .primary {
+  border-color: var(--orange-500);
+  background: var(--orange-500);
+}
+
+.actions .primary:hover,
+.actions .primary:focus-visible {
+  background: var(--orange-400);
+}
+
+@media (max-width: 700px) {
+  .banner {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: calc(100% - 28px);
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .actions button {
+    transition: none;
+  }
+}
