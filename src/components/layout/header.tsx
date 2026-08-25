@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowRight,
+  ChevronDown,
   HeartPulse,
   Menu,
   X,
@@ -12,20 +13,21 @@ import { AnimatePresence, motion } from "motion/react";
 
 const navigation = [
   {
-    label: "Platform",
-    href: "/platform",
+    label: "Services",
+    href: "/services",
+    hasMenu: true,
+  },
+  {
+    label: "EHR",
+    href: "/ehr",
+  },
+  {
+    label: "App",
+    href: "/app",
   },
   {
     label: "ECG247",
     href: "/ecg247",
-  },
-  {
-    label: "Remote Monitoring",
-    href: "/remote-monitoring",
-  },
-  {
-    label: "Professionals",
-    href: "/professionals",
   },
   {
     label: "About",
@@ -39,7 +41,7 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="nav-shell">
-        <Link href="/" className="brand">
+        <Link href="/" className="brand" aria-label="TeleDoctorSA home">
           <span className="brand-icon">
             <HeartPulse size={22} strokeWidth={2} />
           </span>
@@ -54,6 +56,7 @@ export function Header() {
           {navigation.map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
+              {item.hasMenu ? <ChevronDown size={14} strokeWidth={1.8} /> : null}
             </Link>
           ))}
         </nav>
@@ -63,7 +66,7 @@ export function Header() {
             Contact
           </Link>
 
-          <Link href="/contact?type=demo" className="nav-demo">
+          <Link href="/demo" className="nav-demo">
             Book a Demo
             <ArrowRight size={16} />
           </Link>
@@ -84,21 +87,10 @@ export function Header() {
         {open && (
           <motion.div
             className="mobile-navigation"
-            initial={{
-              opacity: 0,
-              y: -10,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: -10,
-            }}
-            transition={{
-              duration: 0.25,
-            }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
           >
             {navigation.map((item) => (
               <Link
@@ -110,15 +102,12 @@ export function Header() {
               </Link>
             ))}
 
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-            >
+            <Link href="/contact" onClick={() => setOpen(false)}>
               Contact
             </Link>
 
             <Link
-              href="/contact?type=demo"
+              href="/demo"
               className="mobile-demo-button"
               onClick={() => setOpen(false)}
             >
