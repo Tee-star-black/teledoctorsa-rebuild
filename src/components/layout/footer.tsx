@@ -9,7 +9,7 @@ export function Footer() {
       <div className="footer-shell">
         <div className="footer-main">
           <div className="footer-brand-column">
-            <Link href="/" className="brand">
+            <Link href="/" className="brand" aria-label="TeleDoctorSA home">
               <span className="brand-icon">
                 <HeartPulse size={22} strokeWidth={2} />
               </span>
@@ -21,78 +21,44 @@ export function Footer() {
             </Link>
 
             <p>
-              Connected healthcare technology designed to help
-              clinicians extend care beyond the consultation.
+              Connected healthcare technology that links consultations,
+              monitoring, diagnostics and longitudinal clinical records.
             </p>
           </div>
 
           <div className="footer-links">
             <div>
-              <strong>Platform</strong>
+              <strong>Services</strong>
 
-              <Link href="/platform">
-                Connected Care
-              </Link>
-
-              <Link href="/ecg247">
-                ECG247
-              </Link>
-
-              <Link href="/remote-monitoring">
-                Remote Monitoring
-              </Link>
-
-              <Link href="/health-records">
-                Health Records
-              </Link>
+              <Link href="/services">All Services</Link>
+              <Link href="/services/virtual-care">Virtual Consultations</Link>
+              <Link href="/services/remote-monitoring">Remote Monitoring</Link>
+              <Link href="/services/practice-solutions">Practice Solutions</Link>
             </div>
 
             <div>
-              <strong>Professionals</strong>
+              <strong>Products</strong>
 
-              <Link href="/professionals">
-                Healthcare Professionals
-              </Link>
-
-              <Link href="/organisations">
-                Organisations
-              </Link>
-
-              <Link href="/contact?type=demo">
-                Book a Demo
-              </Link>
+              <Link href="/ehr">EHR</Link>
+              <Link href="/app">TeleDoctorSA App</Link>
+              <Link href="/ecg247">ECG247</Link>
+              <Link href="/demo">Book a Demo</Link>
             </div>
 
             <div>
               <strong>Company</strong>
 
-              <Link href="/about">
-                About
-              </Link>
-
-              <Link href="/contact">
-                Contact
-              </Link>
-
-              <Link href="/privacy">
-                Privacy
-              </Link>
-
-              <Link href="/legal">
-                Legal
-              </Link>
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+              <Link href="/privacy">Privacy</Link>
+              <Link href="/legal">Legal</Link>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <span>
-            © {year} TeleDoctorSA. All rights reserved.
-          </span>
-
-          <span>
-            South Africa
-          </span>
+          <span>© {year} TeleDoctorSA. All rights reserved.</span>
+          <span>South Africa</span>
         </div>
       </div>
     </footer>
