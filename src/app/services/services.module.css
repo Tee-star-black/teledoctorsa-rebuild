@@ -1,0 +1,262 @@
+.page {
+  background: var(--cream);
+}
+
+.hero {
+  padding: 170px 24px 86px;
+  background: var(--plum-950);
+  color: white;
+}
+
+.heroInner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--orange-500);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 880px;
+  margin: 0;
+  font-size: clamp(52px, 7vw, 102px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.intro {
+  max-width: 710px;
+  margin: 34px 0 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.65;
+}
+
+.explorer {
+  padding: 0 24px 100px;
+  background: linear-gradient(to bottom, var(--plum-950) 0 130px, var(--cream) 130px);
+}
+
+.explorerShell {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.95fr) minmax(0, 2fr);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 30px 80px rgba(45, 16, 41, 0.13);
+}
+
+.storyPanel {
+  min-height: 610px;
+  padding: 52px 42px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--plum-950);
+  color: white;
+}
+
+.storyMarker {
+  width: 54px;
+  height: 54px;
+  display: block;
+  margin-bottom: 82px;
+  border-radius: 50%;
+  background: white;
+}
+
+.storyPanel h2 {
+  max-width: 390px;
+  margin: 0;
+  font-size: clamp(34px, 3vw, 54px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.storyPanel > div > p:last-child {
+  max-width: 390px;
+  margin: 26px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.demoLink {
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 800;
+}
+
+.demoLink svg,
+.cardArrow {
+  color: var(--orange-500);
+}
+
+.servicesPanel {
+  padding: 34px;
+  background: white;
+}
+
+.servicesHeading {
+  min-height: 58px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.servicesHeading h2 {
+  margin: 0;
+  color: var(--plum-950);
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.servicesHeading span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.serviceCard {
+  min-height: 168px;
+  padding: 28px 30px 28px 26px;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: white;
+  transition: background 180ms ease, transform 220ms var(--ease-premium), box-shadow 220ms var(--ease-premium);
+}
+
+.serviceCard:hover {
+  position: relative;
+  z-index: 1;
+  background: #fff8f3;
+  box-shadow: inset 5px 0 0 var(--orange-500);
+}
+
+.serviceWide {
+  grid-column: 1 / -1;
+}
+
+.iconBox {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  color: var(--orange-600);
+}
+
+.serviceCopy span {
+  color: var(--orange-600);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.serviceCopy h3 {
+  margin: 10px 0 8px;
+  color: var(--plum-950);
+  font-size: 21px;
+  letter-spacing: -0.035em;
+}
+
+.serviceCopy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.cardArrow {
+  transition: transform 220ms var(--ease-premium);
+}
+
+.serviceCard:hover .cardArrow {
+  transform: translateX(5px);
+}
+
+@media (max-width: 1050px) {
+  .explorerShell {
+    grid-template-columns: 1fr;
+  }
+
+  .storyPanel {
+    min-height: auto;
+    padding: 44px 34px;
+  }
+
+  .storyMarker {
+    margin-bottom: 54px;
+  }
+
+  .demoLink {
+    margin-top: 54px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 140px 20px 70px;
+  }
+
+  .explorer {
+    padding-inline: 16px;
+    padding-bottom: 70px;
+  }
+
+  .servicesPanel {
+    padding: 24px 18px 18px;
+  }
+
+  .servicesHeading {
+    min-height: 70px;
+  }
+
+  .servicesHeading span {
+    display: none;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceWide {
+    grid-column: auto;
+  }
+
+  .serviceCard {
+    min-height: 150px;
+    padding: 24px 20px;
+    grid-template-columns: 54px minmax(0, 1fr) auto;
+    gap: 16px;
+  }
+
+  .iconBox {
+    width: 54px;
+    height: 54px;
+  }
+}
