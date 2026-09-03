@@ -29,7 +29,7 @@
 
 .homeHeader .cleanNavLink,
 .homeHeader .cleanContact {
-  color: rgba(255, 255, 255, 0.82) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   text-shadow: 0 1px 18px rgba(0, 0, 0, 0.25);
 }
 
@@ -41,7 +41,7 @@
 
 .innerHeader .cleanNavLink,
 .innerHeader .cleanContact {
-  color: rgba(45, 16, 41, 0.74) !important;
+  color: rgba(45, 16, 41, 0.82) !important;
 }
 
 .innerHeader .cleanNavLink:hover,
@@ -55,6 +55,14 @@
   position: relative;
   border-radius: 0 !important;
   background: transparent !important;
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 13.5px !important;
+  font-weight: 760 !important;
+  letter-spacing: -0.012em;
+}
+
+.cleanContact {
+  font-weight: 720 !important;
 }
 
 .cleanNavLink::after,
@@ -64,11 +72,11 @@
   left: 13px;
   right: 13px;
   bottom: 7px;
-  height: 1px;
+  height: 1.5px;
   background: currentColor;
   transform: scaleX(0);
   transform-origin: center;
-  opacity: 0.72;
+  opacity: 0.8;
   transition: transform 240ms var(--ease-premium);
 }
 
@@ -82,6 +90,8 @@
   border-radius: 0 !important;
   min-height: 44px !important;
   padding-inline: 18px !important;
+  font-weight: 780 !important;
+  letter-spacing: -0.012em;
   box-shadow: none !important;
 }
 
