@@ -4,12 +4,85 @@
   height: 42px;
   object-fit: contain;
   object-position: left center;
-  transition: transform 220ms var(--ease-premium), opacity 180ms ease;
+  transition: transform 220ms var(--ease-premium), opacity 180ms ease, filter 220ms ease;
 }
 
 .brandLogo:hover {
   transform: translateY(-1px);
   opacity: 0.9;
+}
+
+.brandLogoHome {
+  filter: brightness(0) invert(1);
+}
+
+.invisibleShell {
+  width: min(calc(100% - 64px), 1320px) !important;
+  min-height: 72px !important;
+  padding: 8px 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.homeHeader .cleanNavLink,
+.homeHeader .cleanContact {
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.25);
+}
+
+.homeHeader .cleanNavLink:hover,
+.homeHeader .cleanContact:hover,
+.homeHeader .cleanActive {
+  color: white !important;
+}
+
+.innerHeader .cleanNavLink,
+.innerHeader .cleanContact {
+  color: rgba(45, 16, 41, 0.74) !important;
+}
+
+.innerHeader .cleanNavLink:hover,
+.innerHeader .cleanContact:hover,
+.innerHeader .cleanActive {
+  color: var(--plum-950) !important;
+}
+
+.cleanNavLink,
+.cleanContact {
+  position: relative;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.cleanNavLink::after,
+.cleanContact::after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 7px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0.72;
+  transition: transform 240ms var(--ease-premium);
+}
+
+.cleanNavLink:hover::after,
+.cleanContact:hover::after,
+.cleanActive::after {
+  transform: scaleX(1);
+}
+
+.cleanCta {
+  border-radius: 0 !important;
+  min-height: 44px !important;
+  padding-inline: 18px !important;
+  box-shadow: none !important;
 }
 
 .megaMenu {
@@ -151,6 +224,10 @@
     height: 38px;
   }
 
+  .invisibleShell {
+    width: min(calc(100% - 40px), 1100px) !important;
+  }
+
   .megaMenu {
     width: min(calc(100vw - 34px), 900px) !important;
   }
@@ -170,6 +247,19 @@
     width: 112px;
     height: 38px;
   }
+
+  .brandLogoHome {
+    filter: none;
+  }
+
+  .invisibleShell {
+    width: min(calc(100% - 28px), 620px) !important;
+    min-height: 62px !important;
+    padding-inline: 10px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(18px) !important;
+    border-bottom: 1px solid rgba(45, 16, 41, 0.08) !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -179,7 +269,9 @@
   .megaItem,
   .megaItem::before,
   .megaIcon,
-  .megaArrow {
+  .megaArrow,
+  .cleanNavLink::after,
+  .cleanContact::after {
     transition: none;
   }
 }
