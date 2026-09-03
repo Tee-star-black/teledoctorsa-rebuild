@@ -122,14 +122,14 @@ export function Header() {
       className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${isHome ? polish.homeHeader : polish.innerHeader} ${scrolled ? polish.integratedScrolled : polish.integratedTop}`}
     >
       <div className={`${styles.shell} ${polish.invisibleShell}`}>
-        <Link href="/" className={styles.brand} aria-label="TeleDoctorSA home">
+        <Link href="/" className={`${styles.brand} ${polish.brandAnchor}`} aria-label="TeleDoctorSA home">
           <Image
             src="/images/home/logo.png"
             alt="TeleDoctorSA"
             width={264}
             height={84}
             priority
-            className={`${polish.brandLogo} ${isHome && !scrolled ? polish.brandLogoHome : ""}`}
+            className={polish.brandLogo}
           />
         </Link>
 
@@ -163,7 +163,9 @@ export function Header() {
                 >
                   <div className={`${styles.megaFeature} ${polish.megaFeaturePanel}`}>
                     <div className={polish.megaLogoWrap}>
-                      <Image src="/images/home/logo.png" alt="TeleDoctorSA" width={304} height={96} className={polish.megaLogo} />
+                      <span className={polish.megaLogoSurface}>
+                        <Image src="/images/home/logo.png" alt="TeleDoctorSA" width={304} height={96} className={polish.megaLogo} />
+                      </span>
                     </div>
                     <span className={styles.megaEyebrow}>Connected care platform</span>
                     <h3>Clinical workflows shaped around your practice.</h3>
