@@ -24,25 +24,37 @@
 }
 
 .footerLogoLink {
-  display: inline-flex;
+  position: relative;
+  display: inline-block;
+  width: 166px;
+  height: 52px;
   margin-bottom: 34px;
 }
 
-.footerLogoSurface {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  background: #fffdfb;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.footerLogo {
-  display: block;
-  width: 154px;
-  height: 48px;
+.footerLogoSource {
+  position: absolute;
+  inset: 0;
+  width: 166px;
+  height: 52px;
   object-fit: contain;
   object-position: left center;
-  filter: none;
+  opacity: 0;
+}
+
+.footerLogoLight {
+  position: absolute;
+  inset: 0;
+  width: 166px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.98);
+  -webkit-mask: url('/images/home/logo.png') left center / contain no-repeat;
+  mask: url('/images/home/logo.png') left center / contain no-repeat;
+  transition: opacity 180ms ease, transform 220ms var(--ease-premium);
+}
+
+.footerLogoLink:hover .footerLogoLight {
+  opacity: 0.86;
+  transform: translateY(-1px);
 }
 
 .label {
@@ -196,9 +208,19 @@
   bottom: clamp(-26px, -2.5vw, -12px);
   display: flex;
   align-items: flex-end;
+  gap: clamp(16px, 2vw, 28px);
   color: #fff9f6;
   white-space: nowrap;
   user-select: none;
+}
+
+.footerBrandMark {
+  width: clamp(76px, 8.5vw, 128px);
+  height: clamp(76px, 8.5vw, 128px);
+  flex: 0 0 auto;
+  background: #fff9f6;
+  -webkit-mask: url('/images/home/logo.png') left bottom / contain no-repeat;
+  mask: url('/images/home/logo.png') left bottom / contain no-repeat;
 }
 
 .brandText {
@@ -232,17 +254,15 @@
     padding-bottom: 46px;
   }
 
+  .footerLogoLink,
+  .footerLogoSource,
+  .footerLogoLight {
+    width: 138px;
+    height: 44px;
+  }
+
   .footerLogoLink {
     margin-bottom: 26px;
-  }
-
-  .footerLogoSurface {
-    padding: 6px 8px;
-  }
-
-  .footerLogo {
-    width: 130px;
-    height: 42px;
   }
 
   .linkList a,
@@ -271,6 +291,12 @@
 
   .brandWordmark {
     bottom: -10px;
+    gap: 10px;
+  }
+
+  .footerBrandMark {
+    width: 54px;
+    height: 54px;
   }
 
   .brandText {
@@ -279,6 +305,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .footerLogoLight,
   .linkList a,
   .smallLink,
   .linkList a::after,
