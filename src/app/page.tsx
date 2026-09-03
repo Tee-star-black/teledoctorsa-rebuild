@@ -1,6 +1,7 @@
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Hero } from "@/components/home/hero";
+import { HomeSections } from "@/components/home/home-sections";
 
 export default function HomePage() {
   return (
@@ -9,6 +10,7 @@ export default function HomePage() {
 
       <main>
         <Hero />
+        <HomeSections />
       </main>
 
       <Footer />
