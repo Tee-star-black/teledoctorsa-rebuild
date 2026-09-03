@@ -72,12 +72,12 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 18);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -104,7 +104,6 @@ export function Header() {
 
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("pointerdown", handlePointerDown);
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("pointerdown", handlePointerDown);
@@ -120,9 +119,9 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
+      className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${isHome ? polish.homeHeader : polish.innerHeader}`}
     >
-      <div className={styles.shell}>
+      <div className={`${styles.shell} ${polish.invisibleShell}`}>
         <Link href="/" className={styles.brand} aria-label="TeleDoctorSA home">
           <Image
             src="/images/home/logo.png"
@@ -130,7 +129,7 @@ export function Header() {
             width={264}
             height={84}
             priority
-            className={polish.brandLogo}
+            className={`${polish.brandLogo} ${isHome && !scrolled ? polish.brandLogoHome : ""}`}
           />
         </Link>
 
@@ -142,25 +141,14 @@ export function Header() {
           >
             <button
               type="button"
-              className={`${styles.navLink} ${styles.servicesTrigger} ${servicesActive ? styles.active : ""}`}
+              className={`${styles.navLink} ${styles.servicesTrigger} ${polish.cleanNavLink} ${servicesActive ? polish.cleanActive : ""}`}
               aria-expanded={servicesOpen}
               aria-controls="services-mega-menu"
               onClick={() => setServicesOpen((current) => !current)}
               onFocus={() => setServicesOpen(true)}
             >
-              {servicesActive ? (
-                <motion.span
-                  className={styles.activePill}
-                  layoutId="nav-active-pill"
-                  transition={{ type: "spring", stiffness: 420, damping: 34 }}
-                />
-              ) : null}
               <span className={styles.navLabel}>Services</span>
-              <ChevronDown
-                size={14}
-                className={servicesOpen ? styles.chevronOpen : undefined}
-                aria-hidden="true"
-              />
+              <ChevronDown size={14} className={servicesOpen ? styles.chevronOpen : undefined} aria-hidden="true" />
             </button>
 
             <AnimatePresence>
@@ -175,27 +163,13 @@ export function Header() {
                 >
                   <div className={`${styles.megaFeature} ${polish.megaFeaturePanel}`}>
                     <div className={polish.megaLogoWrap}>
-                      <Image
-                        src="/images/home/logo.png"
-                        alt="TeleDoctorSA"
-                        width={304}
-                        height={96}
-                        className={polish.megaLogo}
-                      />
+                      <Image src="/images/home/logo.png" alt="TeleDoctorSA" width={304} height={96} className={polish.megaLogo} />
                     </div>
                     <span className={styles.megaEyebrow}>Connected care platform</span>
                     <h3>Clinical workflows shaped around your practice.</h3>
-                    <p>
-                      Explore the services that connect patients, clinicians,
-                      diagnostics and records, then book a demo to discuss the
-                      configuration your team needs.
-                    </p>
-                    <Link
-                      href="/contact?type=demo"
-                      className={`${styles.megaFeatureLink} ${polish.megaFeatureLinkPolish}`}
-                    >
-                      Book a demo
-                      <ArrowRight size={16} />
+                    <p>Explore the services that connect patients, clinicians, diagnostics and records, then book a demo to discuss the configuration your team needs.</p>
+                    <Link href="/contact?type=demo" className={`${styles.megaFeatureLink} ${polish.megaFeatureLinkPolish}`}>
+                      Book a demo <ArrowRight size={16} />
                     </Link>
                   </div>
 
@@ -204,18 +178,10 @@ export function Header() {
                       <span>Explore services</span>
                       <small>Hover to explore</small>
                     </div>
-
                     <div className={`${styles.megaServicesGrid} ${polish.megaGrid}`}>
                       {serviceLinks.map(({ icon: Icon, title, copy, href, tag }) => (
-                        <Link
-                          key={title}
-                          href={href}
-                          className={`${styles.megaServiceItem} ${polish.megaItem} ${isActive(href) ? styles.megaServiceItemActive : ""}`}
-                        >
-                          <span
-                            className={`${styles.megaServiceIcon} ${polish.megaIcon}`}
-                            aria-hidden="true"
-                          >
+                        <Link key={title} href={href} className={`${styles.megaServiceItem} ${polish.megaItem} ${isActive(href) ? styles.megaServiceItemActive : ""}`}>
+                          <span className={`${styles.megaServiceIcon} ${polish.megaIcon}`} aria-hidden="true">
                             <Icon size={20} strokeWidth={1.7} />
                           </span>
                           <span className={styles.megaServiceCopy}>
@@ -223,11 +189,7 @@ export function Header() {
                             <strong>{title}</strong>
                             <span>{copy}</span>
                           </span>
-                          <ArrowRight
-                            size={16}
-                            className={polish.megaArrow}
-                            aria-hidden="true"
-                          />
+                          <ArrowRight size={16} className={polish.megaArrow} aria-hidden="true" />
                         </Link>
                       ))}
                     </div>
@@ -239,21 +201,13 @@ export function Header() {
 
           {navigation.map((item) => {
             const active = isActive(item.href);
-
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`${styles.navLink} ${active ? styles.active : ""}`}
+                className={`${styles.navLink} ${polish.cleanNavLink} ${active ? polish.cleanActive : ""}`}
                 aria-current={active ? "page" : undefined}
               >
-                {active ? (
-                  <motion.span
-                    className={styles.activePill}
-                    layoutId="nav-active-pill"
-                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
-                  />
-                ) : null}
                 <span className={styles.navLabel}>{item.label}</span>
               </Link>
             );
@@ -261,15 +215,11 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Link
-            href="/contact"
-            className={`${styles.contactLink} ${isActive("/contact") ? styles.contactActive : ""}`}
-          >
+          <Link href="/contact" className={`${styles.contactLink} ${polish.cleanContact} ${isActive("/contact") ? polish.cleanActive : ""}`}>
             Contact
           </Link>
-          <Link href="/contact?type=demo" className={styles.cta}>
-            Book a Demo
-            <ArrowRight size={16} />
+          <Link href="/contact?type=demo" className={`${styles.cta} ${polish.cleanCta}`}>
+            Book a Demo <ArrowRight size={16} />
           </Link>
         </div>
 
@@ -295,11 +245,7 @@ export function Header() {
             exit={{ opacity: 0, y: -10, scale: 0.985 }}
             transition={{ duration: 0.2 }}
           >
-            <div className={styles.mobileMeta}>
-              <span />
-              Clinical navigation
-            </div>
-
+            <div className={styles.mobileMeta}><span />Clinical navigation</div>
             <button
               type="button"
               className={`${styles.mobileLink} ${styles.mobileServicesTrigger} ${servicesActive ? styles.mobileLinkActive : ""}`}
@@ -308,34 +254,15 @@ export function Header() {
               onClick={() => setMobileServicesOpen((current) => !current)}
             >
               Services
-              <ChevronDown
-                size={16}
-                className={mobileServicesOpen ? styles.chevronOpen : undefined}
-                aria-hidden="true"
-              />
+              <ChevronDown size={16} className={mobileServicesOpen ? styles.chevronOpen : undefined} aria-hidden="true" />
             </button>
 
             <AnimatePresence initial={false}>
               {mobileServicesOpen ? (
-                <motion.div
-                  id="mobile-services"
-                  className={styles.mobileServices}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.div id="mobile-services" className={styles.mobileServices} initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }}>
                   {serviceLinks.map(({ title, href, tag }) => (
-                    <Link
-                      key={title}
-                      href={href}
-                      className={`${styles.mobileServiceLink} ${isActive(href) ? styles.mobileServiceLinkActive : ""}`}
-                    >
-                      <span>
-                        <small>{tag}</small>
-                        <strong>{title}</strong>
-                      </span>
-                      <ArrowRight size={14} />
+                    <Link key={title} href={href} className={`${styles.mobileServiceLink} ${isActive(href) ? styles.mobileServiceLinkActive : ""}`}>
+                      <span><small>{tag}</small><strong>{title}</strong></span><ArrowRight size={14} />
                     </Link>
                   ))}
                 </motion.div>
@@ -343,26 +270,12 @@ export function Header() {
             </AnimatePresence>
 
             {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${styles.mobileLink} ${isActive(item.href) ? styles.mobileLinkActive : ""}`}
-              >
+              <Link key={item.href} href={item.href} className={`${styles.mobileLink} ${isActive(item.href) ? styles.mobileLinkActive : ""}`}>
                 {item.label}
               </Link>
             ))}
-
-            <Link
-              href="/contact"
-              className={`${styles.mobileLink} ${isActive("/contact") ? styles.mobileLinkActive : ""}`}
-            >
-              Contact
-            </Link>
-
-            <Link href="/contact?type=demo" className={styles.mobileCta}>
-              Book a Demo
-              <ArrowRight size={17} />
-            </Link>
+            <Link href="/contact" className={`${styles.mobileLink} ${isActive("/contact") ? styles.mobileLinkActive : ""}`}>Contact</Link>
+            <Link href="/contact?type=demo" className={styles.mobileCta}>Book a Demo <ArrowRight size={17} /></Link>
           </motion.div>
         ) : null}
       </AnimatePresence>
