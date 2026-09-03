@@ -25,25 +25,79 @@
   background: transparent !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
+  transition:
+    min-height 260ms var(--ease-premium),
+    opacity 220ms ease,
+    transform 260ms var(--ease-premium) !important;
 }
 
-.homeHeader .cleanNavLink,
-.homeHeader .cleanContact {
-  color: rgba(255, 255, 255, 0.9) !important;
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.25);
+.integratedTop {
+  transition:
+    top 260ms var(--ease-premium),
+    background-color 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    backdrop-filter 260ms ease;
 }
 
-.homeHeader .cleanNavLink:hover,
-.homeHeader .cleanContact:hover,
-.homeHeader .cleanActive {
+.homeHeader.integratedTop {
+  top: 0 !important;
+  padding: 14px 0 10px;
+  background: linear-gradient(180deg, rgba(22, 7, 20, 0.62) 0%, rgba(22, 7, 20, 0.28) 62%, rgba(22, 7, 20, 0) 100%);
+}
+
+.innerHeader.integratedTop {
+  top: 0 !important;
+  padding: 10px 0;
+  background: rgba(255, 253, 251, 0.82);
+  border-bottom: 1px solid rgba(45, 16, 41, 0.07);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
+
+.integratedScrolled {
+  top: 0 !important;
+  padding: 8px 0 !important;
+  background: rgba(255, 253, 251, 0.94);
+  border-bottom: 1px solid rgba(45, 16, 41, 0.09);
+  box-shadow: 0 12px 36px rgba(32, 13, 30, 0.055);
+  backdrop-filter: blur(20px) saturate(135%);
+  -webkit-backdrop-filter: blur(20px) saturate(135%);
+  transition:
+    top 260ms var(--ease-premium),
+    background-color 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    backdrop-filter 260ms ease;
+}
+
+.integratedScrolled .invisibleShell {
+  min-height: 60px !important;
+}
+
+.homeHeader.integratedTop .cleanNavLink,
+.homeHeader.integratedTop .cleanContact {
+  color: rgba(255, 255, 255, 0.94) !important;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.32);
+}
+
+.homeHeader.integratedTop .cleanNavLink:hover,
+.homeHeader.integratedTop .cleanContact:hover,
+.homeHeader.integratedTop .cleanActive {
   color: white !important;
 }
 
+.homeHeader.integratedScrolled .cleanNavLink,
+.homeHeader.integratedScrolled .cleanContact,
 .innerHeader .cleanNavLink,
 .innerHeader .cleanContact {
-  color: rgba(45, 16, 41, 0.82) !important;
+  color: rgba(45, 16, 41, 0.84) !important;
+  text-shadow: none;
 }
 
+.homeHeader.integratedScrolled .cleanNavLink:hover,
+.homeHeader.integratedScrolled .cleanContact:hover,
+.homeHeader.integratedScrolled .cleanActive,
 .innerHeader .cleanNavLink:hover,
 .innerHeader .cleanContact:hover,
 .innerHeader .cleanActive {
@@ -102,6 +156,10 @@
   grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.58fr) !important;
   border-radius: 18px !important;
   box-shadow: 0 24px 70px rgba(32, 13, 30, 0.16) !important;
+}
+
+.integratedScrolled .megaMenu {
+  top: 82px !important;
 }
 
 .megaFeaturePanel {
@@ -253,6 +311,19 @@
 }
 
 @media (max-width: 860px) {
+  .homeHeader,
+  .innerHeader,
+  .integratedTop,
+  .integratedScrolled {
+    top: 0 !important;
+    padding: 8px 0 !important;
+    background: rgba(255, 253, 251, 0.96) !important;
+    border-bottom: 1px solid rgba(45, 16, 41, 0.08) !important;
+    box-shadow: 0 10px 28px rgba(32, 13, 30, 0.05) !important;
+    backdrop-filter: blur(18px) saturate(130%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+  }
+
   .brandLogo {
     width: 112px;
     height: 38px;
@@ -266,9 +337,6 @@
     width: min(calc(100% - 28px), 620px) !important;
     min-height: 62px !important;
     padding-inline: 10px !important;
-    background: rgba(255, 255, 255, 0.94) !important;
-    backdrop-filter: blur(18px) !important;
-    border-bottom: 1px solid rgba(45, 16, 41, 0.08) !important;
   }
 }
 
@@ -281,7 +349,10 @@
   .megaIcon,
   .megaArrow,
   .cleanNavLink::after,
-  .cleanContact::after {
+  .cleanContact::after,
+  .integratedTop,
+  .integratedScrolled,
+  .invisibleShell {
     transition: none;
   }
 }
