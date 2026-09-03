@@ -10,8 +10,14 @@ import "./minimal-header.css";
 import "./legal.css";
 import "./premium-system.css";
 
-const geist = Geist({
+const geistBody = Geist({
   variable: "--font-body",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistDisplay = Geist({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
@@ -44,7 +50,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-ZA" className={`${geist.variable} h-full antialiased`}>
+    <html
+      lang="en-ZA"
+      className={`${geistBody.variable} ${geistDisplay.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         {children}
         <CookieConsent />
