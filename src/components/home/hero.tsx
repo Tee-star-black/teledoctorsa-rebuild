@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import {
@@ -8,6 +7,8 @@ import {
   ArrowRight,
   ChevronRight,
   HeartPulse,
+  ShieldCheck,
+  Stethoscope,
 } from "lucide-react";
 
 import {
@@ -26,12 +27,8 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div
-            variants={fadeUp}
-            className="hero-eyebrow"
-          >
+          <motion.div variants={fadeUp} className="hero-eyebrow">
             <span className="eyebrow-line" />
-
             Connected healthcare technology
           </motion.div>
 
@@ -40,77 +37,39 @@ export function Hero() {
             <br />
             beyond the
             <br />
-
-            <span>
-              consultation.
-            </span>
+            <span>consultation.</span>
           </motion.h1>
 
-          <motion.p
-            variants={fadeUp}
-            className="hero-description"
-          >
-            TeleDoctorSA helps healthcare professionals connect
-            virtual care, ECG247, remote monitoring and
-            longitudinal patient information into one continuous
-            care experience.
+          <motion.p variants={fadeUp} className="hero-description">
+            TeleDoctorSA helps healthcare professionals connect virtual care,
+            ECG247, remote monitoring and longitudinal patient information into
+            one continuous care experience.
           </motion.p>
 
-          <motion.div
-            variants={fadeUp}
-            className="hero-actions"
-          >
-            <Link
-              href="/contact?type=demo"
-              className="primary-button"
-            >
+          <motion.div variants={fadeUp} className="hero-actions">
+            <Link href="/contact?type=demo" className="primary-button">
               Book a Demo
-
               <ArrowRight size={18} />
             </Link>
 
-            <Link
-              href="/platform"
-              className="secondary-button"
-            >
+            <Link href="/platform" className="secondary-button">
               Explore the Platform
-
               <ChevronRight size={18} />
             </Link>
           </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-            className="hero-capabilities"
-          >
+          <motion.div variants={fadeUp} className="hero-capabilities">
             <div>
-              <strong>
-                Virtual care
-              </strong>
-
-              <span>
-                Connect remotely
-              </span>
+              <strong>Virtual care</strong>
+              <span>Connect remotely</span>
             </div>
-
             <div>
-              <strong>
-                Remote monitoring
-              </strong>
-
-              <span>
-                Follow patients over time
-              </span>
+              <strong>Remote monitoring</strong>
+              <span>Follow patients over time</span>
             </div>
-
             <div>
-              <strong>
-                Connected records
-              </strong>
-
-              <span>
-                Preserve continuity
-              </span>
+              <strong>Connected records</strong>
+              <span>Preserve continuity</span>
             </div>
           </motion.div>
         </motion.div>
@@ -118,160 +77,74 @@ export function Hero() {
 
       <motion.div
         className="hero-right"
-        initial={{
-          opacity: 0,
-          scale: 1.035,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{
-          duration: 1.25,
-          ease: easings.premium,
-        }}
+        initial={{ opacity: 0, scale: 1.025 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.1, ease: easings.premium }}
       >
-        <motion.div
-          className="hero-image-scale"
-          animate={{
-            scale: [1, 1.025, 1],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/images/home/hero-clinician.jpg"
-            alt="Healthcare professional reviewing connected patient information"
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 50vw"
-            className="hero-main-image"
-          />
-        </motion.div>
-
-        <div className="hero-photo-tint" />
-
-        <motion.div
-          className="patient-status-card"
-          initial={{
-            opacity: 0,
-            x: 35,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-          }}
-          transition={{
-            delay: 0.8,
-            duration: 0.7,
-            ease: easings.premium,
-          }}
-        >
-          <div className="status-top">
-            <div className="status-live">
-              <span />
-
-              Patient connected
-            </div>
-
-            <HeartPulse size={19} />
-          </div>
-
-          <div className="status-reading">
+        <div className="absolute inset-0 bg-[#351330]" />
+        <div className="absolute inset-x-[8%] top-[16%] border border-white/10 bg-[#2d1029] p-5 sm:p-7 lg:p-8">
+          <div className="flex items-center justify-between border-b border-white/10 pb-5">
             <div>
-              <small>
-                Heart rate
-              </small>
-
-              <strong>
-                72
-                <span>
-                  bpm
-                </span>
-              </strong>
+              <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/40">Connected care overview</span>
+              <p className="mt-2 text-base font-semibold text-white sm:text-lg">Patient monitoring session</p>
             </div>
-
-            <Activity size={32} />
+            <div className="grid h-10 w-10 place-items-center bg-[#ee7b3b] text-[#200d1e]">
+              <HeartPulse size={20} />
+            </div>
           </div>
 
-          <div className="ecg-chart">
-            <svg
-              viewBox="0 0 400 80"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
+          <div className="grid gap-px bg-white/10 sm:grid-cols-3">
+            <div className="bg-[#2d1029] py-6 pr-5 sm:px-5">
+              <span className="text-xs text-white/40">Heart rate</span>
+              <strong className="mt-2 block text-4xl tracking-[-0.05em] text-white">72 <small className="text-[10px] font-medium text-white/35">bpm</small></strong>
+            </div>
+            <div className="bg-[#2d1029] py-6 sm:px-5">
+              <span className="text-xs text-white/40">Monitoring</span>
+              <strong className="mt-3 flex items-center gap-2 text-sm text-[#f29662]"><Activity size={16} /> Active</strong>
+            </div>
+            <div className="bg-[#2d1029] py-6 sm:px-5">
+              <span className="text-xs text-white/40">Care status</span>
+              <strong className="mt-3 flex items-center gap-2 text-sm text-white"><ShieldCheck size={16} className="text-[#f29662]" /> Connected</strong>
+            </div>
+          </div>
+
+          <div className="mt-7 border-y border-white/10 py-6">
+            <svg viewBox="0 0 500 100" className="h-24 w-full text-[#ee7b3b]" aria-label="Illustrative ECG waveform">
               <motion.path
-                d="
-                  M0 40
-                  H55
-                  L70 40
-                  L82 18
-                  L96 63
-                  L113 5
-                  L132 67
-                  L150 40
-                  H220
-                  L235 40
-                  L247 21
-                  L260 58
-                  L277 8
-                  L295 63
-                  L313 40
-                  H400
-                "
+                d="M0 52 H60 L78 52 L92 26 L108 75 L128 9 L149 78 L169 52 H255 L272 52 L286 30 L301 71 L322 12 L343 76 L364 52 H500"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                initial={{
-                  pathLength: 0,
-                }}
-                animate={{
-                  pathLength: 1,
-                }}
-                transition={{
-                  delay: 1.1,
-                  duration: 2,
-                  ease: "easeInOut",
-                }}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ delay: 0.6, duration: 2, ease: "easeInOut" }}
               />
             </svg>
           </div>
 
-          <div className="status-footer">
-            <span>
-              Monitoring active
-            </span>
-
-            <strong>
-              ECG247
-            </strong>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="border border-white/10 p-4">
+              <Stethoscope size={18} className="text-[#ee7b3b]" />
+              <p className="mt-5 text-sm font-semibold text-white">Clinician connected</p>
+              <span className="mt-1 block text-xs leading-5 text-white/40">Virtual care and follow-up in one workflow.</span>
+            </div>
+            <div className="border border-white/10 p-4">
+              <Activity size={18} className="text-[#ee7b3b]" />
+              <p className="mt-5 text-sm font-semibold text-white">Longitudinal view</p>
+              <span className="mt-1 block text-xs leading-5 text-white/40">Monitoring information stays connected over time.</span>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         <motion.div
           className="hero-photo-label"
-          initial={{
-            opacity: 0,
-            y: 15,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: 1,
-            duration: 0.7,
-          }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.7 }}
         >
-          <span>
-            01
-          </span>
-
+          <span>01</span>
           Care that continues
         </motion.div>
       </motion.div>
