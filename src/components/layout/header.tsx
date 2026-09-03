@@ -131,6 +131,7 @@ export function Header() {
             priority
             className={polish.brandLogo}
           />
+          <span className={polish.brandLogoLight} aria-hidden="true" />
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">
@@ -162,10 +163,9 @@ export function Header() {
                   transition={{ duration: 0.18, ease: "easeOut" }}
                 >
                   <div className={`${styles.megaFeature} ${polish.megaFeaturePanel}`}>
-                    <div className={polish.megaLogoWrap}>
-                      <span className={polish.megaLogoSurface}>
-                        <Image src="/images/home/logo.png" alt="TeleDoctorSA" width={304} height={96} className={polish.megaLogo} />
-                      </span>
+                    <div className={polish.megaLogoWrap} aria-label="TeleDoctorSA">
+                      <Image src="/images/home/logo.png" alt="TeleDoctorSA" width={304} height={96} className={polish.megaLogoSource} />
+                      <span className={polish.megaLogoLight} aria-hidden="true" />
                     </div>
                     <span className={styles.megaEyebrow}>Connected care platform</span>
                     <h3>Clinical workflows shaped around your practice.</h3>
