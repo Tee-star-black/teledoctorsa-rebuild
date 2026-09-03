@@ -75,7 +75,7 @@ export function Header() {
   const isHome = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 18);
+    const handleScroll = () => setScrolled(window.scrollY > 42);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -119,7 +119,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${isHome ? polish.homeHeader : polish.innerHeader}`}
+      className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${isHome ? polish.homeHeader : polish.innerHeader} ${scrolled ? polish.integratedScrolled : polish.integratedTop}`}
     >
       <div className={`${styles.shell} ${polish.invisibleShell}`}>
         <Link href="/" className={styles.brand} aria-label="TeleDoctorSA home">
