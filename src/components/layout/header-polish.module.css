@@ -1,23 +1,46 @@
-.brandLogo {
+.brandAnchor {
+  position: relative;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.brandLogo,
+.brandLogoLight {
   display: block;
   width: 132px;
   height: 42px;
+  transition: opacity 180ms ease, transform 220ms var(--ease-premium);
+}
+
+.brandLogo {
   object-fit: contain;
   object-position: left center;
   filter: none;
-  transition: transform 220ms var(--ease-premium), opacity 180ms ease;
 }
 
-.brandLogo:hover {
+.brandLogoLight {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.98);
+  -webkit-mask: url('/images/home/logo.png') left center / contain no-repeat;
+  mask: url('/images/home/logo.png') left center / contain no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.brandAnchor:hover .brandLogo,
+.brandAnchor:hover .brandLogoLight {
   transform: translateY(-1px);
-  opacity: 0.96;
 }
 
-.brandAnchor {
-  padding: 7px 10px !important;
-  background: rgba(255, 253, 251, 0.96);
-  border: 1px solid rgba(45, 16, 41, 0.08);
-  box-shadow: 0 6px 20px rgba(32, 13, 30, 0.04);
+.homeHeader.integratedTop .brandLogo {
+  opacity: 0;
+}
+
+.homeHeader.integratedTop .brandLogoLight {
+  opacity: 1;
 }
 
 .integratedTop,
@@ -155,28 +178,30 @@
 }
 
 .megaLogoWrap {
-  width: 172px;
-  min-height: 54px;
-  display: flex;
-  align-items: center;
+  position: relative;
+  width: 170px;
+  height: 52px;
   margin-bottom: 26px;
 }
 
-.megaLogoSurface {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 9px;
-  background: rgba(255, 253, 251, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.megaLogo {
-  width: 150px;
-  height: 42px;
+.megaLogoSource {
+  position: absolute;
+  inset: 0;
+  width: 170px;
+  height: 52px;
   object-fit: contain;
   object-position: left center;
-  filter: none;
-  opacity: 1;
+  opacity: 0;
+}
+
+.megaLogoLight {
+  position: absolute;
+  inset: 0;
+  width: 170px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.98);
+  -webkit-mask: url('/images/home/logo.png') left center / contain no-repeat;
+  mask: url('/images/home/logo.png') left center / contain no-repeat;
 }
 
 .megaFeaturePanel h3 {
@@ -271,13 +296,10 @@
 }
 
 @media (max-width: 1050px) {
-  .brandLogo {
+  .brandLogo,
+  .brandLogoLight {
     width: 118px;
     height: 38px;
-  }
-
-  .brandAnchor {
-    padding: 6px 8px !important;
   }
 
   .invisibleShell {
@@ -309,16 +331,18 @@
     box-shadow: none !important;
   }
 
-  .brandLogo {
+  .brandLogo,
+  .brandLogoLight {
     width: 112px;
     height: 38px;
   }
 
-  .brandAnchor {
-    padding: 4px 6px !important;
-    background: transparent;
-    border-color: transparent;
-    box-shadow: none;
+  .homeHeader.integratedTop .brandLogo {
+    opacity: 1;
+  }
+
+  .homeHeader.integratedTop .brandLogoLight {
+    opacity: 0;
   }
 
   .invisibleShell {
@@ -330,6 +354,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .brandLogo,
+  .brandLogoLight,
   .megaFeatureLinkPolish,
   .megaItem,
   .megaItem::before,
