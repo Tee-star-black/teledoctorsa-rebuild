@@ -9,89 +9,78 @@
 
 .brandLogo:hover {
   transform: translateY(-1px);
-  opacity: 0.9;
+  opacity: 0.94;
 }
 
 .brandLogoHome {
   filter: brightness(0) invert(1);
 }
 
+.integratedTop,
+.integratedScrolled {
+  top: 0 !important;
+  transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
 .invisibleShell {
-  width: min(calc(100% - 64px), 1320px) !important;
-  min-height: 72px !important;
-  padding: 8px 0 !important;
+  width: min(calc(100% - 72px), 1360px) !important;
+  min-height: 78px !important;
+  padding: 10px 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
-  transition:
-    min-height 260ms var(--ease-premium),
-    opacity 220ms ease,
-    transform 260ms var(--ease-premium) !important;
+  transition: min-height 240ms var(--ease-premium) !important;
 }
 
-.integratedTop {
-  transition:
-    top 260ms var(--ease-premium),
-    background-color 260ms ease,
-    border-color 260ms ease,
-    box-shadow 260ms ease,
-    backdrop-filter 260ms ease;
-}
-
+/* Editorial top state: the header belongs to the page rather than floating above it. */
 .homeHeader.integratedTop {
-  top: 0 !important;
-  padding: 14px 0 10px;
-  background: linear-gradient(180deg, rgba(22, 7, 20, 0.62) 0%, rgba(22, 7, 20, 0.28) 62%, rgba(22, 7, 20, 0) 100%);
+  padding: 12px 0 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 7, 18, 0.48) 0%,
+    rgba(20, 7, 18, 0.18) 58%,
+    rgba(20, 7, 18, 0) 100%
+  );
+  border-bottom: 1px solid transparent;
 }
 
 .innerHeader.integratedTop {
-  top: 0 !important;
-  padding: 10px 0;
-  background: rgba(255, 253, 251, 0.82);
+  padding: 8px 0;
+  background: rgba(255, 253, 251, 0.97);
   border-bottom: 1px solid rgba(45, 16, 41, 0.07);
-  backdrop-filter: blur(16px) saturate(125%);
-  -webkit-backdrop-filter: blur(16px) saturate(125%);
 }
 
+/* On scroll we add only enough surface to protect readability. */
 .integratedScrolled {
-  top: 0 !important;
-  padding: 8px 0 !important;
-  background: rgba(255, 253, 251, 0.94);
+  padding: 4px 0 !important;
+  background: rgba(255, 253, 251, 0.975);
   border-bottom: 1px solid rgba(45, 16, 41, 0.09);
-  box-shadow: 0 12px 36px rgba(32, 13, 30, 0.055);
-  backdrop-filter: blur(20px) saturate(135%);
-  -webkit-backdrop-filter: blur(20px) saturate(135%);
-  transition:
-    top 260ms var(--ease-premium),
-    background-color 260ms ease,
-    border-color 260ms ease,
-    box-shadow 260ms ease,
-    backdrop-filter 260ms ease;
+  box-shadow: 0 8px 26px rgba(32, 13, 30, 0.035);
 }
 
 .integratedScrolled .invisibleShell {
-  min-height: 60px !important;
+  min-height: 64px !important;
 }
 
 .homeHeader.integratedTop .cleanNavLink,
 .homeHeader.integratedTop .cleanContact {
-  color: rgba(255, 255, 255, 0.94) !important;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.32);
+  color: rgba(255, 255, 255, 0.96) !important;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.2);
 }
 
 .homeHeader.integratedTop .cleanNavLink:hover,
 .homeHeader.integratedTop .cleanContact:hover,
 .homeHeader.integratedTop .cleanActive {
-  color: white !important;
+  color: #ffffff !important;
 }
 
 .homeHeader.integratedScrolled .cleanNavLink,
 .homeHeader.integratedScrolled .cleanContact,
 .innerHeader .cleanNavLink,
 .innerHeader .cleanContact {
-  color: rgba(45, 16, 41, 0.84) !important;
+  color: rgba(45, 16, 41, 0.88) !important;
   text-shadow: none;
 }
 
@@ -116,7 +105,7 @@
 }
 
 .cleanContact {
-  font-weight: 720 !important;
+  font-weight: 740 !important;
 }
 
 .cleanNavLink::after,
@@ -125,13 +114,12 @@
   position: absolute;
   left: 13px;
   right: 13px;
-  bottom: 7px;
-  height: 1.5px;
-  background: currentColor;
+  bottom: 6px;
+  height: 1px;
+  background: var(--orange-500);
   transform: scaleX(0);
-  transform-origin: center;
-  opacity: 0.8;
-  transition: transform 240ms var(--ease-premium);
+  transform-origin: left center;
+  transition: transform 230ms var(--ease-premium);
 }
 
 .cleanNavLink:hover::after,
@@ -141,25 +129,26 @@
 }
 
 .cleanCta {
-  border-radius: 0 !important;
-  min-height: 44px !important;
+  min-height: 43px !important;
   padding-inline: 18px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   font-weight: 780 !important;
   letter-spacing: -0.012em;
-  box-shadow: none !important;
 }
 
 .megaMenu {
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: min(calc(100vw - 64px), 1040px) !important;
+  width: min(calc(100vw - 72px), 1040px) !important;
   grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.58fr) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 24px 70px rgba(32, 13, 30, 0.16) !important;
+  border-radius: 2px !important;
+  border: 1px solid rgba(45, 16, 41, 0.1) !important;
+  box-shadow: 0 26px 70px rgba(32, 13, 30, 0.13) !important;
 }
 
 .integratedScrolled .megaMenu {
-  top: 82px !important;
+  top: 76px !important;
 }
 
 .megaFeaturePanel {
@@ -227,11 +216,7 @@
   min-height: 112px !important;
   padding: 17px 18px !important;
   overflow: hidden;
-  transition:
-    background 180ms ease,
-    transform 220ms var(--ease-premium),
-    box-shadow 220ms ease,
-    border-color 180ms ease !important;
+  transition: background 180ms ease, transform 220ms var(--ease-premium), box-shadow 220ms ease, border-color 180ms ease !important;
 }
 
 .megaItem:nth-child(5) {
@@ -245,7 +230,7 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 2px;
   background: var(--orange-500);
   transform: scaleY(0);
   transform-origin: center;
@@ -256,7 +241,7 @@
 .megaItem:focus-visible {
   background: var(--cream) !important;
   transform: translateY(-2px) !important;
-  box-shadow: inset 0 0 0 1px rgba(238, 123, 59, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(238, 123, 59, 0.1);
   outline: none;
 }
 
@@ -271,7 +256,7 @@
 
 .megaItem:hover .megaIcon,
 .megaItem:focus-visible .megaIcon {
-  transform: translateY(-2px) scale(1.04);
+  transform: translateY(-2px);
   color: var(--orange-500);
   border-color: rgba(238, 123, 59, 0.35);
 }
@@ -315,13 +300,10 @@
   .innerHeader,
   .integratedTop,
   .integratedScrolled {
-    top: 0 !important;
-    padding: 8px 0 !important;
-    background: rgba(255, 253, 251, 0.96) !important;
+    padding: 6px 0 !important;
+    background: rgba(255, 253, 251, 0.98) !important;
     border-bottom: 1px solid rgba(45, 16, 41, 0.08) !important;
-    box-shadow: 0 10px 28px rgba(32, 13, 30, 0.05) !important;
-    backdrop-filter: blur(18px) saturate(130%) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+    box-shadow: none !important;
   }
 
   .brandLogo {
@@ -335,8 +317,8 @@
 
   .invisibleShell {
     width: min(calc(100% - 28px), 620px) !important;
-    min-height: 62px !important;
-    padding-inline: 10px !important;
+    min-height: 60px !important;
+    padding-inline: 8px !important;
   }
 }
 
