@@ -11,6 +11,17 @@ export function Footer() {
       <div className={styles.shell}>
         <div className={styles.topGrid}>
           <div className={styles.column}>
+            <Link href="/" className={styles.footerLogoLink} aria-label="TeleDoctorSA home">
+              <span className={styles.footerLogoSurface}>
+                <Image
+                  src="/images/home/logo.png"
+                  alt="TeleDoctorSA"
+                  width={300}
+                  height={96}
+                  className={styles.footerLogo}
+                />
+              </span>
+            </Link>
             <span className={styles.label}>Navigation</span>
             <div className={styles.linkList}>
               <Link href="/">Home</Link>
@@ -96,13 +107,6 @@ export function Footer() {
 
         <div className={styles.brandStage} aria-hidden="true">
           <div className={styles.brandWordmark}>
-            <Image
-              src="/images/home/logo.png"
-              alt=""
-              width={220}
-              height={220}
-              className={styles.brandSymbol}
-            />
             <span className={styles.brandText}>TeleDoctorSA</span>
           </div>
         </div>
