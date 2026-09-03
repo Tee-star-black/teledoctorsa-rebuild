@@ -12,15 +12,14 @@ export function Footer() {
         <div className={styles.topGrid}>
           <div className={styles.column}>
             <Link href="/" className={styles.footerLogoLink} aria-label="TeleDoctorSA home">
-              <span className={styles.footerLogoSurface}>
-                <Image
-                  src="/images/home/logo.png"
-                  alt="TeleDoctorSA"
-                  width={300}
-                  height={96}
-                  className={styles.footerLogo}
-                />
-              </span>
+              <Image
+                src="/images/home/logo.png"
+                alt="TeleDoctorSA"
+                width={300}
+                height={96}
+                className={styles.footerLogoSource}
+              />
+              <span className={styles.footerLogoLight} aria-hidden="true" />
             </Link>
             <span className={styles.label}>Navigation</span>
             <div className={styles.linkList}>
@@ -107,6 +106,7 @@ export function Footer() {
 
         <div className={styles.brandStage} aria-hidden="true">
           <div className={styles.brandWordmark}>
+            <span className={styles.footerBrandMark} />
             <span className={styles.brandText}>TeleDoctorSA</span>
           </div>
         </div>
