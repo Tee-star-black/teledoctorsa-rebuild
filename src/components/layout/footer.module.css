@@ -23,6 +23,28 @@
   min-width: 0;
 }
 
+.footerLogoLink {
+  display: inline-flex;
+  margin-bottom: 34px;
+}
+
+.footerLogoSurface {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #fffdfb;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footerLogo {
+  display: block;
+  width: 154px;
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
+  filter: none;
+}
+
 .label {
   display: block;
   margin-bottom: 18px;
@@ -174,18 +196,9 @@
   bottom: clamp(-26px, -2.5vw, -12px);
   display: flex;
   align-items: flex-end;
-  gap: clamp(14px, 2.2vw, 30px);
   color: #fff9f6;
   white-space: nowrap;
   user-select: none;
-}
-
-.brandSymbol {
-  width: clamp(80px, 10vw, 150px);
-  height: clamp(80px, 10vw, 150px);
-  object-fit: contain;
-  object-position: left bottom;
-  filter: brightness(0) invert(1);
 }
 
 .brandText {
@@ -219,6 +232,19 @@
     padding-bottom: 46px;
   }
 
+  .footerLogoLink {
+    margin-bottom: 26px;
+  }
+
+  .footerLogoSurface {
+    padding: 6px 8px;
+  }
+
+  .footerLogo {
+    width: 130px;
+    height: 42px;
+  }
+
   .linkList a,
   .smallLink {
     font-size: 16px;
@@ -244,13 +270,7 @@
   }
 
   .brandWordmark {
-    gap: 10px;
     bottom: -10px;
-  }
-
-  .brandSymbol {
-    width: 58px;
-    height: 58px;
   }
 
   .brandText {
