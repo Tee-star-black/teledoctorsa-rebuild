@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Geist } from "next/font/google";
 
 import { CookieConsent } from "@/components/legal/cookie-consent";
 
@@ -10,14 +10,8 @@ import "./minimal-header.css";
 import "./legal.css";
 import "./premium-system.css";
 
-const bodyFont = Manrope({
+const geist = Geist({
   variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const displayFont = Space_Grotesk({
-  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
@@ -50,10 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en-ZA"
-      className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
-    >
+    <html lang="en-ZA" className={`${geist.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
         <CookieConsent />
