@@ -53,9 +53,23 @@
   transition: transform 760ms var(--ease-premium);
 }
 
+.tdsa-clinical-primary-contain img,
+.tdsa-clinical-secondary-contain img {
+  object-fit: contain;
+  padding: clamp(26px, 4vw, 58px);
+}
+
+.tdsa-clinical-primary-contain {
+  background: #f4efec;
+}
+
+.tdsa-clinical-secondary-contain {
+  background: #f4efec;
+}
+
 .tdsa-clinical-primary:hover img,
 .tdsa-clinical-secondary:hover img {
-  transform: scale(1.025);
+  transform: scale(1.018);
 }
 
 .tdsa-clinical-primary::after,
