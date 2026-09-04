@@ -5,6 +5,7 @@ import "./home-narrative.css";
 import "./home-integration.css";
 import "./hero-overrides.css";
 import "./desktop-home.css";
+import "./clinical-showcase.css";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
