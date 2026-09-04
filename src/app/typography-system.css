@@ -1,0 +1,114 @@
+/* Premium TeleDoctorSA typography system */
+
+html,
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.tdsa-cta-card h2,
+.tdsa-clinical-primary-copy strong,
+.tdsa-clinical-secondary-copy strong,
+.info-hero h1,
+.info-heading h2,
+.info-copy h2,
+.info-band h2,
+.info-service-row h2,
+.app-phone-top strong,
+.ehr-record-header strong {
+  font-family: var(--font-display), var(--font-body), Arial, Helvetica, sans-serif;
+  font-feature-settings: "ss01" 1, "cv05" 1;
+}
+
+h1,
+.info-hero h1 {
+  font-weight: 620;
+  letter-spacing: -0.055em;
+}
+
+h2,
+.info-heading h2,
+.info-copy h2,
+.info-band h2,
+.tdsa-cta-card h2 {
+  font-weight: 610;
+  letter-spacing: -0.048em;
+}
+
+h3,
+.info-service-row h2,
+.tdsa-clinical-primary-copy strong,
+.tdsa-clinical-secondary-copy strong {
+  font-weight: 620;
+}
+
+p,
+li,
+a,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+.tdsa-eyebrow,
+.info-eyebrow,
+.tdsa-clinical-rail-label,
+.tdsa-clinical-primary-copy span,
+.tdsa-clinical-secondary-copy span,
+.tdsa-step-number,
+.tdsa-section-kicker,
+.info-service-index,
+.ehr-record-header small,
+.ehr-timeline span,
+.app-phone-top small,
+[class*="status"],
+[class*="metadata"] {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tdsa-eyebrow,
+.info-eyebrow,
+.tdsa-clinical-rail-label,
+.tdsa-clinical-primary-copy span,
+.tdsa-clinical-secondary-copy span {
+  letter-spacing: 0.14em;
+}
+
+body {
+  font-weight: 430;
+  letter-spacing: -0.008em;
+}
+
+nav,
+.site-header,
+.info-primary,
+.info-secondary,
+.tdsa-solid-link,
+.tdsa-text-link {
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-weight: 650;
+}
+
+@media (max-width: 640px) {
+  h1,
+  .info-hero h1 {
+    letter-spacing: -0.048em;
+  }
+
+  h2,
+  .info-heading h2,
+  .info-copy h2,
+  .info-band h2,
+  .tdsa-cta-card h2 {
+    letter-spacing: -0.042em;
+  }
+}
