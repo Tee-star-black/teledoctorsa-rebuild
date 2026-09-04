@@ -66,7 +66,7 @@ export default function CookiePolicyPage() {
             <section>
               <h2>4. Managing your choices</h2>
               <p>
-                You can choose "Essential only" or "Accept all" when the privacy
+                You can choose &quot;Essential only&quot; or &quot;Accept all&quot; when the privacy
                 preferences notice appears. You may also clear this site&apos;s browser
                 storage in your browser settings to make the preference notice appear
                 again.

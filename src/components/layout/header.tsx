@@ -52,9 +52,13 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    setOpen(false);
-    setServicesOpen(false);
-    setMobileServicesOpen(false);
+    const closeMenus = window.setTimeout(() => {
+      setOpen(false);
+      setServicesOpen(false);
+      setMobileServicesOpen(false);
+    }, 0);
+
+    return () => window.clearTimeout(closeMenus);
   }, [pathname]);
 
   useEffect(() => {

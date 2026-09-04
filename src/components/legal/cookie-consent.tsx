@@ -14,7 +14,9 @@ export function CookieConsent() {
 
   useEffect(() => {
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    setVisible(!saved);
+    const revealBanner = window.setTimeout(() => setVisible(!saved), 0);
+
+    return () => window.clearTimeout(revealBanner);
   }, []);
 
   function saveConsent(value: ConsentState) {

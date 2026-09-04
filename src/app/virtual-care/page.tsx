@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, FileHeart, MonitorSmartphone, ShieldCheck, Stethoscope, Video } from "lucide-react";
+import { ArrowRight, FileHeart, ShieldCheck, Video } from "lucide-react";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
