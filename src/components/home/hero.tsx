@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section className="home-hero hero-background-layout">
       <motion.div className="hero-background-image" initial={{ opacity: 0, scale: 1.03 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: easings.premium }}>
-        <Image src="/images/home/hero-clinician.jpg" alt="Healthcare professional reviewing connected patient information" fill priority sizes="100vw" className="hero-main-image" />
+        <Image src="/images/home/hero-clinician.png" alt="Healthcare professional reviewing connected patient information" fill priority sizes="100vw" className="hero-main-image" />
       </motion.div>
 
       <div className="hero-background-overlay" />
