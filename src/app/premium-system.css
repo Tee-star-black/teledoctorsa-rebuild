@@ -24,9 +24,7 @@ html {
 
 body {
   min-height: 100%;
-  background:
-    radial-gradient(circle at 12% -8%, rgba(238, 123, 59, 0.055), transparent 28rem),
-    var(--surface-0);
+  background: var(--surface-0);
   color: var(--ink-strong);
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
@@ -87,7 +85,6 @@ figure {
   margin-inline: 0;
 }
 
-/* Premium interaction language */
 .primary-button,
 .secondary-button,
 .tdsa-solid-link,
@@ -106,25 +103,6 @@ a[class*="button"] {
     color var(--motion-fast) ease;
 }
 
-.primary-button::before,
-.tdsa-solid-link::before,
-a[class*="cta"]::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  background: linear-gradient(105deg, transparent 18%, rgba(255, 255, 255, 0.3) 48%, transparent 72%);
-  transform: translateX(-140%);
-  transition: transform 700ms var(--ease-premium);
-  pointer-events: none;
-}
-
-.primary-button:hover::before,
-.tdsa-solid-link:hover::before,
-a[class*="cta"]:hover::before {
-  transform: translateX(140%);
-}
-
 .primary-button:hover,
 .secondary-button:hover,
 .tdsa-solid-link:hover,
@@ -141,7 +119,6 @@ a[class*="button"]:active {
   transform: translateY(0) scale(0.985);
 }
 
-/* Editorial section rhythm */
 .tdsa-section-shell {
   width: min(calc(100% - clamp(32px, 7vw, 96px)), 1380px);
 }
@@ -217,15 +194,13 @@ a[class*="button"]:active {
   transform: translateY(-2px) rotate(-2deg);
 }
 
-/* Hero treatment */
 .hero-background-image,
 .hero-background-overlay {
   will-change: transform, opacity;
 }
 
 .hero-background-overlay {
-  background:
-    linear-gradient(90deg, rgba(22, 7, 20, 0.92) 0%, rgba(22, 7, 20, 0.76) 40%, rgba(22, 7, 20, 0.22) 76%, rgba(22, 7, 20, 0.08) 100%);
+  background: rgba(22, 7, 20, 0.62);
 }
 
 .hero-content h1 {
@@ -248,7 +223,6 @@ a[class*="button"]:active {
   box-shadow: 0 30px 90px rgba(18, 6, 17, 0.24);
 }
 
-/* Forms across the site */
 input,
 textarea,
 select {
@@ -273,7 +247,6 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(238, 123, 59, 0.1);
 }
 
-/* Native cross-page transitions */
 ::view-transition-old(root) {
   animation: 180ms ease both tdsa-page-out;
 }
