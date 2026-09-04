@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist_Mono, Inter, Inter_Tight } from "next/font/google";
 
 import { CookieConsent } from "@/components/legal/cookie-consent";
 
@@ -10,15 +10,22 @@ import "./minimal-header.css";
 import "./legal.css";
 import "./premium-system.css";
 import "./top-tier.css";
+import "./typography-system.css";
 
-const geistBody = Geist({
+const interBody = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistDisplay = Geist({
+const interTightDisplay = Inter_Tight({
   variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -113,7 +120,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-ZA"
-      className={`${geistBody.variable} ${geistDisplay.variable} h-full antialiased`}
+      className={`${interBody.variable} ${interTightDisplay.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <script
