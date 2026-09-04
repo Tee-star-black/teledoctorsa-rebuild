@@ -27,7 +27,7 @@ export default function EhrPage() {
     <>
       <Header />
       <main className="info-page">
-        <section className="info-hero">
+        <section className="info-hero info-hero-premium info-hero--ehr">
           <div className="info-shell info-hero-grid">
             <div>
               <span className="info-eyebrow">Electronic Health Record</span>
@@ -36,9 +36,15 @@ export default function EhrPage() {
                 <Link href="/for-clinicians/register" className="info-primary">Access Through Clinician Onboarding <ArrowRight size={17} /></Link>
                 <Link href="/services" className="info-secondary">View All Services</Link>
               </div>
+              <div className="info-hero-signals" aria-label="Electronic health record workflow">
+                <div><strong>Record</strong><span>Longitudinal clinical history</span></div>
+                <div><strong>Retrieve</strong><span>Fast access to relevant context</span></div>
+                <div><strong>Continue</strong><span>Follow-up stays connected</span></div>
+              </div>
             </div>
-            <div className="info-hero-media">
-              <Image src="/images/home/06-healthcare-dashboard.jpg" alt="TeleDoctorSA electronic health record dashboard" fill priority sizes="(max-width: 900px) 100vw, 42vw" />
+            <div className="info-hero-media info-hero-media-contain">
+              <Image src="/images/home/laptop.png" alt="TeleDoctorSA electronic health record displayed on a clinical workstation" fill priority sizes="(max-width: 900px) 100vw, 42vw" quality={92} />
+              <div className="info-hero-media-label"><span>Clinical record</span><strong>Patient context in one workspace</strong></div>
             </div>
           </div>
         </section>
@@ -55,8 +61,13 @@ export default function EhrPage() {
                 <li><FolderHeart size={18} /> Diagnostic reports and clinical uploads</li>
               </ul>
             </div>
-            <div className="info-feature-media">
-              <Image src="/images/home/09-clinician-platform-review.jpg" alt="Clinician and practice leader reviewing a connected patient record" fill sizes="(max-width: 900px) 100vw, 46vw" />
+            <div className="ehr-record" aria-label="Illustrative longitudinal patient record">
+              <div className="ehr-record-header"><div><small>Patient record</small><strong>Connected longitudinal view</strong></div><ShieldCheck size={23} /></div>
+              <div className="ehr-timeline">
+                <div><span>Today</span><strong>Remote monitoring review</strong><small>Vitals and symptoms reviewed</small></div>
+                <div><span>Day -2</span><strong>ECG247 report</strong><small>Diagnostic file attached to record</small></div>
+                <div><span>Day -14</span><strong>Virtual consultation</strong><small>Clinical note and follow-up plan</small></div>
+              </div>
             </div>
           </div>
         </section>
