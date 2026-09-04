@@ -169,13 +169,13 @@ export function HomeSections() {
           </div>
 
           <div className="tdsa-clinical-showcase">
-            <figure className="tdsa-clinical-primary">
+            <figure className="tdsa-clinical-primary tdsa-clinical-primary-contain">
               <Image
-                src="/images/home/06-healthcare-dashboard.jpg"
-                alt="TeleDoctorSA clinical dashboard used to review connected patient information"
+                src="/images/home/laptop.png"
+                alt="TeleDoctorSA clinical platform displayed on a laptop"
                 fill
                 sizes="(max-width: 980px) 100vw, 68vw"
-                priority={false}
+                quality={92}
               />
               <figcaption className="tdsa-clinical-primary-copy">
                 <span>Primary clinical workspace</span>
@@ -190,10 +190,11 @@ export function HomeSections() {
             <div className="tdsa-clinical-side">
               <figure className="tdsa-clinical-secondary">
                 <Image
-                  src="/images/home/04-wearable-ecg-monitor.jpg"
-                  alt="Wearable ECG monitor connected to the TeleDoctorSA clinical workflow"
+                  src="/images/home/ecg monitor.jpg"
+                  alt="ECG monitoring equipment connected to the TeleDoctorSA clinical workflow"
                   fill
                   sizes="(max-width: 640px) 100vw, 32vw"
+                  quality={90}
                 />
                 <figcaption className="tdsa-clinical-secondary-copy">
                   <span>Diagnostic layer</span>
@@ -201,12 +202,13 @@ export function HomeSections() {
                 </figcaption>
               </figure>
 
-              <figure className="tdsa-clinical-secondary">
+              <figure className="tdsa-clinical-secondary tdsa-clinical-secondary-contain">
                 <Image
-                  src="/images/home/07-mobile-health-app.jpg"
-                  alt="TeleDoctorSA mobile health application on connected smartphones"
+                  src="/images/home/phone.png"
+                  alt="TeleDoctorSA patient experience displayed on a smartphone"
                   fill
                   sizes="(max-width: 640px) 100vw, 32vw"
+                  quality={92}
                 />
                 <figcaption className="tdsa-clinical-secondary-copy">
                   <span>Patient touchpoint</span>
