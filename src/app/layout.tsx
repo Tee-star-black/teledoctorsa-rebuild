@@ -9,6 +9,7 @@ import "./minimal-scale.css";
 import "./minimal-header.css";
 import "./legal.css";
 import "./premium-system.css";
+import "./top-tier.css";
 
 const geistBody = Geist({
   variable: "--font-body",
