@@ -47,13 +47,6 @@ export const metadata: Metadata = {
   creator: "TeleDoctorSA",
   publisher: "TeleDoctorSA",
   manifest: "/manifest.webmanifest",
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    shortcut: "/favicon.ico",
-  },
   formatDetection: {
     email: false,
     address: false,
