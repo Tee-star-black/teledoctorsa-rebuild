@@ -45,7 +45,7 @@ const pathways = [
     copy:
       "See how TeleDoctorSA can be configured around consultation, monitoring, referral and review workflows.",
     cta: "Book a Practice Demo",
-    href: "/contact?type=demo",
+    href: "/demo",
   },
   {
     icon: UsersRound,
@@ -53,7 +53,7 @@ const pathways = [
     copy:
       "Explore connected workflows for remote follow-up, vitals review and coordinated patient care.",
     cta: "Book a Team Demo",
-    href: "/contact?type=demo",
+    href: "/demo",
   },
   {
     icon: MonitorSmartphone,
@@ -61,7 +61,7 @@ const pathways = [
     copy:
       "Discuss the platform setup, device workflows and operational configuration your practice needs.",
     cta: "Request Practice Demo",
-    href: "/contact?type=demo",
+    href: "/demo",
   },
 ];
 
@@ -82,24 +82,6 @@ const ecgFeatures = [
     title: "One-Click PDF Exports",
     copy:
       "Generate comprehensive diagnostic summaries for clinical notes or specialist escalation.",
-  },
-];
-
-const clinicalImages = [
-  {
-    src: "/images/home/ecg monitor.jpg",
-    alt: "ECG monitoring equipment used in a clinical environment",
-    label: "Rhythm monitoring",
-  },
-  {
-    src: "/images/home/bpm.jpg",
-    alt: "Blood pressure monitoring equipment",
-    label: "Remote vitals",
-  },
-  {
-    src: "/images/home/apparatus.jpg",
-    alt: "Clinical monitoring apparatus",
-    label: "Clinical hardware",
   },
 ];
 
@@ -173,60 +155,83 @@ export function HomeSections() {
       <section className="tdsa-clinical-imagery" aria-labelledby="clinical-imagery-title">
         <div className="tdsa-section-shell">
           <div className="tdsa-clinical-imagery-heading">
-            <span className="tdsa-eyebrow">Clinical technology in practice</span>
-            <h2 id="clinical-imagery-title">
-              A connected care environment, not a collection of isolated tools.
-            </h2>
+            <div>
+              <span className="tdsa-eyebrow">Clinical technology in practice</span>
+              <h2 id="clinical-imagery-title">
+                One clinical environment, viewed from every point of care.
+              </h2>
+            </div>
+            <p>
+              The software, diagnostics and patient-facing tools are designed to
+              work as one system. The visual hierarchy here mirrors that idea:
+              one primary clinical workspace supported by connected touchpoints.
+            </p>
           </div>
 
-          <div className="tdsa-clinical-image-grid">
-            <figure className="tdsa-clinical-image tdsa-clinical-image-1">
-              <div className="tdsa-clinical-image-frame tdsa-device-showcase">
-                <div className="tdsa-device-laptop">
-                  <Image
-                    src="/images/home/laptop.png"
-                    alt="TeleDoctorSA platform displayed on a laptop"
-                    fill
-                    sizes="(max-width: 800px) 88vw, 46vw"
-                    className="tdsa-device-media"
-                  />
-                </div>
-                <div className="tdsa-device-phone">
-                  <Image
-                    src="/images/home/phone.png"
-                    alt="TeleDoctorSA patient experience displayed on a smartphone"
-                    fill
-                    sizes="(max-width: 800px) 34vw, 14vw"
-                    className="tdsa-device-media"
-                  />
-                </div>
-              </div>
-              <figcaption>
-                <span>01</span>
-                <strong>Connected across devices</strong>
+          <div className="tdsa-clinical-showcase">
+            <figure className="tdsa-clinical-primary">
+              <Image
+                src="/images/home/06-healthcare-dashboard.jpg"
+                alt="TeleDoctorSA clinical dashboard used to review connected patient information"
+                fill
+                sizes="(max-width: 980px) 100vw, 68vw"
+                priority={false}
+              />
+              <figcaption className="tdsa-clinical-primary-copy">
+                <span>Primary clinical workspace</span>
+                <strong>One operational view across the care journey.</strong>
+                <p>
+                  Patient information, monitoring activity and clinical follow-up
+                  remain visible within the same connected environment.
+                </p>
               </figcaption>
             </figure>
 
-            {clinicalImages.map((image, index) => (
-              <figure
-                key={image.src}
-                className={`tdsa-clinical-image tdsa-clinical-image-${index + 2}`}
-              >
-                <div className="tdsa-clinical-image-frame">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(max-width: 800px) 100vw, 32vw"
-                    className="tdsa-clinical-image-media"
-                  />
-                </div>
-                <figcaption>
-                  <span>0{index + 2}</span>
-                  <strong>{image.label}</strong>
+            <div className="tdsa-clinical-side">
+              <figure className="tdsa-clinical-secondary">
+                <Image
+                  src="/images/home/04-wearable-ecg-monitor.jpg"
+                  alt="Wearable ECG monitor connected to the TeleDoctorSA clinical workflow"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 32vw"
+                />
+                <figcaption className="tdsa-clinical-secondary-copy">
+                  <span>Diagnostic layer</span>
+                  <strong>ECG telemetry connected to review.</strong>
                 </figcaption>
               </figure>
-            ))}
+
+              <figure className="tdsa-clinical-secondary">
+                <Image
+                  src="/images/home/07-mobile-health-app.jpg"
+                  alt="TeleDoctorSA mobile health application on connected smartphones"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 32vw"
+                />
+                <figcaption className="tdsa-clinical-secondary-copy">
+                  <span>Patient touchpoint</span>
+                  <strong>Care continuity beyond the consultation.</strong>
+                </figcaption>
+              </figure>
+
+              <div className="tdsa-clinical-rail" aria-label="Connected clinical technology capabilities">
+                <span className="tdsa-clinical-rail-label">System layers</span>
+                <div className="tdsa-clinical-rail-grid">
+                  <div>
+                    <strong>Consult</strong>
+                    <span>Virtual and clinical encounters</span>
+                  </div>
+                  <div>
+                    <strong>Monitor</strong>
+                    <span>ECG, vitals and remote trends</span>
+                  </div>
+                  <div>
+                    <strong>Record</strong>
+                    <span>Longitudinal patient context</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -323,7 +328,7 @@ export function HomeSections() {
             </p>
             <div className="tdsa-cta-actions">
               <Link
-                href="/contact?type=demo"
+                href="/demo"
                 className="tdsa-solid-link tdsa-solid-link-light"
               >
                 Book a Demo
