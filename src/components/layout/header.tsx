@@ -19,6 +19,7 @@ import {
 
 import styles from "./header.module.css";
 import polish from "./header-polish.module.css";
+import mobile from "./mobile-menu.module.css";
 
 const navigation = [
   { label: "EHR", href: "/ehr" },
@@ -58,6 +59,13 @@ export function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setServicesOpen(false);
@@ -68,7 +76,6 @@ export function Header() {
     function handlePointerDown(event: PointerEvent) {
       if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
         setServicesOpen(false);
-        setOpen(false);
       }
     }
 
@@ -175,29 +182,81 @@ export function Header() {
 
       <AnimatePresence>
         {open ? (
-          <motion.div id="mobile-navigation" className={styles.mobilePanel} initial={{ opacity: 0, y: -10, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -10, scale: 0.985 }} transition={{ duration: 0.2 }}>
-            <div className={styles.mobileMeta}><span />Clinical navigation</div>
-            <button type="button" className={`${styles.mobileLink} ${styles.mobileServicesTrigger} ${servicesActive ? styles.mobileLinkActive : ""}`} aria-expanded={mobileServicesOpen} aria-controls="mobile-services" onClick={() => setMobileServicesOpen((current) => !current)}>
-              Services <ChevronDown size={16} className={mobileServicesOpen ? styles.chevronOpen : undefined} aria-hidden="true" />
-            </button>
+          <motion.div
+            id="mobile-navigation"
+            className={`${styles.mobilePanel} ${mobile.panel}`}
+            initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+            exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className={mobile.inner}>
+              <div className={mobile.intro}>
+                <div>
+                  <div className={`${styles.mobileMeta} ${mobile.meta}`}><span />TeleDoctorSA / Navigation</div>
+                  <p className={mobile.context}>Connected clinical technology for modern medical practices.</p>
+                </div>
+                <span className={mobile.location}>South Africa</span>
+              </div>
 
-            <AnimatePresence initial={false}>
-              {mobileServicesOpen ? (
-                <motion.div id="mobile-services" className={styles.mobileServices} initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  {serviceLinks.map(({ title, href, tag }) => (
-                    <Link key={title} href={href} className={`${styles.mobileServiceLink} ${isActive(href) ? styles.mobileServiceLinkActive : ""}`}>
-                      <span><small>{tag}</small><strong>{title}</strong></span><ArrowRight size={14} />
-                    </Link>
-                  ))}
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
+              <nav className={mobile.navStack} aria-label="Mobile navigation">
+                <button
+                  type="button"
+                  data-index="01"
+                  className={`${styles.mobileLink} ${styles.mobileServicesTrigger} ${mobile.servicesTrigger} ${servicesActive ? mobile.active : ""}`}
+                  aria-expanded={mobileServicesOpen}
+                  aria-controls="mobile-services"
+                  onClick={() => setMobileServicesOpen((current) => !current)}
+                >
+                  Services <ChevronDown size={16} className={mobileServicesOpen ? styles.chevronOpen : undefined} aria-hidden="true" />
+                </button>
 
-            {navigation.map((item) => (
-              <Link key={item.href} href={item.href} className={`${styles.mobileLink} ${isActive(item.href) ? styles.mobileLinkActive : ""}`}>{item.label}</Link>
-            ))}
-            <Link href="/contact" className={`${styles.mobileLink} ${isActive("/contact") ? styles.mobileLinkActive : ""}`}>Contact</Link>
-            <Link href="/demo" className={styles.mobileCta}>Book a Demo <ArrowRight size={17} /></Link>
+                <AnimatePresence initial={false}>
+                  {mobileServicesOpen ? (
+                    <motion.div
+                      id="mobile-services"
+                      className={`${styles.mobileServices} ${mobile.services}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      {serviceLinks.map(({ icon: Icon, title, href, tag }) => (
+                        <Link key={title} href={href} className={`${styles.mobileServiceLink} ${mobile.serviceLink} ${isActive(href) ? styles.mobileServiceLinkActive : ""}`}>
+                          <span className={mobile.serviceIcon} aria-hidden="true"><Icon size={16} strokeWidth={1.7} /></span>
+                          <span className={mobile.serviceCopy}><small>{tag}</small><strong>{title}</strong></span>
+                          <ArrowRight size={14} className={mobile.serviceArrow} />
+                        </Link>
+                      ))}
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+
+                {navigation.map((item, index) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    data-index={String(index + 2).padStart(2, "0")}
+                    className={`${styles.mobileLink} ${mobile.link} ${isActive(item.href) ? mobile.active : ""}`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
+                <Link href="/contact" data-index="06" className={`${styles.mobileLink} ${mobile.link} ${isActive("/contact") ? mobile.active : ""}`}>Contact</Link>
+              </nav>
+
+              <div className={mobile.bottom}>
+                <Link href="/demo" className={`${styles.mobileCta} ${mobile.cta}`}>
+                  <span>Book a private platform demo</span>
+                  <ArrowRight size={18} />
+                </Link>
+                <div className={mobile.footerMeta}>
+                  <span>Connected care</span>
+                  <span>Clinical technology</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         ) : null}
       </AnimatePresence>
