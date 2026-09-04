@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Activity, ArrowRight, FileHeart, HeartPulse, MonitorSmartphone, Stethoscope } from "lucide-react";
 
@@ -56,8 +57,8 @@ export default function ServicesPage() {
               <span className="info-eyebrow">Services</span>
               <h1>Clinical tools that work together instead of living in separate silos.</h1>
             </div>
-            <div>
-              <p>TeleDoctorSA brings virtual consultations, ECG247, remote monitoring and electronic health records into one connected service environment for healthcare professionals.</p>
+            <div className="info-hero-media">
+              <Image src="/images/home/02-connected-care-ecosystem.jpg" alt="TeleDoctorSA connected-care ecosystem" fill priority sizes="(max-width: 900px) 100vw, 42vw" />
             </div>
           </div>
         </section>
@@ -89,6 +90,13 @@ export default function ServicesPage() {
               <h2>Consult. Diagnose. Monitor. Record. Follow up.</h2>
             </div>
             <p>Each service is useful on its own, but the platform becomes more valuable when those workflows share the same clinical context.</p>
+          </div>
+        </section>
+
+        <section className="info-section info-section-alt">
+          <div className="info-shell info-split">
+            <div className="info-feature-media"><Image src="/images/home/09-clinician-platform-review.jpg" alt="Clinical and operational teams reviewing the TeleDoctorSA platform" fill sizes="(max-width: 900px) 100vw, 46vw" /></div>
+            <div className="info-copy"><span className="info-eyebrow">Shared clinical context</span><h2>One view for clinical and operational teams.</h2><p>Connected services give the people delivering care a clearer view of patient activity, monitoring and follow-up across the practice.</p></div>
           </div>
         </section>
 

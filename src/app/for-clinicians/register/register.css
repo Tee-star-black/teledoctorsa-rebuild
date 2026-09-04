@@ -77,6 +77,17 @@
   color: var(--orange-400);
 }
 
+.register-hero-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 390px;
+  background: var(--plum-900);
+}
+
+.register-hero-media img {
+  object-fit: cover;
+}
+
 .register-hero-signal strong {
   margin-top: 18px;
   color: white;

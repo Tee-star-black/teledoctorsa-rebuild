@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Activity, ArrowRight, BellRing, HeartPulse, LineChart, ShieldCheck } from "lucide-react";
 
@@ -33,7 +34,7 @@ export default function RemoteMonitoringPage() {
                 <Link href="/ehr" className="info-secondary">Explore the EHR</Link>
               </div>
             </div>
-            <p>TeleDoctorSA remote monitoring helps care teams review relevant patient measurements and trends over time while keeping those observations connected to the broader clinical record.</p>
+            <div className="info-hero-media"><Image src="/images/home/05-remote-patient-monitoring.jpg" alt="Clinician reviewing remote patient monitoring trends" fill priority sizes="(max-width: 900px) 100vw, 42vw" /></div>
           </div>
         </section>
 

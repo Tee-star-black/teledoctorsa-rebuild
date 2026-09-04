@@ -64,6 +64,17 @@
   line-height: 1.8;
 }
 
+.contact-hero-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  background: var(--plum-900);
+}
+
+.contact-hero-media img {
+  object-fit: cover;
+}
+
 .contact-section {
   padding: 118px 0;
 }

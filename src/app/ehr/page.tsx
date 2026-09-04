@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Activity, ArrowRight, FileHeart, FolderHeart, LockKeyhole, Search, ShieldCheck } from "lucide-react";
 
@@ -36,8 +37,8 @@ export default function EhrPage() {
                 <Link href="/services" className="info-secondary">View All Services</Link>
               </div>
             </div>
-            <div>
-              <p>TeleDoctorSA EHR is designed to preserve the clinical context that usually gets fragmented between consultations, monitoring platforms, uploaded reports and follow-up workflows.</p>
+            <div className="info-hero-media">
+              <Image src="/images/home/06-healthcare-dashboard.jpg" alt="TeleDoctorSA electronic health record dashboard" fill priority sizes="(max-width: 900px) 100vw, 42vw" />
             </div>
           </div>
         </section>
@@ -54,13 +55,8 @@ export default function EhrPage() {
                 <li><FolderHeart size={18} /> Diagnostic reports and clinical uploads</li>
               </ul>
             </div>
-            <div className="ehr-record" aria-label="Illustrative longitudinal patient record">
-              <div className="ehr-record-header"><div><small>Patient record</small><strong>Connected longitudinal view</strong></div><ShieldCheck size={23} /></div>
-              <div className="ehr-timeline">
-                <div><span>Today</span><strong>Remote monitoring review</strong><small>Vitals and symptoms reviewed</small></div>
-                <div><span>Day -2</span><strong>ECG247 report</strong><small>Diagnostic file attached to record</small></div>
-                <div><span>Day -14</span><strong>Virtual consultation</strong><small>Clinical note and follow-up plan</small></div>
-              </div>
+            <div className="info-feature-media">
+              <Image src="/images/home/09-clinician-platform-review.jpg" alt="Clinician and practice leader reviewing a connected patient record" fill sizes="(max-width: 900px) 100vw, 46vw" />
             </div>
           </div>
         </section>

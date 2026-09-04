@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Activity,
   Clock3,
@@ -88,11 +89,8 @@ export default function ContactPage() {
               <h1>Start the conversation.</h1>
             </div>
 
-            <div className="contact-hero-copy">
-              <p>
-                No forms to fill in. Choose what you need and we&apos;ll prepare the
-                message for WhatsApp or Gmail so you can contact the right team faster.
-              </p>
+            <div className="contact-hero-media">
+              <Image src="/images/home/10-care-support-agent.jpg" alt="TeleDoctorSA care support agent assisting a patient" fill priority sizes="(max-width: 900px) 100vw, 38vw" />
             </div>
           </div>
         </section>

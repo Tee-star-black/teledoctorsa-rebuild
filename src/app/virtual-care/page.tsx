@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, FileHeart, MonitorSmartphone, ShieldCheck, Stethoscope, Video } from "lucide-react";
 
@@ -33,7 +34,7 @@ export default function VirtualCarePage() {
                 <Link href="/services" className="info-secondary">View All Services</Link>
               </div>
             </div>
-            <p>TeleDoctorSA virtual care is designed for healthcare professionals who need secure consultation and follow-up workflows without separating the encounter from clinical context.</p>
+            <div className="info-hero-media"><Image src="/images/home/03-doctor-video-consultation.jpg" alt="Doctor conducting a TeleDoctorSA video consultation" fill priority sizes="(max-width: 900px) 100vw, 42vw" /></div>
           </div>
         </section>
 
