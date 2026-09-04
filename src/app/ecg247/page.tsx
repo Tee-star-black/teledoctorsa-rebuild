@@ -34,7 +34,7 @@ export default function ECG247Page() {
                 <Link href="/for-clinicians/register" className="info-secondary">Practice Onboarding</Link>
               </div>
             </div>
-            <p>TeleDoctorSA integrates ECG247 into a broader connected-care environment so rhythm monitoring can sit alongside patient records, review and follow-up.</p>
+            <div className="info-hero-media"><Image src="/images/home/04-wearable-ecg-monitor.jpg" alt="Wearable ECG monitor being fitted to a patient" fill priority sizes="(max-width: 900px) 100vw, 42vw" /></div>
           </div>
         </section>
 
@@ -51,7 +51,7 @@ export default function ECG247Page() {
               </ul>
             </div>
             <div className="tdsa-ecg-photo-frame" style={{ position: "relative", minHeight: 430 }}>
-              <Image src="/images/home/dummy ecg.png" alt="ECG247 monitoring interface" fill sizes="(max-width: 900px) 100vw, 50vw" className="tdsa-ecg-photo" />
+              <Image src="/images/home/05-remote-patient-monitoring.jpg" alt="ECG247 remote monitoring interface under clinical review" fill sizes="(max-width: 900px) 100vw, 50vw" className="tdsa-ecg-photo" />
             </div>
           </div>
         </section>

@@ -75,6 +75,27 @@
   line-height: 1.8;
 }
 
+.info-hero-media,
+.info-feature-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 310px;
+  background: #e8f2f1;
+}
+
+.info-hero-media img,
+.info-feature-media img {
+  object-fit: cover;
+}
+
+.info-hero-media-contain img {
+  object-fit: contain;
+}
+
+.info-feature-media {
+  min-height: 430px;
+}
+
 .info-hero-actions,
 .info-actions {
   display: flex;
@@ -709,6 +730,11 @@
 ========================================================= */
 
 @media (max-width: 1000px) {
+  .info-hero-media,
+  .info-feature-media {
+    min-height: 280px;
+  }
+
   .info-hero-grid,
   .info-heading,
   .info-split,

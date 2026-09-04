@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   ClipboardCheck,
@@ -93,13 +94,8 @@ export default function ClinicianRegistrationPage() {
               </Link>
             </div>
 
-            <div className="register-hero-signal" aria-hidden="true">
-              <HeartPulse size={34} />
-              <strong>72</strong>
-              <span>BPM</span>
-              <svg viewBox="0 0 420 90" preserveAspectRatio="none">
-                <path d="M0 45 H55 L75 45 L90 25 L105 65 L126 8 L148 72 L168 45 H250 L270 45 L286 28 L302 62 L324 12 L346 68 L366 45 H420" />
-              </svg>
+            <div className="register-hero-media">
+              <Image src="/images/home/11-teledoctor-platform-clinician.jpg" alt="TeleDoctorSA clinician platform and connected care devices" fill priority sizes="(max-width: 900px) 100vw, 42vw" />
             </div>
           </div>
         </section>

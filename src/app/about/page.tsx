@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, HeartPulse, Network, ShieldCheck, Stethoscope, UsersRound } from "lucide-react";
 
@@ -33,8 +34,8 @@ export default function AboutPage() {
                 <Link href="/services" className="info-secondary">Explore Services</Link>
               </div>
             </div>
-            <div>
-              <p>TeleDoctorSA is a South African digital health platform designed to help healthcare professionals connect virtual consultations, ECG telemetry, remote monitoring and longitudinal patient information into one practical clinical workflow.</p>
+            <div className="info-hero-media">
+              <Image src="/images/home/01-clinical-team-at-work.jpg" alt="South African clinical team working together with TeleDoctorSA" fill priority sizes="(max-width: 900px) 100vw, 42vw" />
             </div>
           </div>
         </section>
@@ -69,14 +70,8 @@ export default function AboutPage() {
                 <li><Network size={18} /> Connected records, monitoring and follow-up</li>
               </ul>
             </div>
-            <div className="info-diagram" aria-label="TeleDoctorSA connected care model">
-              <div className="info-diagram-stack">
-                <div><strong>Patient</strong><span>Care remains centered on one longitudinal record</span></div>
-                <div><strong>Consultation</strong><span>Virtual and clinical touchpoints</span></div>
-                <div><strong>Diagnostics</strong><span>ECG247 and uploaded clinical results</span></div>
-                <div><strong>Monitoring</strong><span>Vitals, trends and follow-up</span></div>
-                <div><strong>Care team</strong><span>Shared clinical context</span></div>
-              </div>
+            <div className="info-feature-media">
+              <Image src="/images/home/08-nurses-at-clinical-workstation.jpg" alt="Nursing team using the TeleDoctorSA clinical workstation" fill sizes="(max-width: 900px) 100vw, 46vw" />
             </div>
           </div>
         </section>

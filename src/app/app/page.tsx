@@ -38,8 +38,8 @@ export default function AppPage() {
                 <Link href="/services" className="info-secondary">Explore Services</Link>
               </div>
             </div>
-            <div>
-              <p>The TeleDoctorSA app is designed to give patients a simpler way to stay connected to their care journey while clinicians work from the broader platform, EHR and monitoring environment.</p>
+            <div className="info-hero-media info-hero-media-contain">
+              <Image src="/images/home/07-mobile-health-app.jpg" alt="TeleDoctorSA mobile application on two smartphones" fill priority sizes="(max-width: 900px) 100vw, 42vw" />
             </div>
           </div>
         </section>
