@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FileHeart, MonitorSmartphone, ShieldCheck, Stethoscope, Video } from "lucide-react";
+import { ArrowRight, FileHeart, ShieldCheck, Video } from "lucide-react";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -24,17 +24,25 @@ export default function VirtualCarePage() {
     <>
       <Header />
       <main className="info-page">
-        <section className="info-hero">
+        <section className="info-hero info-hero-premium info-hero--virtual">
           <div className="info-shell info-hero-grid">
             <div>
               <span className="info-eyebrow">Virtual Care</span>
               <h1>Remote consultations that stay connected to the rest of the patient journey.</h1>
               <div className="info-hero-actions">
-                <Link href="/contact?type=demo" className="info-primary">Book a Virtual Care Demo <ArrowRight size={17} /></Link>
+                <Link href="/demo" className="info-primary">Book a Virtual Care Demo <ArrowRight size={17} /></Link>
                 <Link href="/services" className="info-secondary">View All Services</Link>
               </div>
+              <div className="info-hero-signals" aria-label="Virtual care workflow">
+                <div><strong>Consult</strong><span>Remote clinical encounters</span></div>
+                <div><strong>Document</strong><span>Connected patient context</span></div>
+                <div><strong>Follow up</strong><span>Clear next-step workflows</span></div>
+              </div>
             </div>
-            <div className="info-hero-media"><Image src="/images/home/03-doctor-video-consultation.jpg" alt="Doctor conducting a TeleDoctorSA video consultation" fill priority sizes="(max-width: 900px) 100vw, 42vw" /></div>
+            <div className="info-hero-media">
+              <Image src="/images/home/hero-clinician.png" alt="Clinician using TeleDoctorSA for a connected virtual consultation" fill priority sizes="(max-width: 900px) 100vw, 42vw" quality={92} />
+              <div className="info-hero-media-label"><span>Virtual consultation</span><strong>Clinical context stays connected</strong></div>
+            </div>
           </div>
         </section>
 
@@ -62,7 +70,7 @@ export default function VirtualCarePage() {
         <section className="info-band">
           <div className="info-shell info-band-grid">
             <div><h2>Bring virtual care into your practice workflow.</h2><p>See how TeleDoctorSA can be configured around your clinicians and patients.</p></div>
-            <Link href="/contact?type=demo" className="info-primary">Book a Demo <ArrowRight size={17} /></Link>
+            <Link href="/demo" className="info-primary">Book a Demo <ArrowRight size={17} /></Link>
           </div>
         </section>
       </main>
