@@ -24,17 +24,25 @@ export default function RemoteMonitoringPage() {
     <>
       <Header />
       <main className="info-page">
-        <section className="info-hero">
+        <section className="info-hero info-hero-premium info-hero--monitor">
           <div className="info-shell info-hero-grid">
             <div>
               <span className="info-eyebrow">Remote Patient Monitoring</span>
               <h1>Follow the patient between visits, not just when they arrive at the practice.</h1>
               <div className="info-hero-actions">
-                <Link href="/contact?type=demo" className="info-primary">Book a Monitoring Demo <ArrowRight size={17} /></Link>
+                <Link href="/demo" className="info-primary">Book a Monitoring Demo <ArrowRight size={17} /></Link>
                 <Link href="/ehr" className="info-secondary">Explore the EHR</Link>
               </div>
+              <div className="info-hero-signals" aria-label="Remote monitoring workflow">
+                <div><strong>Observe</strong><span>Longitudinal measurements</span></div>
+                <div><strong>Interpret</strong><span>Trends in clinical context</span></div>
+                <div><strong>Follow up</strong><span>Review and escalation pathways</span></div>
+              </div>
             </div>
-            <div className="info-hero-media"><Image src="/images/home/05-remote-patient-monitoring.jpg" alt="Clinician reviewing remote patient monitoring trends" fill priority sizes="(max-width: 900px) 100vw, 42vw" /></div>
+            <div className="info-hero-media">
+              <Image src="/images/home/bpm.jpg" alt="Remote patient monitoring equipment used to support longitudinal care" fill priority sizes="(max-width: 900px) 100vw, 42vw" quality={92} />
+              <div className="info-hero-media-label"><span>Longitudinal monitoring</span><strong>Care context between visits</strong></div>
+            </div>
           </div>
         </section>
 
@@ -78,7 +86,7 @@ export default function RemoteMonitoringPage() {
         <section className="info-band">
           <div className="info-shell info-band-grid">
             <div><h2>Extend follow-up beyond the appointment.</h2><p>See how remote monitoring can fit into your current clinical workflow.</p></div>
-            <Link href="/contact?type=demo" className="info-primary">Book a Demo <ArrowRight size={17} /></Link>
+            <Link href="/demo" className="info-primary">Book a Demo <ArrowRight size={17} /></Link>
           </div>
         </section>
       </main>
