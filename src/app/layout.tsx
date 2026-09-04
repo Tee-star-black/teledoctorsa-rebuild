@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter, Inter_Tight } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
 
 import { CookieConsent } from "@/components/legal/cookie-consent";
 
@@ -12,22 +12,25 @@ import "./premium-system.css";
 import "./top-tier.css";
 import "./typography-system.css";
 
-const interBody = Inter({
+const plexBody = IBM_Plex_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const interTightDisplay = Inter_Tight({
+const plexDisplay = IBM_Plex_Sans_Condensed({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
+const plexMono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -120,7 +123,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-ZA"
-      className={`${interBody.variable} ${interTightDisplay.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plexBody.variable} ${plexDisplay.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <script
