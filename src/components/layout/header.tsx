@@ -28,41 +28,11 @@ const navigation = [
 ];
 
 const serviceLinks = [
-  {
-    icon: MonitorSmartphone,
-    title: "Virtual Consultations",
-    copy: "Remote consultations and connected follow-up care.",
-    href: "/virtual-care",
-    tag: "Virtual care",
-  },
-  {
-    icon: HeartPulse,
-    title: "ECG247 Monitoring",
-    copy: "Extended ambulatory rhythm monitoring and review.",
-    href: "/ecg247",
-    tag: "Diagnostics",
-  },
-  {
-    icon: Activity,
-    title: "Remote Patient Monitoring",
-    copy: "Track vitals, symptoms and trends between visits.",
-    href: "/remote-monitoring",
-    tag: "Monitoring",
-  },
-  {
-    icon: FileHeart,
-    title: "Electronic Health Records",
-    copy: "Longitudinal records shared across connected workflows.",
-    href: "/ehr",
-    tag: "Clinical record",
-  },
-  {
-    icon: Stethoscope,
-    title: "Practice Solutions",
-    copy: "Configure TeleDoctorSA around your practice workflows and needs.",
-    href: "/for-clinicians/register",
-    tag: "For practices",
-  },
+  { icon: MonitorSmartphone, title: "Virtual Consultations", copy: "Remote consultations and connected follow-up care.", href: "/virtual-care", tag: "Virtual care" },
+  { icon: HeartPulse, title: "ECG247 Monitoring", copy: "Extended ambulatory rhythm monitoring and review.", href: "/ecg247", tag: "Diagnostics" },
+  { icon: Activity, title: "Remote Patient Monitoring", copy: "Track vitals, symptoms and trends between visits.", href: "/remote-monitoring", tag: "Monitoring" },
+  { icon: FileHeart, title: "Electronic Health Records", copy: "Longitudinal records shared across connected workflows.", href: "/ehr", tag: "Clinical record" },
+  { icon: Stethoscope, title: "Practice Solutions", copy: "Configure TeleDoctorSA around your practice workflows and needs.", href: "/for-clinicians/register", tag: "For practices" },
 ];
 
 export function Header() {
@@ -123,23 +93,12 @@ export function Header() {
     >
       <div className={`${styles.shell} ${polish.invisibleShell}`}>
         <Link href="/" className={`${styles.brand} ${polish.brandAnchor}`} aria-label="TeleDoctorSA home">
-          <Image
-            src="/images/home/logo.png"
-            alt="TeleDoctorSA"
-            width={264}
-            height={84}
-            priority
-            className={polish.brandLogo}
-          />
+          <Image src="/images/home/logo.png" alt="TeleDoctorSA" width={264} height={84} priority className={polish.brandLogo} />
           <span className={polish.brandLogoLight} aria-hidden="true" />
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">
-          <div
-            className={styles.servicesNavItem}
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
+          <div className={styles.servicesNavItem} onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
             <button
               type="button"
               className={`${styles.navLink} ${styles.servicesTrigger} ${polish.cleanNavLink} ${servicesActive ? polish.cleanActive : ""}`}
@@ -170,27 +129,18 @@ export function Header() {
                     <span className={styles.megaEyebrow}>Connected care platform</span>
                     <h3>Clinical workflows shaped around your practice.</h3>
                     <p>Explore the services that connect patients, clinicians, diagnostics and records, then book a demo to discuss the configuration your team needs.</p>
-                    <Link href="/contact?type=demo" className={`${styles.megaFeatureLink} ${polish.megaFeatureLinkPolish}`}>
+                    <Link href="/demo" className={`${styles.megaFeatureLink} ${polish.megaFeatureLinkPolish}`}>
                       Book a demo <ArrowRight size={16} />
                     </Link>
                   </div>
 
                   <div className={`${styles.megaServices} ${polish.megaServicesPanel}`}>
-                    <div className={styles.megaServicesHeader}>
-                      <span>Explore services</span>
-                      <small>Hover to explore</small>
-                    </div>
+                    <div className={styles.megaServicesHeader}><span>Explore services</span><small>Hover to explore</small></div>
                     <div className={`${styles.megaServicesGrid} ${polish.megaGrid}`}>
                       {serviceLinks.map(({ icon: Icon, title, copy, href, tag }) => (
                         <Link key={title} href={href} className={`${styles.megaServiceItem} ${polish.megaItem} ${isActive(href) ? styles.megaServiceItemActive : ""}`}>
-                          <span className={`${styles.megaServiceIcon} ${polish.megaIcon}`} aria-hidden="true">
-                            <Icon size={20} strokeWidth={1.7} />
-                          </span>
-                          <span className={styles.megaServiceCopy}>
-                            <small>{tag}</small>
-                            <strong>{title}</strong>
-                            <span>{copy}</span>
-                          </span>
+                          <span className={`${styles.megaServiceIcon} ${polish.megaIcon}`} aria-hidden="true"><Icon size={20} strokeWidth={1.7} /></span>
+                          <span className={styles.megaServiceCopy}><small>{tag}</small><strong>{title}</strong><span>{copy}</span></span>
                           <ArrowRight size={16} className={polish.megaArrow} aria-hidden="true" />
                         </Link>
                       ))}
@@ -204,12 +154,7 @@ export function Header() {
           {navigation.map((item) => {
             const active = isActive(item.href);
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${styles.navLink} ${polish.cleanNavLink} ${active ? polish.cleanActive : ""}`}
-                aria-current={active ? "page" : undefined}
-              >
+              <Link key={item.href} href={item.href} className={`${styles.navLink} ${polish.cleanNavLink} ${active ? polish.cleanActive : ""}`} aria-current={active ? "page" : undefined}>
                 <span className={styles.navLabel}>{item.label}</span>
               </Link>
             );
@@ -217,46 +162,23 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Link href="/contact" className={`${styles.contactLink} ${polish.cleanContact} ${isActive("/contact") ? polish.cleanActive : ""}`}>
-            Contact
-          </Link>
-          <Link href="/contact?type=demo" className={`${styles.cta} ${polish.cleanCta}`}>
+          <Link href="/contact" className={`${styles.contactLink} ${polish.cleanContact} ${isActive("/contact") ? polish.cleanActive : ""}`}>Contact</Link>
+          <Link href="/demo" className={`${styles.cta} ${polish.cleanCta} ${isActive("/demo") ? polish.cleanActive : ""}`}>
             Book a Demo <ArrowRight size={16} />
           </Link>
         </div>
 
-        <button
-          type="button"
-          className={styles.menuButton}
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          onClick={() => setOpen((current) => !current)}
-        >
+        <button type="button" className={styles.menuButton} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((current) => !current)}>
           {open ? <X size={21} /> : <Menu size={21} />}
         </button>
       </div>
 
       <AnimatePresence>
         {open ? (
-          <motion.div
-            id="mobile-navigation"
-            className={styles.mobilePanel}
-            initial={{ opacity: 0, y: -10, scale: 0.985 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.985 }}
-            transition={{ duration: 0.2 }}
-          >
+          <motion.div id="mobile-navigation" className={styles.mobilePanel} initial={{ opacity: 0, y: -10, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -10, scale: 0.985 }} transition={{ duration: 0.2 }}>
             <div className={styles.mobileMeta}><span />Clinical navigation</div>
-            <button
-              type="button"
-              className={`${styles.mobileLink} ${styles.mobileServicesTrigger} ${servicesActive ? styles.mobileLinkActive : ""}`}
-              aria-expanded={mobileServicesOpen}
-              aria-controls="mobile-services"
-              onClick={() => setMobileServicesOpen((current) => !current)}
-            >
-              Services
-              <ChevronDown size={16} className={mobileServicesOpen ? styles.chevronOpen : undefined} aria-hidden="true" />
+            <button type="button" className={`${styles.mobileLink} ${styles.mobileServicesTrigger} ${servicesActive ? styles.mobileLinkActive : ""}`} aria-expanded={mobileServicesOpen} aria-controls="mobile-services" onClick={() => setMobileServicesOpen((current) => !current)}>
+              Services <ChevronDown size={16} className={mobileServicesOpen ? styles.chevronOpen : undefined} aria-hidden="true" />
             </button>
 
             <AnimatePresence initial={false}>
@@ -272,12 +194,10 @@ export function Header() {
             </AnimatePresence>
 
             {navigation.map((item) => (
-              <Link key={item.href} href={item.href} className={`${styles.mobileLink} ${isActive(item.href) ? styles.mobileLinkActive : ""}`}>
-                {item.label}
-              </Link>
+              <Link key={item.href} href={item.href} className={`${styles.mobileLink} ${isActive(item.href) ? styles.mobileLinkActive : ""}`}>{item.label}</Link>
             ))}
             <Link href="/contact" className={`${styles.mobileLink} ${isActive("/contact") ? styles.mobileLinkActive : ""}`}>Contact</Link>
-            <Link href="/contact?type=demo" className={styles.mobileCta}>Book a Demo <ArrowRight size={17} /></Link>
+            <Link href="/demo" className={styles.mobileCta}>Book a Demo <ArrowRight size={17} /></Link>
           </motion.div>
         ) : null}
       </AnimatePresence>
