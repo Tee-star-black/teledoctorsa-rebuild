@@ -3,9 +3,13 @@ import Link from "next/link";
 import {
   ArrowRight,
   ClipboardCheck,
+  Cloud,
+  Database,
   FileHeart,
   HeartPulse,
+  LockKeyhole,
   MonitorSmartphone,
+  Network,
   ShieldCheck,
   Stethoscope,
   UsersRound,
@@ -82,6 +86,29 @@ const ecgFeatures = [
     title: "One-Click PDF Exports",
     copy:
       "Generate comprehensive diagnostic summaries for clinical notes or specialist escalation.",
+  },
+];
+
+const infrastructure = [
+  {
+    icon: LockKeyhole,
+    title: "Role-aware access",
+    copy: "Structure access around the responsibilities of clinicians, nurses and operational teams.",
+  },
+  {
+    icon: Database,
+    title: "Connected clinical context",
+    copy: "Keep consultations, monitoring activity and supporting records within one longitudinal care environment.",
+  },
+  {
+    icon: Network,
+    title: "Device-ready workflows",
+    copy: "Design monitoring, ECG and follow-up pathways around the clinical tools already used by care teams.",
+  },
+  {
+    icon: Cloud,
+    title: "Modern cloud architecture",
+    copy: "Build for resilient digital delivery, structured data flows and scalable clinical operations.",
   },
 ];
 
@@ -238,6 +265,77 @@ export function HomeSections() {
         </div>
       </section>
 
+      <section className="tdsa-product-proof" aria-labelledby="product-proof-title">
+        <div className="tdsa-section-shell">
+          <div className="tdsa-product-proof-head">
+            <div>
+              <span className="tdsa-eyebrow">Product, not promises</span>
+              <h2 id="product-proof-title">A clinical platform that looks and behaves like infrastructure.</h2>
+            </div>
+            <p>
+              The product experience is designed around the moments clinicians actually move through: review, consultation, monitoring and follow-up.
+            </p>
+          </div>
+
+          <div className="tdsa-product-stage">
+            <div className="tdsa-product-stage-main">
+              <Image
+                src="/images/home/platform.jpg"
+                alt="TeleDoctorSA clinical platform interface"
+                fill
+                sizes="(max-width: 980px) 100vw, 70vw"
+                quality={92}
+              />
+            </div>
+            <div className="tdsa-product-stage-side">
+              <div className="tdsa-product-detail">
+                <span>Clinical review</span>
+                <div><strong>Patient context stays visible.</strong><p>Records, observations and supporting clinical information remain connected to the encounter.</p></div>
+              </div>
+              <div className="tdsa-product-detail">
+                <span>Monitoring</span>
+                <div><strong>Signals are part of the workflow.</strong><p>ECG and remote measurements can sit alongside the broader patient journey rather than in a separate silo.</p></div>
+              </div>
+              <div className="tdsa-product-detail">
+                <span>Continuity</span>
+                <div><strong>Follow-up has a place to live.</strong><p>The next action, review or escalation remains tied to the clinical context that produced it.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="tdsa-infrastructure" aria-labelledby="infrastructure-title">
+        <div className="tdsa-section-shell">
+          <div className="tdsa-infrastructure-head">
+            <div>
+              <span className="tdsa-eyebrow">Clinical infrastructure</span>
+              <h2 id="infrastructure-title">Built to support care delivery, not just software usage.</h2>
+            </div>
+            <p>
+              Premium health technology should disappear into the workflow. The platform architecture is shaped around access, continuity, connected devices and resilient digital operations.
+            </p>
+          </div>
+
+          <div className="tdsa-infrastructure-grid">
+            {infrastructure.map(({ icon: Icon, title, copy }) => (
+              <article className="tdsa-infrastructure-cell" key={title}>
+                <Icon size={25} strokeWidth={1.7} />
+                <div>
+                  <strong>{title}</strong>
+                  <p>{copy}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="tdsa-infrastructure-note">
+            <strong>Designed for modern South African healthcare operations.</strong>
+            <span>Specific security, compliance and infrastructure claims should be confirmed against the deployed environment before publication.</span>
+          </div>
+        </div>
+      </section>
+
       <section className="tdsa-pathways" aria-labelledby="pathways-title">
         <div className="tdsa-section-shell">
           <div className="tdsa-section-heading">
@@ -329,10 +427,7 @@ export function HomeSections() {
               platform configuration suited to your team and services.
             </p>
             <div className="tdsa-cta-actions">
-              <Link
-                href="/demo"
-                className="tdsa-solid-link tdsa-solid-link-light"
-              >
+              <Link href="/demo" className="tdsa-solid-link tdsa-solid-link-light">
                 Book a Demo
                 <ArrowRight size={17} />
               </Link>
