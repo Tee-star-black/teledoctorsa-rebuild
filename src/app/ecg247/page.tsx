@@ -24,17 +24,25 @@ export default function ECG247Page() {
     <>
       <Header />
       <main className="info-page">
-        <section className="info-hero">
+        <section className="info-hero info-hero-premium info-hero--ecg">
           <div className="info-shell info-hero-grid">
             <div>
               <span className="info-eyebrow">ECG247</span>
               <h1>Extended rhythm monitoring connected directly to the clinical workflow.</h1>
               <div className="info-hero-actions">
-                <Link href="/contact?type=demo" className="info-primary">Request an ECG247 Demo <ArrowRight size={17} /></Link>
+                <Link href="/demo" className="info-primary">Request an ECG247 Demo <ArrowRight size={17} /></Link>
                 <Link href="/for-clinicians/register" className="info-secondary">Practice Onboarding</Link>
               </div>
+              <div className="info-hero-signals" aria-label="ECG247 workflow">
+                <div><strong>Capture</strong><span>Extended rhythm monitoring</span></div>
+                <div><strong>Review</strong><span>Clinical interpretation workflow</span></div>
+                <div><strong>Escalate</strong><span>Reports and follow-up context</span></div>
+              </div>
             </div>
-            <div className="info-hero-media"><Image src="/images/home/04-wearable-ecg-monitor.jpg" alt="Wearable ECG monitor being fitted to a patient" fill priority sizes="(max-width: 900px) 100vw, 42vw" /></div>
+            <div className="info-hero-media">
+              <Image src="/images/home/ecg monitor.jpg" alt="ECG monitoring equipment used within a connected clinical workflow" fill priority sizes="(max-width: 900px) 100vw, 42vw" quality={92} />
+              <div className="info-hero-media-label"><span>Rhythm monitoring</span><strong>Diagnostic data inside the care journey</strong></div>
+            </div>
           </div>
         </section>
 
@@ -51,7 +59,7 @@ export default function ECG247Page() {
               </ul>
             </div>
             <div className="tdsa-ecg-photo-frame" style={{ position: "relative", minHeight: 430 }}>
-              <Image src="/images/home/05-remote-patient-monitoring.jpg" alt="ECG247 remote monitoring interface under clinical review" fill sizes="(max-width: 900px) 100vw, 50vw" className="tdsa-ecg-photo" />
+              <Image src="/images/home/dummy ecg.png" alt="ECG247 rhythm monitoring interface under clinical review" fill sizes="(max-width: 900px) 100vw, 50vw" className="tdsa-ecg-photo" quality={92} />
             </div>
           </div>
         </section>
@@ -73,7 +81,7 @@ export default function ECG247Page() {
         <section className="info-band">
           <div className="info-shell info-band-grid">
             <div><h2>Bring ECG247 into your practice.</h2><p>Discuss deployment, monitoring workflow and how ECG247 connects into TeleDoctorSA.</p></div>
-            <Link href="/contact?type=demo" className="info-primary">Request ECG247 Demo <ArrowRight size={17} /></Link>
+            <Link href="/demo" className="info-primary">Request ECG247 Demo <ArrowRight size={17} /></Link>
           </div>
         </section>
       </main>
