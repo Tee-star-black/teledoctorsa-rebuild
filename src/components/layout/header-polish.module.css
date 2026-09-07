@@ -63,8 +63,8 @@
 
 .homeHeader.integratedTop {
   padding: 12px 0 18px;
-  background: linear-gradient(180deg, rgba(20, 7, 18, 0.48) 0%, rgba(20, 7, 18, 0.18) 58%, rgba(20, 7, 18, 0) 100%);
-  border-bottom: 1px solid transparent;
+  background: rgba(20, 7, 18, 0.32);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .innerHeader.integratedTop {
