@@ -160,16 +160,6 @@
   letter-spacing: 0.08em;
 }
 
-.link::after {
-  content: "↗";
-  position: absolute;
-  right: 20px;
-  color: rgba(36, 16, 32, 0.32);
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  transition: color 180ms ease, transform 220ms var(--ease-premium);
-}
-
 .link:hover,
 .link:focus-visible,
 .servicesTrigger:hover,
@@ -182,12 +172,6 @@
   outline: none;
 }
 
-.link:hover::after,
-.link:focus-visible::after {
-  color: #ec7d43;
-  transform: translate(2px, -2px);
-}
-
 .active {
   background: #fff;
   color: #b95424;
@@ -196,12 +180,6 @@
 .active::before {
   border-color: #ec7d43;
   color: #b95424;
-}
-
-.active:not(.servicesTrigger)::after {
-  content: "•";
-  color: #ec7d43;
-  font-size: 22px;
 }
 
 .servicesTrigger svg {
