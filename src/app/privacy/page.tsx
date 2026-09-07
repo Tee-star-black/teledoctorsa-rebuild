@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
+
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Read the TeleDoctorSA privacy policy for website enquiries, demonstrations and support interactions.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPolicyPage() {
   return (
@@ -123,8 +131,6 @@ export default function PrivacyPolicyPage() {
               <p>
                 Privacy and Information Officer enquiries may be directed to
                 {" "}<a href="mailto:info@teledoctorsa.co.za">info@teledoctorsa.co.za</a>.
-                Written correspondence may also be directed to 29 Landor Street,
-                Thulisa Park, South Africa.
               </p>
               <p>
                 You may also have the right to lodge a complaint with the South African
