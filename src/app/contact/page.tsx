@@ -5,7 +5,6 @@ import {
   Clock3,
   HeartPulse,
   Mail,
-  MapPin,
   MessageCircleMore,
   Stethoscope,
   UsersRound,
@@ -18,7 +17,8 @@ import "./contact.css";
 
 export const metadata: Metadata = {
   title: "Contact TeleDoctorSA",
-  description: "Contact TeleDoctorSA through guided WhatsApp messages, email or phone for telemedicine support, consultations and general enquiries.",
+  description: "Contact TeleDoctorSA by WhatsApp or email for virtual care, practice onboarding, ECG247 and general platform enquiries.",
+  alternates: { canonical: "/contact" },
 };
 
 const whatsappNumber = "27780336394";
@@ -27,10 +27,10 @@ const emailAddress = "info@teledoctorsa.co.za";
 const contactJourneys = [
   {
     icon: Stethoscope,
-    label: "Book a consultation",
-    copy: "Start a patient enquiry or ask about booking a virtual consultation.",
-    message: "Hello TeleDoctorSA, I would like to enquire about booking a virtual consultation. Please assist me with the next steps.",
-    subject: "Virtual consultation enquiry",
+    label: "Virtual care enquiry",
+    copy: "Ask about a virtual consultation or the next steps for accessing care.",
+    message: "Hello TeleDoctorSA, I would like to enquire about virtual care. Please assist me with the next steps.",
+    subject: "Virtual care enquiry",
   },
   {
     icon: UsersRound,
@@ -59,22 +59,13 @@ function createWhatsAppLink(message: string) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-function createGmailLink(subject = "", message = "") {
-  const params = new URLSearchParams({
-    view: "cm",
-    fs: "1",
-    to: emailAddress,
-  });
-
-  if (subject) params.set("su", subject);
+function createMailtoLink(subject = "", message = "") {
+  const params = new URLSearchParams();
+  if (subject) params.set("subject", subject);
   if (message) params.set("body", message);
-
-  return `https://mail.google.com/mail/?${params.toString()}`;
+  const query = params.toString();
+  return `mailto:${emailAddress}${query ? `?${query}` : ""}`;
 }
-
-const officeAddress = "29 Landor Street, Thulisa Park";
-const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
-const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(officeAddress)}&output=embed`;
 
 export default function ContactPage() {
   return (
@@ -90,7 +81,7 @@ export default function ContactPage() {
             </div>
 
             <div className="contact-hero-media">
-              <Image src="/images/home/10-care-support-agent.jpg" alt="TeleDoctorSA care support agent assisting a patient" fill priority sizes="(max-width: 900px) 100vw, 38vw" />
+              <Image src="/images/home/10-care-support-agent.jpg" alt="Care support professional assisting with a digital healthcare enquiry" fill priority sizes="(max-width: 900px) 100vw, 38vw" />
             </div>
           </div>
         </section>
@@ -100,11 +91,10 @@ export default function ContactPage() {
             <div className="contact-heading">
               <div>
                 <span className="contact-eyebrow contact-eyebrow-dark">Quick contact</span>
-                <h2>Tell us what you need without typing it all from scratch.</h2>
+                <h2>Choose the enquiry that best matches what you need.</h2>
               </div>
               <p>
-                Each option opens a ready-to-send message. You can edit it before
-                sending, because sending mysterious robot prose on your behalf would be a rather dramatic design choice.
+                Each option opens a prepared message that you can review and edit before sending.
               </p>
             </div>
 
@@ -132,13 +122,11 @@ export default function ContactPage() {
                       WhatsApp
                     </a>
                     <a
-                      href={createGmailLink(subject, message)}
-                      target="_blank"
-                      rel="noreferrer"
+                      href={createMailtoLink(subject, message)}
                       className="contact-action contact-action-email"
                     >
                       <Mail size={18} />
-                      Gmail
+                      Email
                     </a>
                   </div>
                 </article>
@@ -161,26 +149,26 @@ export default function ContactPage() {
         <section className="contact-section contact-availability-section">
           <div className="contact-shell contact-availability-grid">
             <div>
-              <span className="contact-eyebrow">Availability</span>
-              <h2>Care access when you need it.</h2>
+              <span className="contact-eyebrow">Response &amp; support</span>
+              <h2>Reach the right team with a clear starting point.</h2>
             </div>
 
             <div className="availability-table">
               <div>
                 <span className="availability-icon"><Stethoscope size={21} /></span>
                 <div>
-                  <small>Telemedicine Services</small>
-                  <strong>Available 24/7</strong>
-                  <p>Virtual consultations anytime</p>
+                  <small>Clinical &amp; service enquiries</small>
+                  <strong>Start by WhatsApp or email</strong>
+                  <p>We will direct your enquiry to the appropriate workflow.</p>
                 </div>
               </div>
 
               <div>
                 <span className="availability-icon"><Clock3 size={21} /></span>
                 <div>
-                  <small>Support Team</small>
-                  <strong>Monday - Sunday</strong>
-                  <p>8:00 AM - 10:00 PM SAST</p>
+                  <small>Response times</small>
+                  <strong>Handled according to enquiry type</strong>
+                  <p>Urgent medical concerns should be directed to the appropriate emergency service.</p>
                 </div>
               </div>
             </div>
@@ -191,30 +179,25 @@ export default function ContactPage() {
           <div className="contact-shell">
             <div className="contact-location-grid">
               <div className="contact-location-copy">
-                <span className="contact-eyebrow contact-eyebrow-dark">Our Location</span>
-                <h2>South African healthcare, available nationwide.</h2>
+                <span className="contact-eyebrow contact-eyebrow-dark">South Africa</span>
+                <h2>Connected healthcare workflows for South African practices.</h2>
                 <p>
-                  While our telemedicine services are available nationwide, our
-                  administrative office is based at 29 Landor Street, Thulisa Park.
-                  We serve patients across all provinces through our digital healthcare platform.
+                  Contact us to discuss virtual care, ECG247, remote monitoring,
+                  electronic health records or practice onboarding.
                 </p>
               </div>
 
               <div className="contact-address-panel">
                 <div className="contact-address-heading">
-                  <MapPin size={24} />
+                  <Mail size={24} />
                   <div>
                     <strong>TeleDoctorSA</strong>
-                    <span>Dr. Mukudu &amp; Partners</span>
+                    <span>General contact</span>
                   </div>
                 </div>
 
                 <div className="contact-address-lines">
-                  <a href={mapsSearchUrl} target="_blank" rel="noreferrer">
-                    <span>Address</span>
-                    <strong>{officeAddress}</strong>
-                  </a>
-                  <a href={createGmailLink()} target="_blank" rel="noreferrer">
+                  <a href={createMailtoLink()}>
                     <span>Email</span>
                     <strong>{emailAddress}</strong>
                   </a>
@@ -224,19 +207,6 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-            </div>
-
-            <div className="contact-map-wrap">
-              <iframe
-                src={mapsEmbedUrl}
-                title="TeleDoctorSA office location at 29 Landor Street, Thulisa Park"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-              <a href={mapsSearchUrl} target="_blank" rel="noreferrer" className="contact-map-link">
-                Open in Google Maps
-              </a>
             </div>
           </div>
         </section>
