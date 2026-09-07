@@ -21,23 +21,23 @@ import { MedicalMotionVisual } from "@/components/home/medical-motion-visual";
 const liveCapabilities = [
   {
     icon: Video,
-    title: "Live Virtual Consultations",
+    title: "Virtual Care Workflows",
     copy:
-      "Conduct secure, encrypted video and phone follow-ups directly from your desktop or tablet.",
+      "Run video and phone follow-up workflows from desktop or tablet while keeping the encounter connected to the broader patient journey.",
     visual: "monitoring" as const,
   },
   {
     icon: HeartPulse,
-    title: "Instant ECG Cloud Telemetry",
+    title: "ECG Review Workflows",
     copy:
-      "Access full-disclosure, 7-day continuous rhythm strips and automated arrhythmia reports instantly.",
+      "Bring extended rhythm monitoring, reports and follow-up context into a connected clinical review workflow.",
     visual: "ecg" as const,
   },
   {
     icon: FileHeart,
-    title: "Encrypted Centralized EHR",
+    title: "Longitudinal Patient Records",
     copy:
-      "Review longitudinal patient vitals, clinical history, and diagnostic uploads in one secure location.",
+      "Keep patient vitals, clinical history and supporting diagnostic information accessible within one connected care environment.",
     visual: "chronic" as const,
   },
 ];
@@ -72,20 +72,20 @@ const pathways = [
 const ecgFeatures = [
   {
     icon: ShieldCheck,
-    title: "Immediate Availability",
-    copy: "On-demand dispatch of sensor units directly to your practice address.",
+    title: "Practice Deployment",
+    copy: "Discuss sensor availability, practice setup and the workflow required to bring ECG247 into your service.",
   },
   {
     icon: HeartPulse,
-    title: "Automated Diagnostics",
+    title: "Clinical Review",
     copy:
-      "Advanced algorithms continuously screen for Atrial Fibrillation, SVT, Pauses, and PVCs.",
+      "Keep extended rhythm monitoring connected to clinician review, follow-up and escalation pathways.",
   },
   {
     icon: ClipboardCheck,
-    title: "One-Click PDF Exports",
+    title: "Report Access",
     copy:
-      "Generate comprehensive diagnostic summaries for clinical notes or specialist escalation.",
+      "Keep ECG reports available for clinical notes, follow-up and specialist referral workflows.",
   },
 ];
 
@@ -108,7 +108,7 @@ const infrastructure = [
   {
     icon: Cloud,
     title: "Modern cloud architecture",
-    copy: "Build for resilient digital delivery, structured data flows and scalable clinical operations.",
+    copy: "Support structured digital delivery, connected data flows and scalable clinical operations.",
   },
 ];
 
@@ -119,8 +119,8 @@ export function HomeSections() {
         <div className="tdsa-section-shell">
           <div className="tdsa-section-heading tdsa-section-heading-light">
             <div>
-              <span className="tdsa-eyebrow">Proof of readiness</span>
-              <h2 id="readiness-title">Fully Integrated. Live Right Now.</h2>
+              <span className="tdsa-eyebrow">Connected care capabilities</span>
+              <h2 id="readiness-title">Designed to work together.</h2>
             </div>
 
             <p>
@@ -190,8 +190,8 @@ export function HomeSections() {
             </div>
             <p>
               The software, diagnostics and patient-facing tools are designed to
-              work as one system. The visual hierarchy here mirrors that idea:
-              one primary clinical workspace supported by connected touchpoints.
+              work as one system, with one primary clinical workspace supported
+              by connected touchpoints.
             </p>
           </div>
 
@@ -270,7 +270,7 @@ export function HomeSections() {
           <div className="tdsa-product-proof-head">
             <div>
               <span className="tdsa-eyebrow">Product, not promises</span>
-              <h2 id="product-proof-title">A clinical platform that looks and behaves like infrastructure.</h2>
+              <h2 id="product-proof-title">A clinical platform designed to behave like infrastructure.</h2>
             </div>
             <p>
               The product experience is designed around the moments clinicians actually move through: review, consultation, monitoring and follow-up.
@@ -313,7 +313,7 @@ export function HomeSections() {
               <h2 id="infrastructure-title">Built to support care delivery, not just software usage.</h2>
             </div>
             <p>
-              Premium health technology should disappear into the workflow. The platform architecture is shaped around access, continuity, connected devices and resilient digital operations.
+              The platform architecture is shaped around access, continuity, connected devices and modern digital operations.
             </p>
           </div>
 
@@ -331,7 +331,7 @@ export function HomeSections() {
 
           <div className="tdsa-infrastructure-note">
             <strong>Designed for modern South African healthcare operations.</strong>
-            <span>Specific security, compliance and infrastructure claims should be confirmed against the deployed environment before publication.</span>
+            <span>Infrastructure and implementation requirements are reviewed with each practice during onboarding.</span>
           </div>
         </div>
       </section>
@@ -371,14 +371,11 @@ export function HomeSections() {
             <span className="tdsa-eyebrow">ECG247 Remote Rhythm Monitor</span>
 
             <h2 id="ecg-title">
-              In Stock &amp; Ready to Deploy: Hospital-Grade 7-Day ECG Monitoring
+              Extended ECG monitoring connected to the care workflow.
             </h2>
 
             <p>
-              As South Africa&apos;s official licensed distributor of the Norwegian
-              ECG247 system, we deliver continuous, high-accuracy arrhythmia
-              detection straight to your clinic. Stop relying on inconclusive
-              10-second resting ECGs.
+              ECG247 supports extended rhythm monitoring and clinical review beyond a short resting ECG snapshot, with reports and follow-up kept connected to the broader patient journey.
             </p>
 
             <div className="tdsa-ecg-feature-list">
@@ -410,7 +407,7 @@ export function HomeSections() {
               />
             </div>
             <div className="tdsa-ecg-photo-caption">
-              <span>Continuous monitoring</span>
+              <span>Extended monitoring</span>
               <strong>ECG247 workflow</strong>
             </div>
           </div>
