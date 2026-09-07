@@ -11,13 +11,14 @@ import "../site-pages.css";
 export const metadata: Metadata = {
   title: "TeleDoctorSA Services",
   description: "Explore TeleDoctorSA services across virtual care, ECG247, remote monitoring, EHR and clinician onboarding.",
+  alternates: { canonical: "/services" },
 };
 
 const services = [
   {
     icon: MonitorSmartphone,
     title: "Virtual Consultations",
-    copy: "Run secure remote follow-ups and consultations from desktop or tablet while keeping the encounter connected to the patient record.",
+    copy: "Run remote follow-ups and consultations from desktop or tablet while keeping the encounter connected to the patient record.",
     href: "/virtual-care",
   },
   {
@@ -35,7 +36,7 @@ const services = [
   {
     icon: FileHeart,
     title: "Electronic Health Records",
-    copy: "Keep patient history, vitals, diagnostics and care notes in one secure clinical record designed for continuity.",
+    copy: "Keep patient history, vitals, diagnostics and care notes in one clinical record designed for continuity.",
     href: "/ehr",
   },
   {
@@ -87,7 +88,7 @@ export default function ServicesPage() {
           <div className="info-shell info-heading info-heading-dark">
             <div>
               <span className="info-eyebrow">One connected workflow</span>
-              <h2>Consult. Diagnose. Monitor. Record. Follow up.</h2>
+              <h2>Consult. Assess. Monitor. Record. Follow up.</h2>
             </div>
             <p>Each service is useful on its own, but the platform becomes more valuable when those workflows share the same clinical context.</p>
           </div>
