@@ -42,7 +42,11 @@ export function Footer() {
             </div>
             <div className={styles.metaBlock}>
               <span className={styles.label}>Location</span>
-              <p className={styles.metaText}>South Africa<br />Connected care for modern medical practices.</p>
+              <p className={styles.metaText}>
+                29 Landor Street<br />
+                Tulisa Park<br />
+                Johannesburg South, 2197
+              </p>
             </div>
             <div className={styles.metaBlock}>
               <span className={styles.label}>Start a conversation</span>
