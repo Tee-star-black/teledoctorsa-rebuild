@@ -54,7 +54,7 @@ export function Footer() {
             <span className={styles.label}>Technology</span>
             <div className={styles.trustWrap}>
               <Image src="/images/home/GCP.png" alt="Google Cloud" width={284} height={90} className={styles.googleMark} />
-              <p className={styles.trustNote}>Built with cloud infrastructure supporting secure, scalable connected-care workflows.</p>
+              <p className={styles.trustNote}>Cloud technology supporting connected-care workflows.</p>
             </div>
           </div>
         </div>
