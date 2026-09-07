@@ -1,18 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
-    formats: ["image/avif", "image/webp"],
-  },
-  async redirects() {
-    return [
-      {
-        source: "/contact",
-        has: [{ type: "query", key: "type", value: "demo" }],
-        destination: "/demo",
-        permanent: false,
-      },
-    ];
+    unoptimized: true,
   },
 };
 
