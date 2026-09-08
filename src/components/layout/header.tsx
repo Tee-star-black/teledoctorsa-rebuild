@@ -24,6 +24,7 @@ import mobile from "./mobile-menu.module.css";
 const navigation = [
   { label: "EHR", href: "/ehr" },
   { label: "App", href: "/app" },
+  { label: "Patients", href: "/patients" },
   { label: "ECG247", href: "/ecg247" },
   { label: "About", href: "/about" },
 ];
@@ -243,7 +244,7 @@ export function Header() {
                   </Link>
                 ))}
 
-                <Link href="/contact" data-index="06" className={`${styles.mobileLink} ${mobile.link} ${isActive("/contact") ? mobile.active : ""}`}>Contact</Link>
+                <Link href="/contact" data-index="07" className={`${styles.mobileLink} ${mobile.link} ${isActive("/contact") ? mobile.active : ""}`}>Contact</Link>
               </nav>
 
               <div className={mobile.bottom}>
