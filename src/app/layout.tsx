@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
 
 import { CookieConsent } from "@/components/legal/cookie-consent";
@@ -136,6 +137,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         {children}
         <CookieConsent />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-N45655PFB5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-N45655PFB5');`}
+        </Script>
       </body>
     </html>
   );
